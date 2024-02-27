@@ -1,0 +1,561 @@
+.user-sign-in-authentication-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.user-sign-in-authentication-user-sign-in-authentication {
+  width: 100%;
+  height: 1118px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 5.940274715423584px 23.761098861694336px 0px
+    rgba(12, 30, 51, 0.11999999731779099);
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.user-sign-in-authentication-frame-integratedtitlebarandtoolbar {
+  top: 0px;
+  left: 0px;
+  width: 1578px;
+  height: 42.74109649658203px;
+  display: flex;
+  position: absolute;
+  align-self: stretch;
+  align-items: flex-start;
+}
+.user-sign-in-authentication-toolbar-background {
+  top: 0px;
+  left: 0px;
+  width: 1578px;
+  height: 43px;
+  position: absolute;
+}
+.user-sign-in-authentication-right-icon-set {
+  top: 10.685274124145508px;
+  left: 1485.9417724609375px;
+  width: 79px;
+  height: 19.726659774780273px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.user-sign-in-authentication-icon-share {
+  top: -0.000028431415557861328px;
+  left: 0.0004211816703900695px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+.user-sign-in-authentication-icon-new-tab {
+  top: -0.000028431415557861328px;
+  left: 28.76846694946289px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+.user-sign-in-authentication-icon-tab-overview {
+  top: -0.000028431415557861328px;
+  left: 59.18040084838867px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+.user-sign-in-authentication-left-icon-set {
+  top: 10.685274124145508px;
+  left: 78.9066390991211px;
+  width: 81px;
+  height: 19.726659774780273px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.user-sign-in-authentication-icon-sidebar {
+  top: -0.000028431415557861328px;
+  left: 0.0003910064697265625px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+.user-sign-in-authentication-icon-chevron-left {
+  top: -0.000028431415557861328px;
+  left: 32.87815856933594px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+.user-sign-in-authentication-icon-chevron-right {
+  top: -0.000028431415557861328px;
+  left: 60.82426071166992px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+.user-sign-in-authentication-window-controls {
+  top: 16.43888282775879px;
+  left: 16.43888282775879px;
+  width: 43px;
+  height: 9.863329887390137px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.user-sign-in-authentication-close {
+  top: -0.00008130073547363281px;
+  left: -0.0005695819854736328px;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border-color: rgba(0, 0, 0, 0.10000000149011612);
+  border-style: solid;
+  border-width: 0.8219441771507263px;
+}
+.user-sign-in-authentication-minimize {
+  top: -0.00008130073547363281px;
+  left: 16.43831443786621px;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border-color: rgba(0, 0, 0, 0.10000000149011612);
+  border-style: solid;
+  border-width: 0.8219441771507263px;
+}
+.user-sign-in-authentication-zoom {
+  top: -0.00008130073547363281px;
+  left: 32.877197265625px;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border-color: rgba(0, 0, 0, 0.10000000149011612);
+  border-style: solid;
+  border-width: 0.8219441771507263px;
+}
+.user-sign-in-authentication-url-form {
+  top: 9.863329887390137px;
+  left: 482.4812316894531px;
+  width: 613px;
+  height: 23.014436721801758px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.user-sign-in-authentication-url-background {
+  top: 0.00004887580871582031px;
+  left: 0.000763237476348877px;
+  width: 613px;
+  height: 23px;
+  position: absolute;
+}
+.user-sign-in-authentication-url-address {
+  gap: 3.2877767086029053px;
+  top: 3.4182395935058594px;
+  left: 180.36648559570312px;
+  width: 250px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
+.user-sign-in-authentication-text {
+  color: rgba(156, 156, 156, 1);
+  height: auto;
+  font-size: 9.863329887390137px;
+  font-style: Medium;
+  text-align: left;
+  font-family: SF Pro Display;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-text02 {
+  color: rgba(76, 76, 76, 1);
+  height: auto;
+  font-size: 11.507218360900879px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-icon-clockwise-arrow {
+  top: 4.931714057922363px;
+  left: 597.9651489257812px;
+  width: 11px;
+  height: 12px;
+  position: absolute;
+}
+.user-sign-in-authentication-icon-shield {
+  top: 0.8219930529594421px;
+  left: -28.767282485961914px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+.user-sign-in-authentication-login-page {
+  top: 43px;
+  left: 0px;
+  width: 1578px;
+  height: 1109px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.user-sign-in-authentication-group1 {
+  top: 31px;
+  left: 1377px;
+  width: 167px;
+  height: 43px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+  background-color: rgba(71, 75, 202, 1);
+}
+.user-sign-in-authentication-text04 {
+  top: 9px;
+  left: 46px;
+  color: rgba(245, 245, 245, 1);
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-text06 {
+  top: 208px;
+  left: 216px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 48px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-text08 {
+  top: 291px;
+  left: 216px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-rectangle3 {
+  top: 340px;
+  left: 216px;
+  width: 445px;
+  height: 47px;
+  position: absolute;
+  border-radius: 5px;
+}
+.user-sign-in-authentication-rectangle4 {
+  top: 503px;
+  left: 216px;
+  width: 445px;
+  height: 47px;
+  position: absolute;
+  border-radius: 5px;
+}
+.user-sign-in-authentication-rectangle5 {
+  top: 606px;
+  left: 216px;
+  width: 445px;
+  height: 47px;
+  position: absolute;
+  border-radius: 5px;
+}
+.user-sign-in-authentication-rectangle6 {
+  top: 727px;
+  left: 216px;
+  width: 445px;
+  height: 47px;
+  position: absolute;
+  border-radius: 5px;
+}
+.user-sign-in-authentication-line1 {
+  top: 433px;
+  left: 216px;
+  width: 131px;
+  height: 1px;
+  position: absolute;
+}
+.user-sign-in-authentication-line2 {
+  top: 433px;
+  left: 530px;
+  width: 131px;
+  height: 1px;
+  position: absolute;
+}
+.user-sign-in-authentication-flatcoloriconsgoogle {
+  top: 349px;
+  left: 357px;
+  width: 28px;
+  height: 28px;
+  position: absolute;
+}
+.user-sign-in-authentication-text10 {
+  top: 356px;
+  left: 399px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 15px;
+  font-style: Semi Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-text12 {
+  top: 424px;
+  left: 371px;
+  color: rgba(0, 0, 0, 0.25);
+  height: auto;
+  position: absolute;
+  font-size: 15px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-text14 {
+  top: 462px;
+  left: 216px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Semi Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-text16 {
+  top: 569px;
+  left: 216px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 18px;
+  font-style: Semi Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-text18 {
+  top: 670px;
+  left: 530px;
+  color: rgba(71, 75, 202, 1);
+  height: auto;
+  position: absolute;
+  font-size: 15px;
+  font-style: Semi Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-text20 {
+  top: 670px;
+  left: 216px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 15px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-text22 {
+  top: 738px;
+  left: 412px;
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-text24 {
+  top: 784px;
+  left: 300px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 15px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-text25 {
+  color: rgba(0, 0, 0, 1);
+}
+.user-sign-in-authentication-text26 {
+  color: rgba(103, 52, 52, 1);
+}
+.user-sign-in-authentication-text27 {
+  color: rgba(71, 75, 202, 1);
+}
+.user-sign-in-authentication-basileyeclosedsolid {
+  top: 548px;
+  left: 646px;
+  width: 29px;
+  height: 29px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.user-sign-in-authentication-vector {
+  top: 618px;
+  left: 628.8828125px;
+  width: 22px;
+  height: 21px;
+  position: absolute;
+}
+.user-sign-in-authentication-vector1 {
+  top: 620.696044921875px;
+  left: 628px;
+  width: 15px;
+  height: 13px;
+  position: absolute;
+}
+.user-sign-in-authentication-text28 {
+  top: 622px;
+  left: 239px;
+  color: rgba(0, 0, 0, 0.25);
+  height: auto;
+  position: absolute;
+  font-size: 15px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-text30 {
+  top: 517px;
+  left: 239px;
+  color: rgba(0, 0, 0, 0.25);
+  height: auto;
+  position: absolute;
+  font-size: 15px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-reshotillustrationwebsitedesign-u3pzxdsevy1 {
+  top: 299px;
+  left: 892px;
+  width: 450px;
+  height: 371px;
+  position: absolute;
+}
+.user-sign-in-authentication-logo {
+  gap: 4.931664943695068px;
+  top: 55.89208984375px;
+  left: 49.31640625px;
+  width: 201px;
+  height: 29.589982986450195px;
+  display: flex;
+  padding: 4.931664943695068px;
+  position: absolute;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 9.863329887390137px;
+}
+.user-sign-in-authentication-vuesaxboldbook {
+  width: 17.260828018188477px;
+  height: 17.260828018188477px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.user-sign-in-authentication-text32 {
+  color: rgba(41, 45, 50, 1);
+  width: 139px;
+  height: auto;
+  font-size: 11px;
+  align-self: stretch;
+  font-style: Regular;
+  text-align: center;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.user-sign-in-authentication-eagleappslogoheader2 {
+  top: 50px;
+  left: 19px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+}

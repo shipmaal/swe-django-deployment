@@ -1,0 +1,424 @@
+:root {
+  --dl-color-gray-500: #595959;
+  --dl-color-gray-700: #999999;
+  --dl-color-gray-900: #D9D9D9;
+  --dl-size-size-large: 144px;
+  --dl-size-size-small: 48px;
+  --dl-color-danger-300: #A22020;
+  --dl-color-danger-500: #BF2626;
+  --dl-color-danger-700: #E14747;
+  --dl-color-gray-black: #000000;
+  --dl-color-gray-white: #FFFFFF;
+  --dl-size-size-medium: 96px;
+  --dl-size-size-xlarge: 192px;
+  --dl-size-size-xsmall: 16px;
+  --dl-space-space-unit: 16px;
+  --dl-color-primary-100: #003EB3;
+  --dl-color-primary-300: #0074F0;
+  --dl-color-primary-500: #14A9FF;
+  --dl-color-primary-700: #85DCFF;
+  --dl-color-success-300: #199033;
+  --dl-color-success-500: #32A94C;
+  --dl-color-success-700: #4CC366;
+  --dl-size-size-xxlarge: 288px;
+  --dl-size-size-maxwidth: 1400px;
+  --dl-color-default-white: rgba(255, 255, 255, 1);
+  --dl-radius-radius-round: 50%;
+  --dl-space-space-halfunit: 8px;
+  --dl-space-space-sixunits: 96px;
+  --dl-space-space-twounits: 32px;
+  --dl-radius-radius-radius2: 2px;
+  --dl-radius-radius-radius4: 4px;
+  --dl-radius-radius-radius8: 8px;
+  --dl-space-space-fiveunits: 80px;
+  --dl-space-space-fourunits: 64px;
+  --dl-color-statuscolor-info: rgba(32, 158, 255, 1);
+  --dl-space-space-threeunits: 48px;
+  --dl-color-statuscolor-danger: rgba(246, 70, 70, 1);
+  --dl-color-statuscolor-success: rgba(22, 189, 141, 1);
+  --dl-color-statuscolor-warning: rgba(253, 181, 10, 1);
+  --dl-color-primarycolor-primary2: rgba(92, 139, 185, 1);
+  --dl-color-primarycolor-primary3: rgba(133, 168, 202, 1);
+  --dl-color-primarycolor-primary4: rgba(194, 211, 229, 1);
+  --dl-color-primarycolor-primary5: rgba(235, 240, 246, 1);
+  --dl-color-statuscolor-infoshade: rgba(233, 246, 255, 1);
+  --dl-space-space-oneandhalfunits: 24px;
+  --dl-color-statuscolor-dangershade: rgba(254, 236, 241, 1);
+  --dl-color-tertiarycolor-tertiary2: rgba(255, 231, 190, 1);
+  --dl-color-tertiarycolor-tertiary3: rgba(255, 237, 206, 1);
+  --dl-color-tertiarycolor-tertiary4: rgba(255, 243, 223, 1);
+  --dl-color-tertiarycolor-tertiary5: rgba(255, 249, 239, 1);
+  --dl-color-primarycolor-primarymain: rgba(52, 110, 168, 1);
+  --dl-color-statuscolor-successshade: rgba(233, 251, 246, 1);
+  --dl-color-statuscolor-warningshade: rgba(255, 249, 235, 1);
+  --dl-color-secondarycolor-secondary2: rgba(91, 206, 255, 1);
+  --dl-color-secondarycolor-secondary3: rgba(173, 230, 255, 1);
+  --dl-color-secondarycolor-secondary4: rgba(214, 242, 255, 1);
+  --dl-color-secondarycolor-secondary5: rgba(234, 248, 255, 1);
+  --dl-color-tertiarycolor-tertiarymain: rgba(255, 226, 174, 1);
+  --dl-color-typographycolor-typography2: rgba(84, 84, 84, 1);
+  --dl-color-typographycolor-typography3: rgba(134, 134, 134, 1);
+  --dl-color-typographycolor-typography4: rgba(173, 173, 173, 1);
+  --dl-color-typographycolor-typography5: rgba(214, 214, 214, 1);
+  --dl-color-secondarycolor-secondarymain: rgba(51, 194, 255, 1);
+  --dl-color-typographycolor-typographymain: rgba(26, 26, 26, 1);
+}
+.button {
+  color: var(--dl-color-gray-black);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.input {
+  color: var(--dl-color-gray-black);
+  cursor: auto;
+  padding: 0.5rem 1rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.textarea {
+  color: var(--dl-color-gray-black);
+  cursor: auto;
+  padding: 0.5rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.list {
+  width: 100%;
+  margin: 1em 0px 1em 0px;
+  display: block;
+  padding: 0px 0px 0px 1.5rem;
+  list-style-type: none;
+  list-style-position: outside;
+}
+.list-item {
+  display: list-item;
+}
+.teleport-show {
+  display: flex !important;
+  transform: none !important;
+}
+.Content {
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+.Heading {
+  font-size: 32px;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+.HeadlineH1bold {
+  font-size: 64px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Bold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH1semibold {
+  font-size: 64px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale SemiBold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH1medium {
+  font-size: 64px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH1sm_bold {
+  font-size: 34px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Bold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH1sm_semibold {
+  font-size: 34px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale SemiBold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH1sm_medium {
+  font-size: 34px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH2bold {
+  font-size: 36px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Bold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH2semibold {
+  font-size: 36px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale SemiBold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH2medium {
+  font-size: 36px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH3bold {
+  font-size: 30px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Bold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH3semibold {
+  font-size: 30px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale SemiBold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH3medium {
+  font-size: 30px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH4bold {
+  font-size: 24px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Bold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH4semibold {
+  font-size: 24px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale SemiBold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH4medium {
+  font-size: 24px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH5bold {
+  font-size: 20px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Bold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH5semibold {
+  font-size: 20px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale SemiBold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH5medium {
+  font-size: 20px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH6bold {
+  font-size: 16px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Bold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH6semibold {
+  font-size: 16px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale SemiBold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH6medium {
+  font-size: 16px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.ParagraphP1regular {
+  font-size: 20px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.ParagraphP1medium {
+  font-size: 20px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.ParagraphP2regular {
+  font-size: 18px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.ParagraphP2medium {
+  font-size: 18px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.ParagraphP3regular {
+  font-size: 16px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.ParagraphP3medium {
+  font-size: 16px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.ParagraphP4regular {
+  font-size: 14px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.ParagraphP4medium {
+  font-size: 14px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.ParagraphP5regular {
+  font-size: 12px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.ParagraphP5medium {
+  font-size: 12px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Textbtn_lg {
+  font-size: 16px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale SemiBold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Textbtn_md {
+  font-size: 14px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale SemiBold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Textbtn_sm {
+  font-size: 12px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale SemiBold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Textinput_lg {
+  font-size: 16px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Textinput_md {
+  font-size: 14px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Textinput_sm {
+  font-size: 12px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Texttag_1 {
+  font-size: 14px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Bold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Texttag_2 {
+  font-size: 12px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale SemiBold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Texttag_3 {
+  font-size: 12px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Textmenu {
+  font-size: 16px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale Medium;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Displaydisplay {
+  font-size: 48px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale SemiBold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Displaydisplay_sm {
+  font-size: 30px;
+  font-style: normal;
+  font-family: FONTSPRING DEMO - Biennale SemiBold;
+  font-weight: 400px;
+  font-stretch: normal;
+}
