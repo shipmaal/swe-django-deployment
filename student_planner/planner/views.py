@@ -5,3 +5,5 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'planner/login.html')
 
+def planner(request):
+    return render(request, 'planner/landing_student.html')

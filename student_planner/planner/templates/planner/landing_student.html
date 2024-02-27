@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="english">
   <head>
     <title>exported project</title>
@@ -7,7 +8,84 @@
     <meta property="twitter:card" content="summary_large_image" />
 
     <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+      html {
+        line-height: 1.15;
+      }
+      body {
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+      }
+      p,
+      li,
+      ul,
+      pre,
+      div,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      figure,
+      blockquote,
+      figcaption {
+        margin: 0;
+        padding: 0;
+      }
+      button {
+        background-color: transparent;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      [type="button"],
+      [type="reset"],
+      [type="submit"] {
+        -webkit-appearance: button;
+        appearance: button;
+      }
+      button::-moz-focus-inner,
+      [type="button"]::-moz-focus-inner,
+      [type="reset"]::-moz-focus-inner,
+      [type="submit"]::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
+      button:-moz-focus,
+      [type="button"]:-moz-focus,
+      [type="reset"]:-moz-focus,
+      [type="submit"]:-moz-focus {
+        outline: 1px dotted ButtonText;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      input {
+        padding: 2px 4px;
+      }
+      img {
+        display: block;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
     </style>
     <style data-tag="default-style-sheet">
       html {
@@ -17,14 +95,13 @@
 
       body {
         font-weight: 400;
-        font-style:normal;
+        font-style: normal;
         text-decoration: none;
         text-transform: none;
         letter-spacing: normal;
         line-height: 1.15;
         color: var(--dl-color-gray-black);
         background-color: var(--dl-color-gray-white);
-
       }
     </style>
     <link
@@ -36,254 +113,10 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
       data-tag="font"
     />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
       data-tag="font"
     />
     <link
@@ -298,609 +131,22 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
       href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
     />
   </head>
   <body>
-    <link rel="stylesheet" href="../plannerApp/static/plannerApp/style.css" />
+    <link rel="stylesheet" href="{% static 'planner/style.css' %}" />
     <div>
-      <link href="../plannerApp/static/plannerApp/landing_student.css" rel="stylesheet" />
+      <link
+        href="{% static 'planner/landing_student.css' %}"
+        rel="stylesheet"
+      />
 
       <div class="landing-page-administrative-container">
         <div class="landing-page-administrative-landing-page-administrative">
           <img
             alt="Header3203"
-            src="../plannerApp/static/plannerApp/public/external/header3203-xjlt-200h.png"
+            src="{% static 'planner/public/external/header3203-xjlt-200h.png' %}"
             class="landing-page-administrative-header"
           />
           <div class="landing-page-administrative-searchbar">
@@ -910,12 +156,12 @@
                   <div class="landing-page-administrative-group1">
                     <img
                       alt="VectorI3203"
-                      src="../plannerApp/static/plannerApp/public/external/vectori3203-voad.svg"
+                      src="{% static 'planner/public/external/vectori3203-voad.svg' %}"
                       class="landing-page-administrative-vector"
                     />
                     <img
                       alt="VectorI3203"
-                      src="../plannerApp/static/plannerApp/public/external/vectori3203-30fq.svg"
+                      src="{% static 'planner/public/external/vectori3203-30fq.svg' %}"
                       class="landing-page-administrative-vector001"
                     />
                   </div>
@@ -928,32 +174,32 @@
           </div>
           <img
             alt="AppMenu3203"
-            src="../plannerApp/static/plannerApp/public/external/appmenu3203-5ms-300w.png"
+            src="{% static 'planner/public/external/appmenu3203-5ms-300w.png' %}"
             class="landing-page-administrative-app-menu"
           />
           <img
             alt="Line193203"
-            src="../plannerApp/static/plannerApp/public/external/line193203-xhmh.svg"
+            src="{% static 'planner/public/external/line193203-xhmh.svg' %}"
             class="landing-page-administrative-line19"
           />
           <img
             alt="Line203203"
-            src="../plannerApp/static/plannerApp/public/external/line203203-e119.svg"
+            src="{% static 'planner/public/external/line203203-e119.svg' %}"
             class="landing-page-administrative-line20"
           />
           <img
             alt="Line213203"
-            src="../plannerApp/static/plannerApp/public/external/line213203-dyrl.svg"
+            src="{% static 'planner/public/external/line213203-dyrl.svg' %}"
             class="landing-page-administrative-line21"
           />
           <img
             alt="Line333203"
-            src="../plannerApp/static/plannerApp/public/external/line333203-1nxc.svg"
+            src="{% static 'planner/public/external/line333203-1nxc.svg' %}"
             class="landing-page-administrative-line33"
           />
           <img
             alt="Line343203"
-            src="../plannerApp/static/plannerApp/public/external/line343203-3lx.svg"
+            src="{% static 'planner/public/external/line343203-3lx.svg' %}"
             class="landing-page-administrative-line34"
           />
           <div class="landing-page-administrative-logo">
@@ -968,22 +214,22 @@
                 <div class="landing-page-administrative-element4">
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-11q7.svg"
+                    src="{% static 'planner/public/external/vectori3203-11q7.svg' %}"
                     class="landing-page-administrative-vector002"
                   />
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-gshw.svg"
+                    src="{% static 'planner/public/external/vectori3203-gshw.svg' %}"
                     class="landing-page-administrative-vector003"
                   />
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-in5f.svg"
+                    src="{% static 'planner/public/external/vectori3203-in5f.svg' %}"
                     class="landing-page-administrative-vector004"
                   />
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-2t4.svg"
+                    src="{% static 'planner/public/external/vectori3203-2t4.svg' %}"
                     class="landing-page-administrative-vector005"
                   />
                 </div>
@@ -1007,7 +253,7 @@
                 <div class="landing-page-administrative-arrowleft">
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-vnk3.svg"
+                    src="{% static 'planner/public/external/vectori3203-vnk3.svg' %}"
                     class="landing-page-administrative-vector006"
                   />
                 </div>
@@ -1021,7 +267,7 @@
                 <div class="landing-page-administrative-arrowleft1">
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-onuj.svg"
+                    src="{% static 'planner/public/external/vectori3203-onuj.svg' %}"
                     class="landing-page-administrative-vector007"
                   />
                 </div>
@@ -1029,7 +275,7 @@
             </div>
             <img
               alt="Line21I3203"
-              src="../plannerApp/static/plannerApp/public/external/line21i3203-e7w.svg"
+              src="{% static 'planner/public/external/line21i3203-e7w.svg' %}"
               class="landing-page-administrative-line211"
             />
             <div class="landing-page-administrative-grid">
@@ -1263,64 +509,64 @@
           >
             <img
               alt="ToolbarBackgroundI3203"
-              src="../plannerApp/static/plannerApp/public/external/toolbarbackgroundi3203-ma-200h.png"
+              src="{% static 'planner/public/external/toolbarbackgroundi3203-ma-200h.png' %}"
               class="landing-page-administrative-toolbar-background"
             />
             <div class="landing-page-administrative-right-icon-set">
               <img
                 alt="IconShareI3203"
-                src="../plannerApp/static/plannerApp/public/external/iconsharei3203-s2el.svg"
+                src="{% static 'planner/public/external/iconsharei3203-s2el.svg' %}"
                 class="landing-page-administrative-icon-share"
               />
               <img
                 alt="IconNewTabI3203"
-                src="../plannerApp/static/plannerApp/public/external/iconnewtabi3203-klc.svg"
+                src="{% static 'planner/public/external/iconnewtabi3203-klc.svg' %}"
                 class="landing-page-administrative-icon-new-tab"
               />
               <img
                 alt="IconTabOverviewI3203"
-                src="../plannerApp/static/plannerApp/public/external/icontaboverviewi3203-g1c7.svg"
+                src="{% static 'planner/public/external/icontaboverviewi3203-g1c7.svg' %}"
                 class="landing-page-administrative-icon-tab-overview"
               />
             </div>
             <div class="landing-page-administrative-left-icon-set">
               <img
                 alt="IconSidebarI3203"
-                src="../plannerApp/static/plannerApp/public/external/iconsidebari3203-62pc.svg"
+                src="{% static 'planner/public/external/iconsidebari3203-62pc.svg' %}"
                 class="landing-page-administrative-icon-sidebar"
               />
               <img
                 alt="IconChevronLeftI3203"
-                src="../plannerApp/static/plannerApp/public/external/iconchevronlefti3203-esw.svg"
+                src="{% static 'planner/public/external/iconchevronlefti3203-esw.svg' %}"
                 class="landing-page-administrative-icon-chevron-left"
               />
               <img
                 alt="IconChevronRightI3203"
-                src="../plannerApp/static/plannerApp/public/external/iconchevronrighti3203-1g9.svg"
+                src="{% static 'planner/public/external/iconchevronrighti3203-1g9.svg' %}"
                 class="landing-page-administrative-icon-chevron-right"
               />
             </div>
             <div class="landing-page-administrative-window-controls">
               <img
                 alt="CloseI3203"
-                src="../plannerApp/static/plannerApp/public/external/closei3203-w407-200h.png"
+                src="{% static 'planner/public/external/closei3203-w407-200h.png' %}"
                 class="landing-page-administrative-close"
               />
               <img
                 alt="MinimizeI3203"
-                src="../plannerApp/static/plannerApp/public/external/minimizei3203-w1q-200h.png"
+                src="{% static 'planner/public/external/minimizei3203-w1q-200h.png' %}"
                 class="landing-page-administrative-minimize"
               />
               <img
                 alt="ZoomI3203"
-                src="../plannerApp/static/plannerApp/public/external/zoomi3203-zh89-200h.png"
+                src="{% static 'planner/public/external/zoomi3203-zh89-200h.png' %}"
                 class="landing-page-administrative-zoom"
               />
             </div>
             <div class="landing-page-administrative-url-form">
               <img
                 alt="URLBackgroundI3203"
-                src="../plannerApp/static/plannerApp/public/external/urlbackgroundi3203-n0cq.svg"
+                src="{% static 'planner/public/external/urlbackgroundi3203-n0cq.svg' %}"
                 class="landing-page-administrative-url-background"
               />
               <div class="landing-page-administrative-url-address">
@@ -1333,12 +579,12 @@
               </div>
               <img
                 alt="IconClockwiseArrowI3203"
-                src="../plannerApp/static/plannerApp/public/external/iconclockwisearrowi3203-hd8i.svg"
+                src="{% static 'planner/public/external/iconclockwisearrowi3203-hd8i.svg' %}"
                 class="landing-page-administrative-icon-clockwise-arrow"
               />
               <img
                 alt="IconShieldI3203"
-                src="../plannerApp/static/plannerApp/public/external/iconshieldi3203-31ci.svg"
+                src="{% static 'planner/public/external/iconshieldi3203-31ci.svg' %}"
                 class="landing-page-administrative-icon-shield"
               />
             </div>
@@ -1351,12 +597,12 @@
                     <div class="landing-page-administrative-notification2">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-vxkb.svg"
+                        src="{% static 'planner/public/external/vectori3203-vxkb.svg' %}"
                         class="landing-page-administrative-vector008"
                       />
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-83ks.svg"
+                        src="{% static 'planner/public/external/vectori3203-83ks.svg' %}"
                         class="landing-page-administrative-vector009"
                       />
                     </div>
@@ -1372,7 +618,7 @@
             </span>
             <img
               alt="Ellipse13203"
-              src="../plannerApp/static/plannerApp/public/external/ellipse13203-to2m-200h.png"
+              src="{% static 'planner/public/external/ellipse13203-to2m-200h.png' %}"
               class="landing-page-administrative-ellipse1"
             />
           </div>
@@ -1385,12 +631,12 @@
                 <div class="landing-page-administrative-vuesaxboldbook2">
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-846n.svg"
+                    src="{% static 'planner/public/external/vectori3203-846n.svg' %}"
                     class="landing-page-administrative-vector010"
                   />
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-ysfp.svg"
+                    src="{% static 'planner/public/external/vectori3203-ysfp.svg' %}"
                     class="landing-page-administrative-vector011"
                   />
                 </div>
@@ -1407,7 +653,7 @@
                 <div class="landing-page-administrative-arrowleft2">
                   <img
                     alt="Vector3203"
-                    src="../plannerApp/static/plannerApp/public/external/vector3203-hr7p.svg"
+                    src="{% static 'planner/public/external/vector3203-hr7p.svg' %}"
                     class="landing-page-administrative-vector012"
                   />
                 </div>
@@ -1420,12 +666,12 @@
                 <div class="landing-page-administrative-notification3">
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-j5wh.svg"
+                    src="{% static 'planner/public/external/vectori3203-j5wh.svg' %}"
                     class="landing-page-administrative-vector013"
                   />
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-svxe.svg"
+                    src="{% static 'planner/public/external/vectori3203-svxe.svg' %}"
                     class="landing-page-administrative-vector014"
                   />
                 </div>
@@ -1441,12 +687,12 @@
                 <div class="landing-page-administrative-logout">
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-yeo8.svg"
+                    src="{% static 'planner/public/external/vectori3203-yeo8.svg' %}"
                     class="landing-page-administrative-vector015"
                   />
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-g60e.svg"
+                    src="{% static 'planner/public/external/vectori3203-g60e.svg' %}"
                     class="landing-page-administrative-vector016"
                   />
                 </div>
@@ -1462,7 +708,7 @@
                 <div class="landing-page-administrative-setting2">
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-vgw.svg"
+                    src="{% static 'planner/public/external/vectori3203-vgw.svg' %}"
                     class="landing-page-administrative-vector017"
                   />
                 </div>
@@ -1477,12 +723,12 @@
               <div class="landing-page-administrative-vuesaxboldnote21">
                 <img
                   alt="VectorI3213"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3213-6vjr.svg"
+                  src="{% static 'planner/public/external/vectori3213-6vjr.svg' %}"
                   class="landing-page-administrative-vector018"
                 />
                 <img
                   alt="VectorI3213"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3213-9dgw.svg"
+                  src="{% static 'planner/public/external/vectori3213-9dgw.svg' %}"
                   class="landing-page-administrative-vector019"
                 />
               </div>
@@ -1496,12 +742,12 @@
               <div class="landing-page-administrative-vuesaxboldnote23">
                 <img
                   alt="VectorI3213"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3213-3zt8.svg"
+                  src="{% static 'planner/public/external/vectori3213-3zt8.svg' %}"
                   class="landing-page-administrative-vector020"
                 />
                 <img
                   alt="VectorI3213"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3213-9m2n.svg"
+                  src="{% static 'planner/public/external/vectori3213-9m2n.svg' %}"
                   class="landing-page-administrative-vector021"
                 />
               </div>
@@ -1516,12 +762,12 @@
                 <div class="landing-page-administrative-archivebook">
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-q10h.svg"
+                    src="{% static 'planner/public/external/vectori3203-q10h.svg' %}"
                     class="landing-page-administrative-vector022"
                   />
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-two.svg"
+                    src="{% static 'planner/public/external/vectori3203-two.svg' %}"
                     class="landing-page-administrative-vector023"
                   />
                 </div>
@@ -1537,22 +783,22 @@
                 <div class="landing-page-administrative-alarm">
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-otv.svg"
+                    src="{% static 'planner/public/external/vectori3203-otv.svg' %}"
                     class="landing-page-administrative-vector024"
                   />
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-lhbg.svg"
+                    src="{% static 'planner/public/external/vectori3203-lhbg.svg' %}"
                     class="landing-page-administrative-vector025"
                   />
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-ahs.svg"
+                    src="{% static 'planner/public/external/vectori3203-ahs.svg' %}"
                     class="landing-page-administrative-vector026"
                   />
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-vljf.svg"
+                    src="{% static 'planner/public/external/vectori3203-vljf.svg' %}"
                     class="landing-page-administrative-vector027"
                   />
                 </div>
@@ -1567,12 +813,12 @@
               <div class="landing-page-administrative-frame">
                 <img
                   alt="Vector3213"
-                  src="../plannerApp/static/plannerApp/public/external/vector3213-0hj.svg"
+                  src="{% static 'planner/public/external/vector3213-0hj.svg' %}"
                   class="landing-page-administrative-vector028"
                 />
                 <img
                   alt="Vector3213"
-                  src="../plannerApp/static/plannerApp/public/external/vector3213-ta0l.svg"
+                  src="{% static 'planner/public/external/vector3213-ta0l.svg' %}"
                   class="landing-page-administrative-vector029"
                 />
               </div>
@@ -1586,12 +832,12 @@
               <div class="landing-page-administrative-vuesaxboldbook4">
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-bozh.svg"
+                  src="{% static 'planner/public/external/vectori3203-bozh.svg' %}"
                   class="landing-page-administrative-vector030"
                 />
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-q6o.svg"
+                  src="{% static 'planner/public/external/vectori3203-q6o.svg' %}"
                   class="landing-page-administrative-vector031"
                 />
               </div>
@@ -1615,12 +861,12 @@
                 <div class="landing-page-administrative-vuesaxboldnote25">
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-5lw.svg"
+                    src="{% static 'planner/public/external/vectori3203-5lw.svg' %}"
                     class="landing-page-administrative-vector032"
                   />
                   <img
                     alt="VectorI3203"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3203-7z8k.svg"
+                    src="{% static 'planner/public/external/vectori3203-7z8k.svg' %}"
                     class="landing-page-administrative-vector033"
                   />
                 </div>
@@ -1637,7 +883,7 @@
                 <div class="landing-page-administrative-arrowleft3">
                   <img
                     alt="Vector3203"
-                    src="../plannerApp/static/plannerApp/public/external/vector3203-ak82.svg"
+                    src="{% static 'planner/public/external/vector3203-ak82.svg' %}"
                     class="landing-page-administrative-vector034"
                   />
                 </div>
@@ -1646,22 +892,22 @@
           </div>
           <img
             alt="Rectangle133203"
-            src="../plannerApp/static/plannerApp/public/external/rectangle133203-kn2-200h.png"
+            src="{% static 'planner/public/external/rectangle133203-kn2-200h.png' %}"
             class="landing-page-administrative-rectangle13"
           />
           <img
             alt="Rectangle143203"
-            src="../plannerApp/static/plannerApp/public/external/rectangle143203-hnm-200h.png"
+            src="{% static 'planner/public/external/rectangle143203-hnm-200h.png' %}"
             class="landing-page-administrative-rectangle14"
           />
           <img
             alt="Rectangle153203"
-            src="../plannerApp/static/plannerApp/public/external/rectangle153203-0fu-200h.png"
+            src="{% static 'planner/public/external/rectangle153203-0fu-200h.png' %}"
             class="landing-page-administrative-rectangle15"
           />
           <img
             alt="Rectangle163203"
-            src="../plannerApp/static/plannerApp/public/external/rectangle163203-y1u-200h.png"
+            src="{% static 'planner/public/external/rectangle163203-y1u-200h.png' %}"
             class="landing-page-administrative-rectangle16"
           />
           <div class="landing-page-administrative-frame15">
@@ -1675,12 +921,12 @@
                     <div class="landing-page-administrative-group9">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-uldt.svg"
+                        src="{% static 'planner/public/external/vectori3203-uldt.svg' %}"
                         class="landing-page-administrative-vector035"
                       />
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-jefl.svg"
+                        src="{% static 'planner/public/external/vectori3203-jefl.svg' %}"
                         class="landing-page-administrative-vector036"
                       />
                     </div>
@@ -1712,7 +958,7 @@
           </div>
           <img
             alt="Line223203"
-            src="../plannerApp/static/plannerApp/public/external/line223203-blgh.svg"
+            src="../planner/static/planner/public/external/line223203-blgh.svg"
             class="landing-page-administrative-line22"
           />
           <div class="landing-page-administrative-frame16">
@@ -1726,12 +972,12 @@
                     <div class="landing-page-administrative-group91">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-czb.svg"
+                        src="../planner/static/planner/public/external/vectori3203-czb.svg"
                         class="landing-page-administrative-vector037"
                       />
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-a2gr.svg"
+                        src="../planner/static/planner/public/external/vectori3203-a2gr.svg"
                         class="landing-page-administrative-vector038"
                       />
                     </div>
@@ -1772,12 +1018,12 @@
                     <div class="landing-page-administrative-group92">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-aq.svg"
+                        src="../planner/static/planner/public/external/vectori3203-aq.svg"
                         class="landing-page-administrative-vector039"
                       />
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-1j8l.svg"
+                        src="../planner/static/planner/public/external/vectori3203-1j8l.svg"
                         class="landing-page-administrative-vector040"
                       />
                     </div>
@@ -1818,12 +1064,12 @@
                     <div class="landing-page-administrative-group93">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-3xmt.svg"
+                        src="../planner/static/planner/public/external/vectori3203-3xmt.svg"
                         class="landing-page-administrative-vector041"
                       />
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-q496.svg"
+                        src="../planner/static/planner/public/external/vectori3203-q496.svg"
                         class="landing-page-administrative-vector042"
                       />
                     </div>
@@ -1864,12 +1110,12 @@
                     <div class="landing-page-administrative-group94">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-337h.svg"
+                        src="../planner/static/planner/public/external/vectori3203-337h.svg"
                         class="landing-page-administrative-vector043"
                       />
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-yvsr.svg"
+                        src="../planner/static/planner/public/external/vectori3203-yvsr.svg"
                         class="landing-page-administrative-vector044"
                       />
                     </div>
@@ -1910,12 +1156,12 @@
                     <div class="landing-page-administrative-group95">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-6nue.svg"
+                        src="../planner/static/planner/public/external/vectori3203-6nue.svg"
                         class="landing-page-administrative-vector045"
                       />
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-zj3g.svg"
+                        src="../planner/static/planner/public/external/vectori3203-zj3g.svg"
                         class="landing-page-administrative-vector046"
                       />
                     </div>
@@ -1966,17 +1212,17 @@
               <div class="landing-page-administrative-more">
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-dcs.svg"
+                  src="../planner/static/planner/public/external/vectori3203-dcs.svg"
                   class="landing-page-administrative-vector047"
                 />
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-fnwq.svg"
+                  src="../planner/static/planner/public/external/vectori3203-fnwq.svg"
                   class="landing-page-administrative-vector048"
                 />
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-q98h.svg"
+                  src="../planner/static/planner/public/external/vectori3203-q98h.svg"
                   class="landing-page-administrative-vector049"
                 />
               </div>
@@ -1987,17 +1233,17 @@
               <div class="landing-page-administrative-more1">
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-buf8.svg"
+                  src="../planner/static/planner/public/external/vectori3203-buf8.svg"
                   class="landing-page-administrative-vector050"
                 />
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-djo7.svg"
+                  src="../planner/static/planner/public/external/vectori3203-djo7.svg"
                   class="landing-page-administrative-vector051"
                 />
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-3owh.svg"
+                  src="../planner/static/planner/public/external/vectori3203-3owh.svg"
                   class="landing-page-administrative-vector052"
                 />
               </div>
@@ -2008,17 +1254,17 @@
               <div class="landing-page-administrative-more2">
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-bq3m.svg"
+                  src="../planner/static/planner/public/external/vectori3203-bq3m.svg"
                   class="landing-page-administrative-vector053"
                 />
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-maz1i.svg"
+                  src="../planner/static/planner/public/external/vectori3203-maz1i.svg"
                   class="landing-page-administrative-vector054"
                 />
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-app.svg"
+                  src="../planner/static/planner/public/external/vectori3203-app.svg"
                   class="landing-page-administrative-vector055"
                 />
               </div>
@@ -2029,17 +1275,17 @@
               <div class="landing-page-administrative-more3">
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-rg5.svg"
+                  src="../planner/static/planner/public/external/vectori3203-rg5.svg"
                   class="landing-page-administrative-vector056"
                 />
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-it77.svg"
+                  src="../planner/static/planner/public/external/vectori3203-it77.svg"
                   class="landing-page-administrative-vector057"
                 />
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-vf5p.svg"
+                  src="../planner/static/planner/public/external/vectori3203-vf5p.svg"
                   class="landing-page-administrative-vector058"
                 />
               </div>
@@ -2050,17 +1296,17 @@
               <div class="landing-page-administrative-more4">
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-sphl.svg"
+                  src="../planner/static/planner/public/external/vectori3203-sphl.svg"
                   class="landing-page-administrative-vector059"
                 />
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-7d5o.svg"
+                  src="../planner/static/planner/public/external/vectori3203-7d5o.svg"
                   class="landing-page-administrative-vector060"
                 />
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-z90z.svg"
+                  src="../planner/static/planner/public/external/vectori3203-z90z.svg"
                   class="landing-page-administrative-vector061"
                 />
               </div>
@@ -2071,17 +1317,17 @@
               <div class="landing-page-administrative-more5">
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-07xr.svg"
+                  src="../planner/static/planner/public/external/vectori3203-07xr.svg"
                   class="landing-page-administrative-vector062"
                 />
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-ziz.svg"
+                  src="../planner/static/planner/public/external/vectori3203-ziz.svg"
                   class="landing-page-administrative-vector063"
                 />
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-rkt9.svg"
+                  src="../planner/static/planner/public/external/vectori3203-rkt9.svg"
                   class="landing-page-administrative-vector064"
                 />
               </div>
@@ -2092,17 +1338,17 @@
               <div class="landing-page-administrative-more6">
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-6es.svg"
+                  src="../planner/static/planner/public/external/vectori3203-6es.svg"
                   class="landing-page-administrative-vector065"
                 />
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-pqts.svg"
+                  src="../planner/static/planner/public/external/vectori3203-pqts.svg"
                   class="landing-page-administrative-vector066"
                 />
                 <img
                   alt="VectorI3203"
-                  src="../plannerApp/static/plannerApp/public/external/vectori3203-8cv9.svg"
+                  src="../planner/static/planner/public/external/vectori3203-8cv9.svg"
                   class="landing-page-administrative-vector067"
                 />
               </div>
@@ -2111,42 +1357,42 @@
           <div class="landing-page-administrative-group8">
             <img
               alt="Rectangle283203"
-              src="../plannerApp/static/plannerApp/public/external/rectangle283203-3ree-300w.png"
+              src="../planner/static/planner/public/external/rectangle283203-3ree-300w.png"
               class="landing-page-administrative-rectangle28"
             />
             <img
               alt="Rectangle293203"
-              src="../plannerApp/static/plannerApp/public/external/rectangle293203-5yiv-300w.png"
+              src="../planner/static/planner/public/external/rectangle293203-5yiv-300w.png"
               class="landing-page-administrative-rectangle29"
             />
             <img
               alt="Rectangle273203"
-              src="../plannerApp/static/plannerApp/public/external/rectangle273203-vnyi-300w.png"
+              src="../planner/static/planner/public/external/rectangle273203-vnyi-300w.png"
               class="landing-page-administrative-rectangle27"
             />
             <img
               alt="Rectangle223203"
-              src="../plannerApp/static/plannerApp/public/external/rectangle223203-v6vg-300w.png"
+              src="../planner/static/planner/public/external/rectangle223203-v6vg-300w.png"
               class="landing-page-administrative-rectangle22"
             />
             <img
               alt="Rectangle253203"
-              src="../plannerApp/static/plannerApp/public/external/rectangle253203-zhx-300w.png"
+              src="../planner/static/planner/public/external/rectangle253203-zhx-300w.png"
               class="landing-page-administrative-rectangle25"
             />
             <img
               alt="Rectangle263203"
-              src="../plannerApp/static/plannerApp/public/external/rectangle263203-ck4-300w.png"
+              src="../planner/static/planner/public/external/rectangle263203-ck4-300w.png"
               class="landing-page-administrative-rectangle26"
             />
             <img
               alt="Rectangle233203"
-              src="../plannerApp/static/plannerApp/public/external/rectangle233203-6m5j-300w.png"
+              src="../planner/static/planner/public/external/rectangle233203-6m5j-300w.png"
               class="landing-page-administrative-rectangle23"
             />
             <img
               alt="Rectangle243203"
-              src="../plannerApp/static/plannerApp/public/external/rectangle243203-ezoj-300w.png"
+              src="../planner/static/planner/public/external/rectangle243203-ezoj-300w.png"
               class="landing-page-administrative-rectangle24"
             />
             <span class="landing-page-administrative-text228">
@@ -2168,12 +1414,12 @@
                     <div class="landing-page-administrative-frame1">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-c7j.svg"
+                        src="../planner/static/planner/public/external/vectori3203-c7j.svg"
                         class="landing-page-administrative-vector068"
                       />
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-s7ek.svg"
+                        src="../planner/static/planner/public/external/vectori3203-s7ek.svg"
                         class="landing-page-administrative-vector069"
                       />
                     </div>
@@ -2189,12 +1435,12 @@
                     <div class="landing-page-administrative-calendar2">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-rj99.svg"
+                        src="../planner/static/planner/public/external/vectori3203-rj99.svg"
                         class="landing-page-administrative-vector070"
                       />
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-rfct.svg"
+                        src="../planner/static/planner/public/external/vectori3203-rfct.svg"
                         class="landing-page-administrative-vector071"
                       />
                     </div>
@@ -2210,7 +1456,7 @@
                     <div class="landing-page-administrative-clock">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-fc5s.svg"
+                        src="../planner/static/planner/public/external/vectori3203-fc5s.svg"
                         class="landing-page-administrative-vector072"
                       />
                     </div>
@@ -2225,7 +1471,7 @@
                   <div class="landing-page-administrative-vuesaxboldlocation1">
                     <img
                       alt="VectorI3203"
-                      src="../plannerApp/static/plannerApp/public/external/vectori3203-bqf.svg"
+                      src="../planner/static/planner/public/external/vectori3203-bqf.svg"
                       class="landing-page-administrative-vector073"
                     />
                   </div>
@@ -2242,12 +1488,12 @@
                     <div class="landing-page-administrative-frame2">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-dkg.svg"
+                        src="../planner/static/planner/public/external/vectori3203-dkg.svg"
                         class="landing-page-administrative-vector074"
                       />
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-ijc.svg"
+                        src="../planner/static/planner/public/external/vectori3203-ijc.svg"
                         class="landing-page-administrative-vector075"
                       />
                     </div>
@@ -2263,12 +1509,12 @@
                     <div class="landing-page-administrative-calendar21">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-ickk.svg"
+                        src="../planner/static/planner/public/external/vectori3203-ickk.svg"
                         class="landing-page-administrative-vector076"
                       />
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-p4s8.svg"
+                        src="../planner/static/planner/public/external/vectori3203-p4s8.svg"
                         class="landing-page-administrative-vector077"
                       />
                     </div>
@@ -2284,7 +1530,7 @@
                     <div class="landing-page-administrative-clock1">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-iv2a.svg"
+                        src="../planner/static/planner/public/external/vectori3203-iv2a.svg"
                         class="landing-page-administrative-vector078"
                       />
                     </div>
@@ -2299,7 +1545,7 @@
                   <div class="landing-page-administrative-vuesaxboldlocation3">
                     <img
                       alt="VectorI3203"
-                      src="../plannerApp/static/plannerApp/public/external/vectori3203-rgad.svg"
+                      src="../planner/static/planner/public/external/vectori3203-rgad.svg"
                       class="landing-page-administrative-vector079"
                     />
                   </div>
@@ -2316,12 +1562,12 @@
                     <div class="landing-page-administrative-frame3">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-mrxp.svg"
+                        src="../planner/static/planner/public/external/vectori3203-mrxp.svg"
                         class="landing-page-administrative-vector080"
                       />
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-vh5.svg"
+                        src="../planner/static/planner/public/external/vectori3203-vh5.svg"
                         class="landing-page-administrative-vector081"
                       />
                     </div>
@@ -2337,12 +1583,12 @@
                     <div class="landing-page-administrative-calendar22">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-yoqp.svg"
+                        src="../planner/static/planner/public/external/vectori3203-yoqp.svg"
                         class="landing-page-administrative-vector082"
                       />
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-g0l.svg"
+                        src="../planner/static/planner/public/external/vectori3203-g0l.svg"
                         class="landing-page-administrative-vector083"
                       />
                     </div>
@@ -2358,7 +1604,7 @@
                     <div class="landing-page-administrative-clock2">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-ier8.svg"
+                        src="../planner/static/planner/public/external/vectori3203-ier8.svg"
                         class="landing-page-administrative-vector084"
                       />
                     </div>
@@ -2373,7 +1619,7 @@
                   <div class="landing-page-administrative-vuesaxboldlocation5">
                     <img
                       alt="VectorI3203"
-                      src="../plannerApp/static/plannerApp/public/external/vectori3203-oc0h.svg"
+                      src="../planner/static/planner/public/external/vectori3203-oc0h.svg"
                       class="landing-page-administrative-vector085"
                     />
                   </div>
@@ -2390,12 +1636,12 @@
                     <div class="landing-page-administrative-frame4">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-yx.svg"
+                        src="../planner/static/planner/public/external/vectori3203-yx.svg"
                         class="landing-page-administrative-vector086"
                       />
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-ei4.svg"
+                        src="../planner/static/planner/public/external/vectori3203-ei4.svg"
                         class="landing-page-administrative-vector087"
                       />
                     </div>
@@ -2411,12 +1657,12 @@
                     <div class="landing-page-administrative-calendar23">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-dj5a.svg"
+                        src="../planner/static/planner/public/external/vectori3203-dj5a.svg"
                         class="landing-page-administrative-vector088"
                       />
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-l64h.svg"
+                        src="../planner/static/planner/public/external/vectori3203-l64h.svg"
                         class="landing-page-administrative-vector089"
                       />
                     </div>
@@ -2432,7 +1678,7 @@
                     <div class="landing-page-administrative-clock3">
                       <img
                         alt="VectorI3203"
-                        src="../plannerApp/static/plannerApp/public/external/vectori3203-792p.svg"
+                        src="../planner/static/planner/public/external/vectori3203-792p.svg"
                         class="landing-page-administrative-vector090"
                       />
                     </div>
@@ -2447,7 +1693,7 @@
                   <div class="landing-page-administrative-vuesaxboldlocation7">
                     <img
                       alt="VectorI3203"
-                      src="../plannerApp/static/plannerApp/public/external/vectori3203-cisk.svg"
+                      src="../planner/static/planner/public/external/vectori3203-cisk.svg"
                       class="landing-page-administrative-vector091"
                     />
                   </div>
@@ -2459,22 +1705,22 @@
             </div>
             <img
               alt="Line283203"
-              src="../plannerApp/static/plannerApp/public/external/line283203-53ic.svg"
+              src="../planner/static/planner/public/external/line283203-53ic.svg"
               class="landing-page-administrative-line28"
             />
             <img
               alt="Line303203"
-              src="../plannerApp/static/plannerApp/public/external/line303203-woic.svg"
+              src="../planner/static/planner/public/external/line303203-woic.svg"
               class="landing-page-administrative-line30"
             />
             <img
               alt="Line313203"
-              src="../plannerApp/static/plannerApp/public/external/line313203-3ci.svg"
+              src="../planner/static/planner/public/external/line313203-3ci.svg"
               class="landing-page-administrative-line31"
             />
             <img
               alt="Line293203"
-              src="../plannerApp/static/plannerApp/public/external/line293203-bgvg.svg"
+              src="../planner/static/planner/public/external/line293203-bgvg.svg"
               class="landing-page-administrative-line29"
             />
           </div>
@@ -2489,7 +1735,7 @@
             <div class="landing-page-administrative-group4">
               <img
                 alt="Rectangle273203"
-                src="../plannerApp/static/plannerApp/public/external/rectangle273203-7du-200h.png"
+                src="../planner/static/planner/public/external/rectangle273203-7du-200h.png"
                 class="landing-page-administrative-rectangle271"
               />
             </div>
@@ -2497,7 +1743,7 @@
           <div class="landing-page-administrative-group6">
             <img
               alt="Rectangle323203"
-              src="../plannerApp/static/plannerApp/public/external/rectangle323203-mtts.svg"
+              src="../planner/static/planner/public/external/rectangle323203-mtts.svg"
               class="landing-page-administrative-rectangle32"
             />
             <div class="landing-page-administrative-frame74">
@@ -2514,7 +1760,7 @@
               <div>
                 <img
                   alt="Line373203"
-                  src="../plannerApp/static/plannerApp/public/external/line373203-97b.svg"
+                  src="../planner/static/planner/public/external/line373203-97b.svg"
                   class="landing-page-administrative-line37"
                 />
                 <div>
@@ -2543,12 +1789,12 @@
                   <div class="landing-page-administrative-clipboardtext">
                     <img
                       alt="VectorI3203"
-                      src="../plannerApp/static/plannerApp/public/external/vectori3203-nwte.svg"
+                      src="../planner/static/planner/public/external/vectori3203-nwte.svg"
                       class="landing-page-administrative-vector092"
                     />
                     <img
                       alt="VectorI3203"
-                      src="../plannerApp/static/plannerApp/public/external/vectori3203-f66.svg"
+                      src="../planner/static/planner/public/external/vectori3203-f66.svg"
                       class="landing-page-administrative-vector093"
                     />
                   </div>
@@ -2566,7 +1812,7 @@
                 <div class="landing-page-administrative-arrowleft4">
                   <img
                     alt="Vector3203"
-                    src="../plannerApp/static/plannerApp/public/external/vector3203-zf1k.svg"
+                    src="../planner/static/planner/public/external/vector3203-zf1k.svg"
                     class="landing-page-administrative-vector094"
                   />
                 </div>
@@ -2575,7 +1821,7 @@
           </div>
           <img
             alt="Line223203"
-            src="../plannerApp/static/plannerApp/public/external/line223203-dg6.svg"
+            src="../planner/static/planner/public/external/line223203-dg6.svg"
             class="landing-page-administrative-line221"
           />
           <div class="landing-page-administrative-frame831">
@@ -2587,12 +1833,12 @@
                   <div class="landing-page-administrative-clipboardtext1">
                     <img
                       alt="VectorI3234"
-                      src="../plannerApp/static/plannerApp/public/external/vectori3234-f7sj.svg"
+                      src="../planner/static/planner/public/external/vectori3234-f7sj.svg"
                       class="landing-page-administrative-vector095"
                     />
                     <img
                       alt="VectorI3234"
-                      src="../plannerApp/static/plannerApp/public/external/vectori3234-ke7.svg"
+                      src="../planner/static/planner/public/external/vectori3234-ke7.svg"
                       class="landing-page-administrative-vector096"
                     />
                   </div>
@@ -2610,7 +1856,7 @@
                 <div class="landing-page-administrative-arrowleft5">
                   <img
                     alt="Vector3234"
-                    src="../plannerApp/static/plannerApp/public/external/vector3234-x2j7.svg"
+                    src="../planner/static/planner/public/external/vector3234-x2j7.svg"
                     class="landing-page-administrative-vector097"
                   />
                 </div>
@@ -2619,22 +1865,22 @@
           </div>
           <img
             alt="Line363234"
-            src="../plannerApp/static/plannerApp/public/external/line363234-7koa.svg"
+            src="../planner/static/planner/public/external/line363234-7koa.svg"
             class="landing-page-administrative-line36"
           />
           <img
             alt="Line353203"
-            src="../plannerApp/static/plannerApp/public/external/line353203-o9s.svg"
+            src="../planner/static/planner/public/external/line353203-o9s.svg"
             class="landing-page-administrative-line35"
           />
           <img
             alt="eagleappslogoheader23203"
-            src="../plannerApp/static/plannerApp/public/external/eagleappslogoheader23203-quh.svg"
+            src="../planner/static/planner/public/external/eagleappslogoheader23203-quh.svg"
             class="landing-page-administrative-eagleappslogoheader2"
           />
           <img
             alt="Rectangle43213"
-            src="../plannerApp/static/plannerApp/public/external/rectangle43213-otqc-200h.png"
+            src="../planner/static/planner/public/external/rectangle43213-otqc-200h.png"
             class="landing-page-administrative-rectangle4"
           />
           <span class="landing-page-administrative-text293">
@@ -2658,12 +1904,12 @@
                 <div class="landing-page-administrative-arrowright">
                   <img
                     alt="VectorI3213"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3213-hp8.svg"
+                    src="../planner/static/planner/public/external/vectori3213-hp8.svg"
                     class="landing-page-administrative-vector098"
                   />
                   <img
                     alt="VectorI3213"
-                    src="../plannerApp/static/plannerApp/public/external/vectori3213-hr1m.svg"
+                    src="../planner/static/planner/public/external/vectori3213-hr1m.svg"
                     class="landing-page-administrative-vector099"
                   />
                 </div>
@@ -2672,7 +1918,7 @@
           </div>
           <img
             alt="IsolationMode3213"
-            src="../plannerApp/static/plannerApp/public/external/isolationmode3213-qi5g.svg"
+            src="../planner/static/planner/public/external/isolationmode3213-qi5g.svg"
             class="landing-page-administrative-isolation-mode"
           />
           <div class="landing-page-administrative-frame68">
@@ -2689,7 +1935,7 @@
             <div class="landing-page-administrative-frame67">
               <img
                 alt="Line383234"
-                src="../plannerApp/static/plannerApp/public/external/line383234-e7c.svg"
+                src="../planner/static/planner/public/external/line383234-e7c.svg"
                 class="landing-page-administrative-line38"
               />
               <div class="landing-page-administrative-frame66">
@@ -2719,7 +1965,7 @@
             <div class="landing-page-administrative-frame76">
               <img
                 alt="Line363234"
-                src="../plannerApp/static/plannerApp/public/external/line363234-qm3i.svg"
+                src="../planner/static/planner/public/external/line363234-qm3i.svg"
                 class="landing-page-administrative-line361"
               />
               <div class="landing-page-administrative-frame75">
@@ -2746,7 +1992,7 @@
             <div class="landing-page-administrative-frame761">
               <img
                 alt="Line363234"
-                src="../plannerApp/static/plannerApp/public/external/line363234-ba8.svg"
+                src="../planner/static/planner/public/external/line363234-ba8.svg"
                 class="landing-page-administrative-line362"
               />
               <div class="landing-page-administrative-frame751">
@@ -2773,7 +2019,7 @@
             <div class="landing-page-administrative-frame762">
               <img
                 alt="Line363234"
-                src="../plannerApp/static/plannerApp/public/external/line363234-tfd.svg"
+                src="../planner/static/planner/public/external/line363234-tfd.svg"
                 class="landing-page-administrative-line363"
               />
               <div class="landing-page-administrative-frame752">

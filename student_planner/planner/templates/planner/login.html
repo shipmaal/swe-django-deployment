@@ -58,6 +58,7 @@
       [type="reset"],
       [type="submit"] {
         -webkit-appearance: button;
+        appearance: button;
       }
       button::-moz-focus-inner,
       [type="button"]::-moz-focus-inner,
@@ -138,118 +139,12 @@
     />
   </head>
   <body>
+    <link rel="stylesheet" href="{% static 'planner/style.css' %}" />
     <div>
       <link href="{% static 'planner/login.css' %}" rel="stylesheet" />
 
       <div class="user-sign-in-authentication-container">
         <div class="user-sign-in-authentication-user-sign-in-authentication">
-          <div class="user-sign-in-authentication-frame-integratedtitlebarandtoolbar">
-            <img
-              src="{% static 'planner/public/external/toolbarbackgroundi3206-m99i-200h.png' %}"
-              alt="ToolbarBackgroundI3206"
-              class="user-sign-in-authentication-toolbar-background"
-            />
-            <div class="user-sign-in-authentication-right-icon-set">
-              <img
-                src="{% static 'planner/public/external/iconsharei3206-hl5.svg' %}"
-                alt="IconShareI3206"
-                class="user-sign-in-authentication-icon-share"
-              />
-              <img
-                src="{% static 'planner/public/external/iconnewtabi3206-a76c.svg' %}"
-                alt="IconNewTabI3206"
-                class="user-sign-in-authentication-icon-new-tab"
-              />
-    <div>
-      <link href="planner/login.css" rel="stylesheet" />
-
-      <div class="user-sign-in-authentication-container">
-        <div class="user-sign-in-authentication-user-sign-in-authentication">
-          <div
-            class="user-sign-in-authentication-frame-integratedtitlebarandtoolbar"
-          >
-            <img
-              src="planner/public/external/toolbarbackgroundi3206-m99i-200h.png"
-              alt="ToolbarBackgroundI3206"
-              class="user-sign-in-authentication-toolbar-background"
-            />
-            <div class="user-sign-in-authentication-right-icon-set">
-              <img
-                src="planner/public/external/iconsharei3206-hl5.svg"
-                alt="IconShareI3206"
-                class="user-sign-in-authentication-icon-share"
-              />
-              <img
-                src="planner/public/external/iconnewtabi3206-a76c.svg"
-                alt="IconNewTabI3206"
-                class="user-sign-in-authentication-icon-new-tab"
-              />
-              <img
-                src="planner/public/external/icontaboverviewi3206-gegq.svg"
-                alt="IconTabOverviewI3206"
-                class="user-sign-in-authentication-icon-tab-overview"
-              />
-            </div>
-            <div class="user-sign-in-authentication-left-icon-set">
-              <img
-                src="planner/public/external/iconsidebari3206-4w.svg"
-                alt="IconSidebarI3206"
-                class="user-sign-in-authentication-icon-sidebar"
-              />
-              <img
-                src="planner/public/external/iconchevronlefti3206-8drd.svg"
-                alt="IconChevronLeftI3206"
-                class="user-sign-in-authentication-icon-chevron-left"
-              />
-              <img
-                src="planner/public/external/iconchevronrighti3206-eylv.svg"
-                alt="IconChevronRightI3206"
-                class="user-sign-in-authentication-icon-chevron-right"
-              />
-            </div>
-            <div class="user-sign-in-authentication-window-controls">
-              <img
-                src="planner/public/external/closei3206-h5oe-200h.png"
-                alt="CloseI3206"
-                class="user-sign-in-authentication-close"
-              />
-              <img
-                src="planner/public/external/minimizei3206-orsj-200h.png"
-                alt="MinimizeI3206"
-                class="user-sign-in-authentication-minimize"
-              />
-              <img
-                src="planner/public/external/zoomi3206-ebdo-200h.png"
-                alt="ZoomI3206"
-                class="user-sign-in-authentication-zoom"
-              />
-            </div>
-            <div class="user-sign-in-authentication-url-form">
-              <img
-                src="planner/public/external/urlbackgroundi3206-2l1p.svg"
-                alt="URLBackgroundI3206"
-                class="user-sign-in-authentication-url-background"
-              />
-              <div class="user-sign-in-authentication-url-address">
-                <span class="user-sign-in-authentication-text">
-                  <span>􀎡</span>
-                </span>
-                <span class="user-sign-in-authentication-text02">
-                  <span>https://eaen.bc.edu/student-planner/#/</span>
-                </span>
-              </div>
-              <img
-                src="planner/public/external/iconclockwisearrowi3206-4p6.svg"
-                alt="IconClockwiseArrowI3206"
-                class="user-sign-in-authentication-icon-clockwise-arrow"
-              />
-              <img
-                src="planner/public/external/iconshieldi3206-urw.svg"
-                alt="IconShieldI3206"
-                class="user-sign-in-authentication-icon-shield"
-              />
-            </div>
-          </div>
           <div class="user-sign-in-authentication-login-page">
             <div class="user-sign-in-authentication-group1">
               <span class="user-sign-in-authentication-text04">
@@ -263,37 +158,37 @@
               <span>Hi, Welcome back 👋</span>
             </span>
             <img
-              src="planner/public/external/rectangle33207-1o37-200h.png"
+              src="{% static 'planner/public/external/rectangle33207-1o37-200h.png' %}"
               alt="Rectangle33207"
               class="user-sign-in-authentication-rectangle3"
             />
             <img
-              src="planner/public/external/rectangle43207-py4lk-200h.png"
+              src="{% static 'planner/public/external/rectangle43207-py4lk-200h.png' %}"
               alt="Rectangle43207"
               class="user-sign-in-authentication-rectangle4"
             />
             <img
-              src="planner/public/external/rectangle53207-xeo2-200h.png"
+              src="{% static 'planner/public/external/rectangle53207-xeo2-200h.png' %}"
               alt="Rectangle53207"
               class="user-sign-in-authentication-rectangle5"
             />
             <img
-              src="planner/public/external/rectangle63207-ij5p-200h.png"
+              src="{% static 'planner/public/external/rectangle63207-ij5p-200h.png' %}"
               alt="Rectangle63207"
               class="user-sign-in-authentication-rectangle6"
             />
             <img
-              src="planner/public/external/line13207-529b.svg"
+              src="{% static 'planner/public/external/line13207-529b.svg' %}"
               alt="Line13207"
               class="user-sign-in-authentication-line1"
             />
             <img
-              src="planner/public/external/line23207-quzh.svg"
+              src="{% static 'planner/public/external/line23207-quzh.svg' %}"
               alt="Line23207"
               class="user-sign-in-authentication-line2"
             />
             <img
-              src="planner/public/external/flatcoloriconsgoogle3207-c95i.svg"
+              src="{% static 'planner/public/external/flatcoloriconsgoogle3207-c95i.svg' %}"
               alt="flatcoloriconsgoogle3207"
               class="user-sign-in-authentication-flatcoloriconsgoogle"
             />
@@ -329,12 +224,12 @@
             </span>
             <div class="user-sign-in-authentication-basileyeclosedsolid"></div>
             <img
-              src="planner/public/external/vector3207-n0v.svg"
+              src="{% static 'planner/public/external/vector3207-n0v.svg' %}"
               alt="Vector3207"
               class="user-sign-in-authentication-vector"
             />
             <img
-              src="planner/public/external/vector3207-189.svg"
+              src="{% static 'planner/public/external/vector3207-189.svg' %}"
               alt="Vector3207"
               class="user-sign-in-authentication-vector1"
             />
@@ -345,7 +240,7 @@
               <span>Enter your email id</span>
             </span>
             <img
-              src="planner/public/external/reshotillustrationwebsitedesignu3pzxdsevy13207-bqci-500w.png"
+              src="{% static 'planner/public/external/reshotillustrationwebsitedesignu3pzxdsevy13207-bqci-500w.png' %}"
               alt="reshotillustrationwebsitedesignU3PZXDSEVY13207"
               class="user-sign-in-authentication-reshotillustrationwebsitedesign-u3pzxdsevy1"
             />
@@ -357,7 +252,7 @@
             </span>
           </div>
           <img
-            src="planner/public/external/eagleappslogoheader23207-qq6.svg"
+            src="{% static 'planner/public/external/eagleappslogoheader23207-qq6.svg' %}"
             alt="eagleappslogoheader23207"
             class="user-sign-in-authentication-eagleappslogoheader2"
           />
