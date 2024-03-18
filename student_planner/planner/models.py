@@ -27,11 +27,11 @@ class Choice(models.Model):
 class Student(models.Model):
     def __str__(self):
         return self.eagle_id
-    eagle_id = models.IntegerField(max_length=8)
+    eagle_id = models.IntegerField(primary_key=True)
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
-    email = models.EmailField(max_length = 254, primary_key)
-    class_year = models.IntegerField(max_length=4)
+    email = models.EmailField(max_length = 254)
+    class_year = models.IntegerField()
 
     class College(models.TextChoices):
         MCAS = "MCAS", _("Morrissey College of Arts and Sciences")
@@ -45,13 +45,13 @@ class Student(models.Model):
     )
     
 
-class Admin(models.Model):
+# class Admin(models.Model):
 
 
-class Planner(models.Model):
+# class Planner(models.Model):
 
 
-class Program(models.Model):
+# class Program(models.Model):
 
 
-class Course(models.Model):
+# class Course(models.Model):
