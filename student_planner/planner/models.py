@@ -3,6 +3,7 @@ import datetime
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from multiselectfield import MultiSelectField
 
 
 ''' Example Models:
@@ -27,10 +28,10 @@ class Choice(models.Model):
 class Student(models.Model):
     def __str__(self):
         return self.eagle_id
-    eagle_id = models.IntegerField(max_length=8)
+    eagle_id = models.IntegerField(max_length=8,primary_key)
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
-    email = models.EmailField(max_length = 254, primary_key)
+    email = models.EmailField(max_length = 254)
     class_year = models.IntegerField(max_length=4)
 
     class College(models.TextChoices):
@@ -53,5 +54,18 @@ class Planner(models.Model):
 
 class Program(models.Model):
 
-
+'''
 class Course(models.Model):
+    school =
+    department = 
+    course_name =
+    course_number =
+    cedits =
+
+    class CourseLevel(models.TextChoices):
+        UNDERGRAD
+        GRAD
+    course_level = MultiSelectField(choices=CourseLevel)
+
+    class FulfilledReq(models.TextChoices):
+'''
