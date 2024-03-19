@@ -1,9 +1,24 @@
+from django.views.generic import TemplateView
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 
-# Create your views here.
+class IndedxView(TemplateView):
+    template_name = 'planner/index.html'
 
-def index(request):
-    return render(request, 'planner/login.html')
+# Custom Login View
+class CustomLoginView(TemplateView):
+    template_name = 'planner/login.html'
+    # redirect_authenticated_user = True
 
-def planner(request):
-    return render(request, 'planner/landing_student.html')
+# Landing Page for Students after Login
+class StudentLandingPageView( TemplateView):
+    template_name = 'planner/landing_student.html'
+
+# Course Plans View
+class CoursePlansView(TemplateView) :
+    template_name = 'planner/course_plans.html'
+
+# Explore Major View
+class ExploreMajorView( TemplateView):
+    template_name = 'planner/explore_major.html'

@@ -4,36 +4,17 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-
-''' Example Models:
-# Create your models here.
-class Question(models.Model):
-    def __str__(self):
-        return self.question_text
-    def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1) 
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField("date published")
-
-
-class Choice(models.Model):
-    def __str__(self):
-        return self.choice_text
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-'''
-
 class Student(models.Model):
     def __str__(self):
         return self.eagle_id
-    
+  
     eagle_id = models.CharField(max_length=8)
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
     email = models.EmailField(max_length = 254)
     class_year = models.CharField(max_length=4)
     end_semester = models.CharField(max_length=6, default="Spring")
+
 
     class College(models.TextChoices):
         MCAS = "MCAS", _("Morrissey College of Arts and Sciences")
@@ -73,3 +54,4 @@ class Course(models.Model):
     mum_credits = models.IntegerField()
     def __str__(self):
         return self.class_code
+
