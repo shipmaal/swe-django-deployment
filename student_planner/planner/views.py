@@ -19,6 +19,8 @@ class StudentLandingPageView(TemplateView):
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             return redirect('/login/')
+        elif not request.user.registered:
+            return redirect('/login/')
         else:
             return super().dispatch(request, *args, **kwargs)
         
