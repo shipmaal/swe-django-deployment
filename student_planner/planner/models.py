@@ -54,6 +54,13 @@ class Planner(models.Model):
 
 class Course(models.Model):
     class_code = models.CharField(max_length=4)
+    class_name = models.CharField(max_length=50)
+    class_description = models.CharField(max_length=200)
+    class_location = models.CharField(max_length=50)
+    class_time = models.TimeField()
+    class_days = models.CharField(max_length=10)
+    class_semester = models.CharField(max_length=6)
+    class_professor = models.CharField(max_length=50)
     associated_majors = models.ManyToManyField(Major)
     associated_minors = models.ManyToManyField(Minor)
     num_credits = models.IntegerField()
