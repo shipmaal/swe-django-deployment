@@ -15,7 +15,7 @@ class Minor(models.Model):
     
 class Advisor(models.Model):
     def __str__(self):
-        return self.eagle_id
+        return self.first_name + " " + self.last_name
     
     eagle_id = models.CharField(max_length=8)
     first_name = models.CharField(max_length=32)
@@ -25,7 +25,7 @@ class Advisor(models.Model):
 
 class Student(models.Model):
     def __str__(self):
-        return self.eagle_id
+        return self.first_name + " " + self.last_name
     eagle_id = models.CharField(max_length=8)
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
