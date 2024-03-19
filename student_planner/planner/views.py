@@ -12,8 +12,15 @@ class CustomLoginView(TemplateView):
     # redirect_authenticated_user = True
 
 # Landing Page for Students after Login
-class StudentLandingPageView( TemplateView):
+class StudentLandingPageView(LoginRequiredMixin, TemplateView):
     template_name = 'planner/landing_student.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        student = Student.objects.get(email=self.request.user.email)
+        enrolled_courses = Course.objects.filter(planner__student=student)
+        context['enrolled_courses'] = enrolled_courses
+        return context
 
 # Course Plans View
 class CoursePlansView(TemplateView) :
