@@ -10,7 +10,7 @@ class Student(models.Model):
     eagle_id = models.CharField(max_length=8)
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
-    email = models.EmailField(max_length = 254)
+    email = models.EmailField(max_length = 254, primary_key=True)
     class_year = models.CharField(max_length=4)
     end_semester = models.CharField(max_length=6, default="Spring")
     major_one = models.ForeignKey(Major, default=None)
