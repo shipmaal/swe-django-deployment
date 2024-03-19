@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",  
+    'django.contrib.redirects',
     "allauth",  
     "allauth.account",  
     "allauth.socialaccount",  
@@ -59,6 +60,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "allauth.account.middleware.AccountMiddleware",  
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'django.contrib.redirects.middleware.RedirectFallbackMiddleware'
 ]
 
 AUTHENTICATION_BACKENDS = [
