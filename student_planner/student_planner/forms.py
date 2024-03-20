@@ -1,6 +1,6 @@
 import datetime
 from django import forms
-from planner.models import Student
+from planner.models import Student, Major, Minor
 
 year_choices = [(r,r) for r in range(2025, datetime.date.today().year+4)]
 current_year = datetime.date.today().year
@@ -34,5 +34,18 @@ class StudentForm(forms.ModelForm):
             'minor_one': forms.Select(attrs={'class': 'form-control'}),
             'minor_two': forms.Select(attrs={'class': 'form-control'}),
         }
+    major_one = forms.ModelChoiceField(queryset=Major.objects.all(), 
+                                       empty_label="Select a Major", 
+                                       required=True)
+
+    major_two = forms.ModelChoiceField(queryset=Major.objects.all(), 
+                                       empty_label="Select a Major", 
+                                       required=False)
+    minor_one = forms.ModelChoiceField(queryset=Minor.objects.all(),
+                                        empty_label="Select a Minor",
+                                        required=False)
+    minor_two = forms.ModelChoiceField(queryset=Minor.objects.all(),
+                                        empty_label="Select a Minor",
+                                        required=False)
 
         
