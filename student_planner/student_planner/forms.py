@@ -36,7 +36,7 @@ class StudentForm(forms.ModelForm):
         }
     major_one = forms.ModelChoiceField(queryset=Major.objects.all(), 
                                        empty_label="Select a Major", 
-                                       required=True)
+                                       required=False)
 
     major_two = forms.ModelChoiceField(queryset=Major.objects.all(), 
                                        empty_label="Select a Major", 
