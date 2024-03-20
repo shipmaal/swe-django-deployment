@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 from django.shortcuts import redirect
-from planner.models import Student, Course
+from planner.models import Student, Course, Planner
 
 
 
@@ -26,7 +26,19 @@ class StudentLandingPageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         student = Student.objects.get(email=self.request.user.email)
-        enrolled_courses = Course.objects.filter(planner__student=student)
+        planners = student.planner_set.all()
+        # planners = Planner.objects.filter(student=student)
+        print(planners)
+        sem_1 = planners[0].sem_one
+        print(sem_1)
+        enrolled_courses = [
+            sem_1.class_one,
+            sem_1.class_two,
+            sem_1.class_three,
+            sem_1.class_four,
+            sem_1.class_five,
+            sem_1.class_six
+        ]
         context['enrolled_courses'] = enrolled_courses
         return context
 

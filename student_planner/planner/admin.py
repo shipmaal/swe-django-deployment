@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import Student, User, Advisor, Planner, Course, Major, Minor
+from .models import Student, User, Advisor, Planner, Course, Major, Minor, Semester
 
 # Register your models here.
 admin.site.register(Student)
@@ -10,4 +10,6 @@ admin.site.register(Planner)
 admin.site.register(Course)
 admin.site.register(Major)
 admin.site.register(Minor)
+admin.site.register(Semester)
+
 
