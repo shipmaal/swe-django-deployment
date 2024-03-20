@@ -4,7 +4,7 @@ from planner.models import Student, Course
 
 
 
-class IndedxView(TemplateView):
+class IndexView(TemplateView):
     template_name = 'planner/index.html'
 
 

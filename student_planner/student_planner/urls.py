@@ -23,6 +23,7 @@ from . import views
 urlpatterns = [
    path("admin/", admin.site.urls),
    path("accounts/", include("allauth.urls")), 
+   path("account/" , views.AccountView.as_view(), name="account"),
    path("login/", views.LoginView.as_view(), name="login"),
    path("", include("planner.urls")),
 ]

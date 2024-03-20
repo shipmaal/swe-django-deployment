@@ -31,7 +31,7 @@ class Advisor(models.Model):
     def __str__(self):
         return self.first_name + " " + self.last_name
       
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None, related_name="advisor")
     eagle_id = models.CharField(max_length=8)
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
@@ -42,7 +42,7 @@ class Student(models.Model):
     def __str__(self):
         return self.first_name + " " + self.last_name
       
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None, related_name="student")
     eagle_id = models.CharField(max_length=8)
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
