@@ -1,5 +1,19 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.db import models
+
+from django.contrib.auth.models import AbstractUser
+
+
+class User(AbstractUser):
+    ROLES = (
+        ('STUDENT', 'Student'),
+        ('ADVISOR', 'Advisor'),
+    )
+    role = models.CharField(max_length=7, choices=ROLES, default='STUDENT')
+    email = models.EmailField(max_length=254, unique=True)
+    registered = models.BooleanField(default=False)
+
 
 class Major(models.Model):
     title = models.CharField(max_length=4)
@@ -16,7 +30,8 @@ class Minor(models.Model):
 class Advisor(models.Model):
     def __str__(self):
         return self.first_name + " " + self.last_name
-    
+      
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
     eagle_id = models.CharField(max_length=8)
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
@@ -26,17 +41,23 @@ class Advisor(models.Model):
 class Student(models.Model):
     def __str__(self):
         return self.first_name + " " + self.last_name
+      
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
     eagle_id = models.CharField(max_length=8)
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
     email = models.EmailField(max_length=254, primary_key=True)
-    advisor = models.ForeignKey(Advisor, default=None, on_delete=models.CASCADE)
+    advisor = models.ForeignKey(Advisor, default=None, on_delete=models.CASCADE, null=True)
     class_year = models.CharField(max_length=4)
-    end_semester = models.CharField(max_length=6, default="Spring")
+    SEMESTER_CHOICES = (
+        ('Spring', 'Spring'),
+        ('Fall', 'Fall'),
+    )
+    end_semester = models.CharField(max_length=6, choices=SEMESTER_CHOICES, default='Spring')
     major_one = models.ForeignKey(Major, default=None, on_delete=models.CASCADE, related_name="major_one")
-    major_two = models.ForeignKey(Major, default=None, on_delete=models.CASCADE, related_name="major_two")
-    minor_one = models.ForeignKey(Minor, default=None, on_delete=models.CASCADE, related_name="minor_one")
-    minor_two = models.ForeignKey(Minor, default=None, on_delete=models.CASCADE, related_name="minor_two")
+    major_two = models.ForeignKey(Major, default=None, on_delete=models.CASCADE, related_name="major_two", null=True)
+    minor_one = models.ForeignKey(Minor, default=None, on_delete=models.CASCADE, related_name="minor_one", null=True)
+    minor_two = models.ForeignKey(Minor, default=None, on_delete=models.CASCADE, related_name="minor_two", null=True)
 
     class College(models.TextChoices):
         MCAS = "MCAS", _("Morrissey College of Arts and Sciences")
@@ -48,6 +69,7 @@ class Student(models.Model):
         max_length=5,
         choices=College,
     )
+
 
 class Planner(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)

@@ -1,19 +1,29 @@
 from django.views.generic import TemplateView
-from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import redirect
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+
+
 
 class IndedxView(TemplateView):
     template_name = 'planner/index.html'
 
-# Custom Login View
-class CustomLoginView(TemplateView):
-    template_name = 'planner/login.html'
-    # redirect_authenticated_user = True
 
 # Landing Page for Students after Login
-class StudentLandingPageView(LoginRequiredMixin, TemplateView):
+class StudentLandingPageView(TemplateView):
     template_name = 'planner/landing_student.html'
+    login_url = '/login/'
+    redirect_field_name = 'next'
+    
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('/login/')
+        elif not request.user.registered:
+            return redirect('/login/')
+        else:
+            return super().dispatch(request, *args, **kwargs)
+        
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -29,3 +39,4 @@ class CoursePlansView(TemplateView) :
 # Explore Major View
 class ExploreMajorView( TemplateView):
     template_name = 'planner/explore_major.html'
+

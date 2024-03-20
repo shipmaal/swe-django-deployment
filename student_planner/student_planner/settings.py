@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",  
+    'django.contrib.redirects',
     "allauth",  
     "allauth.account",  
     "allauth.socialaccount",  
@@ -59,6 +60,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "allauth.account.middleware.AccountMiddleware",  
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'django.contrib.redirects.middleware.RedirectFallbackMiddleware'
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -157,9 +159,13 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+# ACCOUNT_ADAPTER = 'student_planner.adapters.CustomAccountAdapter'
+AUTH_USER_MODEL = 'planner.User'
+
 
 SITE_ID = 1  
 
 ACCOUNT_EMAIL_VERIFICATION = "none"  
+ACCOUNT_LOGOUT_REDIRECT_URL = "/login/"
 
-LOGIN_REDIRECT_URL = "/"  
+LOGIN_REDIRECT_URL = "/"
