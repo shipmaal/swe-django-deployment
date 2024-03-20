@@ -67,13 +67,13 @@ class Migration(migrations.Migration):
             },
             managers=[
                 ('objects', django.contrib.auth.models.UserManager()),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Course',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('class_code', models.CharField(max_length=4)),
+                ('class_name', models.CharField(default='', max_length=50)),
+                ('class_description', models.CharField(default='', max_length=200)),
+                ('class_location', models.CharField(default='', max_length=50)),
+                ('class_time', models.TimeField(default='00:00:00')),
+                ('class_days', models.CharField(default='MWF', max_length=10)),
+                ('class_semester', models.CharField(default='Spring', max_length=6)),
+                ('class_professor', models.CharField(default='Joe Smith', max_length=50)),
                 ('num_credits', models.IntegerField()),
                 ('associated_majors', models.ManyToManyField(to='planner.major')),
                 ('associated_minors', models.ManyToManyField(to='planner.minor')),
