@@ -45,7 +45,7 @@ class Student(models.Model):
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
     email = models.EmailField(max_length=254, primary_key=True)
-    advisor = models.ForeignKey(Advisor, default=None, on_delete=models.CASCADE)
+    advisor = models.ForeignKey(Advisor, default=None, on_delete=models.CASCADE, null=True)
     class_year = models.CharField(max_length=4)
     SEMESTER_CHOICES = (
         ('Spring', 'Spring'),
@@ -53,9 +53,9 @@ class Student(models.Model):
     )
     end_semester = models.CharField(max_length=6, choices=SEMESTER_CHOICES, default='Spring')
     major_one = models.ForeignKey(Major, default=None, on_delete=models.CASCADE, related_name="major_one")
-    major_two = models.ForeignKey(Major, default=None, on_delete=models.CASCADE, related_name="major_two")
-    minor_one = models.ForeignKey(Minor, default=None, on_delete=models.CASCADE, related_name="minor_one")
-    minor_two = models.ForeignKey(Minor, default=None, on_delete=models.CASCADE, related_name="minor_two")
+    major_two = models.ForeignKey(Major, default=None, on_delete=models.CASCADE, related_name="major_two", null=True)
+    minor_one = models.ForeignKey(Minor, default=None, on_delete=models.CASCADE, related_name="minor_one", null=True)
+    minor_two = models.ForeignKey(Minor, default=None, on_delete=models.CASCADE, related_name="minor_two", null=True)
 
     class College(models.TextChoices):
         MCAS = "MCAS", _("Morrissey College of Arts and Sciences")

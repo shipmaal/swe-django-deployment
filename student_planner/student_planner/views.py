@@ -1,6 +1,7 @@
 from django.views import generic
 from .forms import StudentForm
-from django.views.generic.edit import FormView, CreateView, UpdateView
+from django.views.generic.edit import FormView
+from planner.models import Student
 
 
 class StudentInfoView(generic.UpdateView):
@@ -11,7 +12,7 @@ class StudentInfoView(generic.UpdateView):
     def get_object(self):
         return self.request.user
     
-class LoginView(CreateView, UpdateView):
+class LoginView(FormView):
     form_class = StudentForm
     template_name = 'index.html'
     success_url = '/'
@@ -29,8 +30,19 @@ class LoginView(CreateView, UpdateView):
         self.request.user.save()
 
         # Create a new student
-        student = form.save(commit=False)
-        student.user = self.request.user
+        student = Student(
+            user=self.request.user,
+            eagle_id=form.cleaned_data['eagle_id'],
+            first_name=form.cleaned_data['first_name'],
+            last_name=form.cleaned_data['last_name'],
+            email=form.cleaned_data['email'],
+            class_year=form.cleaned_data['class_year'],
+            end_semester=form.cleaned_data['end_semester'],
+            major_one=form.cleaned_data['major_one'],
+            major_two=form.cleaned_data['major_two'],
+            minor_one=form.cleaned_data['minor_one'],
+            minor_two=form.cleaned_data['minor_two'],
+        )
         student.save()
 
         return super().form_valid(form)
