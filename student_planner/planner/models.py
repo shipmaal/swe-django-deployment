@@ -71,9 +71,6 @@ class Student(models.Model):
     )
 
 
-class Planner(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
-
 class Course(models.Model):
     class_code = models.CharField(max_length=4)
     class_name = models.CharField(max_length=50, default="")
@@ -88,3 +85,28 @@ class Course(models.Model):
     num_credits = models.IntegerField()
     def __str__(self):
         return self.class_code
+
+
+class Semester(models.Model):
+    class_one = models.ForeignKey(Course, default=None, on_delete=models.CASCADE, related_name='class_one')
+    class_two = models.ForeignKey(Course, default=None, on_delete=models.CASCADE, related_name='class_two')
+    class_three = models.ForeignKey(Course, default=None, on_delete=models.CASCADE, related_name='class_three')
+    class_four = models.ForeignKey(Course, default=None, on_delete=models.CASCADE, related_name='class_four')
+    class_five = models.ForeignKey(Course, default=None, on_delete=models.CASCADE, related_name='class_five')
+    class_six = models.ForeignKey(Course, default=None, on_delete=models.CASCADE, related_name='class_six')
+
+
+class Planner(models.Model):
+    student = models.ForeignKey(Student, default=None, on_delete=models.CASCADE)
+    sem_one = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_one')
+    sem_two = models.ForeignKey(Semester,default=None, on_delete=models.CASCADE, related_name='planner_sem_two')
+    sem_three = models.ForeignKey(Semester,default=None, on_delete=models.CASCADE, related_name='planner_sem_three')
+    sem_four = models.ForeignKey(Semester,default=None, on_delete=models.CASCADE, related_name='planner_sem_four')
+    sem_five = models.ForeignKey(Semester,default=None, on_delete=models.CASCADE, related_name='planner_sem_five')
+    sem_six = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_six')
+    sem_seven = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_seven')
+    sem_eight = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_eight')
+
+
+
+
