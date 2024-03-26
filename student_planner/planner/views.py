@@ -1,6 +1,8 @@
+from typing import Any
 from django.views.generic import TemplateView
 from django.shortcuts import redirect
 from planner.models import Student, Course, Planner
+from .api import PlanningCoursesAPI
 
 
 
@@ -13,6 +15,10 @@ class StudentLandingPageView(TemplateView):
     template_name = 'planner/landing_student.html'
     login_url = '/login/'
     redirect_field_name = 'next'
+
+    def __init__(self, **kwargs: Any) -> None:
+        self.api = PlanningCoursesAPI('http://localhost:8080')
+        super().__init__(**kwargs)
     
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
@@ -39,6 +45,7 @@ class StudentLandingPageView(TemplateView):
             sem_1.class_five,
             sem_1.class_six
         ]
+        context['demo_course'] = self.api.get_courses_by_code('CSCI1101')
         context['enrolled_courses'] = enrolled_courses
         return context
 
