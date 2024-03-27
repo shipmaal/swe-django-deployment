@@ -32,9 +32,7 @@
             Plan your four years at Boston College with ease. Start crafting
             your future today.
           </p>
-          <a href="" class="btn btn-primary"
-            >Start Planning</a
-          >
+          <a href="" class="btn btn-primary">Start Planning</a>
         </div>
       </section>
 
@@ -55,8 +53,12 @@
             {% endfor %}
           </ul>
         </div>
-        {{ demo_course }}
+        <pre id="json"/>
       </section>
     </main>
+    <script>
+      var data = {{ data|safe }};
+      document.getElementById("json").textContent = JSON.stringify(data, null, 2);
+    </script>
   </body>
 </html>

@@ -3,7 +3,8 @@ from django.views.generic import TemplateView
 from django.shortcuts import redirect
 from planner.models import Student, Course, Planner
 from .api import PlanningCoursesAPI
-
+import dataclasses
+import json
 
 
 class IndexView(TemplateView):
@@ -45,7 +46,9 @@ class StudentLandingPageView(TemplateView):
             sem_1.class_five,
             sem_1.class_six
         ]
-        context['demo_course'] = self.api.get_courses_by_code('CSCI1101')
+        data = self.api.get_courses_by_code('CSCI1101')
+        data_dict = dataclasses.asdict(data[0])
+        context['data'] = json.dumps(data_dict)
         context['enrolled_courses'] = enrolled_courses
         return context
 
