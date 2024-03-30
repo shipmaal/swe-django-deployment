@@ -3,16 +3,6 @@ from datetime import datetime
 from typing import List
 
 @dataclass
-class RichTextInfo:
-    plain: str
-    formatted: str
-
-@dataclass
-class TimeAmountInfo:
-    atpDurationTypeKey: str
-    timeQuantity: int
-
-@dataclass
 class MetaInfo:
     versionInd: str
     createTime: datetime
@@ -27,19 +17,19 @@ class AtrributeInfo:
     value: str
 
 @dataclass
-class OrgCodeInfo:
-    id: str
-    value: str
-    typeKey: str
-    stateKey: str
-    descr: RichTextInfo
-    meta: MetaInfo
-    attributes: List[AtrributeInfo]
+class RichTextInfo:
+    plain: str
+    formatted: str
+
+@dataclass
+class TimeAmountInfo:
+    atpDurationTypeKey: str
+    timeQuantity: int
 
 @dataclass
 class BaseInfo:
-    typeKey: str
-    stateKey: str
+    # typeKey: str
+    # stateKey: str
     meta: MetaInfo
     attributes: List[AtrributeInfo]
 
@@ -49,9 +39,14 @@ class BaseIdDescr:
     name: str
     descr: RichTextInfo
 
-
 @dataclass
 class BaseKeyDescr:
     key: str
     name: str
+    descr: RichTextInfo
+
+@dataclass
+class OrgCodeInfo(BaseInfo):
+    id: str
+    value: str
     descr: RichTextInfo

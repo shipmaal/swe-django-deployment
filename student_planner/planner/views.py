@@ -46,9 +46,10 @@ class StudentLandingPageView(TemplateView):
             sem_1.class_five,
             sem_1.class_six
         ]
-        data = self.api.get_courses_by_code('CSCI1101')
+        data = self.api.get_courses_by_code('CSCI1074')
+        context['data'] = data
         data_dict = dataclasses.asdict(data[0])
-        context['data'] = json.dumps(data_dict)
+        context['data_dict'] = json.dumps(data_dict)
         context['enrolled_courses'] = enrolled_courses
         return context
 

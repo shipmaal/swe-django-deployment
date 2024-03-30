@@ -53,11 +53,23 @@
             {% endfor %}
           </ul>
         </div>
-        <pre id="json"/>
       </section>
+      {% for course in data %}
+      <h3>{{course.course.courseCode}} {{ course.course.title }}</h3>
+      <ul class="class-list">
+        <li>
+          <strong>Title:</strong> {{ course.course.title }}<br />
+          <strong>Subject:</strong> {{ course.subjectArea.longName }}<br />
+          <strong>Description:</strong> {{ course.course.descr.formatted|safe }}<br />
+          <strong>Prereqs:</strong> {% for prereq in course.prereqTerseTranslations %}
+          {{ prereq.descr.plain }}{% if not forloop.last %}, {% endif %}{% endfor %}<br />
+        </li>
+      </ul>
+      {% endfor %}
+      <pre id="json"></pre>
     </main>
     <script>
-      var data = {{ data|safe }};
+      var data = {{ data_dict|safe }};
       document.getElementById("json").textContent = JSON.stringify(data, null, 2);
     </script>
   </body>
