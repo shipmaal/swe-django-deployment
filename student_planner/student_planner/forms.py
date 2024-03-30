@@ -5,7 +5,22 @@ from planner.models import Student, Major, Minor, Advisor
 year_choices = [(r,r) for r in range(2025, datetime.date.today().year+4)]
 current_year = datetime.date.today().year
 
-class StudentAccountForm(forms.ModelForm):
+def create_widget(field_type, **kwargs):
+    attrs = {'class': 'form-control'}
+    if kwargs.get('disabled'):
+        attrs['disabled'] = 'disabled'
+    if field_type == 'TextInput':
+        return forms.TextInput(attrs=attrs)
+    elif field_type == 'EmailInput':
+        return forms.EmailInput(attrs=attrs)
+    elif field_type == 'Select':
+        return forms.Select(choices=kwargs.get('choices', []), attrs=attrs)
+    elif field_type == 'HiddenInput':
+        return forms.HiddenInput()
+    else:
+        return None
+
+class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
         fields = [
@@ -23,24 +38,22 @@ class StudentAccountForm(forms.ModelForm):
             'minor_two',
         ]
         widgets = {
-            'eagle_id': forms.TextInput(attrs={'class': 'form-control'}),
-            'first_name': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'readonly'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'readonly'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            'class_year': forms.Select(choices=year_choices, attrs={'class': 'form-control'}),
-            'end_semester': forms.Select(attrs={'class': 'form-control'}),
-            'college': forms.Select(attrs={'class': 'form-control'}),
-            'major_one': forms.Select(attrs={'class': 'form-control'}),
-            'major_two': forms.Select(attrs={'class': 'form-control'}),
-            'minor_one': forms.Select(attrs={'class': 'form-control'}),
-            'minor_two': forms.Select(attrs={'class': 'form-control'}),
+            'eagle_id': create_widget('TextInput'),
+            'first_name': create_widget('TextInput', disabled=True),
+            'last_name': create_widget('TextInput', disabled=True),
+            'email': create_widget('EmailInput', disabled=True),
+            'class_year': create_widget('Select', choices=year_choices),
+            'end_semester': create_widget('Select'),
+            'college': create_widget('Select'),
+            'advisor': create_widget('HiddenInput'),
+            'major_one': create_widget('Select'),
+            'major_two': create_widget('Select'),
+            'minor_one': create_widget('Select'),
+            'minor_two': create_widget('Select'),
         }
-    advisor = forms.ModelChoiceField(queryset=Advisor.objects.all(),
-                                        empty_label="Select an Advisor",
-                                        required=False)
     major_one = forms.ModelChoiceField(queryset=Major.objects.all(), 
                                        empty_label="Select a Major", 
-                                       required=False)
+                                       required=True)
     major_two = forms.ModelChoiceField(queryset=Major.objects.all(), 
                                        empty_label="Select a Major", 
                                        required=False)
@@ -51,44 +64,19 @@ class StudentAccountForm(forms.ModelForm):
                                         empty_label="Select a Minor",
                                         required=False)
 
-class StudentLoginForm(forms.ModelForm):
-    class Meta:
-        model = Student
-        fields = [
-            'eagle_id',
-            'first_name',
-            'last_name',
-            'email',
-            'class_year',
-            'end_semester',
-            'college',
-            'major_one',
-            'major_two',
-            'minor_one',
-            'minor_two',
-        ]
-        widgets = {
-            'eagle_id': forms.TextInput(attrs={'class': 'form-control'}),
-            'first_name': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'readonly'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'readonly'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            'class_year': forms.Select(choices=year_choices, attrs={'class': 'form-control'}),
-            'end_semester': forms.Select(attrs={'class': 'form-control'}),
-            'college': forms.Select(attrs={'class': 'form-control'}),
-            'major_one': forms.Select(attrs={'class': 'form-control'}),
-            'major_two': forms.Select(attrs={'class': 'form-control'}),
-            'minor_one': forms.Select(attrs={'class': 'form-control'}),
-            'minor_two': forms.Select(attrs={'class': 'form-control'}),
-        }
-    major_one = forms.ModelChoiceField(queryset=Major.objects.all(), 
-                                       empty_label="Select a Major", 
-                                       required=False)
-    major_two = forms.ModelChoiceField(queryset=Major.objects.all(), 
-                                       empty_label="Select a Major", 
-                                       required=False)
-    minor_one = forms.ModelChoiceField(queryset=Minor.objects.all(),
-                                        empty_label="Select a Minor",
+class StudentAccountForm(StudentForm):
+    class Meta(StudentForm.Meta):
+        fields = StudentForm.Meta.fields
+        widgets = {**StudentForm.Meta.widgets, 
+                   'advisor': create_widget('Select', choices=[]),
+                   'eagle_id': create_widget('TextInput', disabled=True),}
+        advisor = forms.ModelChoiceField(queryset=Advisor.objects.all(),
+                                        empty_label="Select an Advisor",
                                         required=False)
-    minor_two = forms.ModelChoiceField(queryset=Minor.objects.all(),
-                                        empty_label="Select a Minor",
-                                        required=False)
+                                        
+
+class StudentRegisterForm(StudentForm):
+    class Meta(StudentForm.Meta):
+        fields = StudentForm.Meta.fields
+        widgets = {**StudentForm.Meta.widgets}
+    
