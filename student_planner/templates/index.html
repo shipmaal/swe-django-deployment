@@ -1,47 +1,52 @@
+<!DOCTYPE html>
+
 {% load socialaccount %}
 {% load allauth i18n %}
-<h1>BC Student Planner</h1>
-{% if user.is_authenticated %}
-    <p>Welcome {{ user.first_name }} {{ user.last_name }} !!!</p>
-    {% if user.role == 'STUDENT' %}
-    <form method="post">
-        {% csrf_token %}
-        {% for field in form %}
-    <div class="fieldWrapper">
-        {{ field.errors }}
-        {{ field.label_tag }} {{ field }}
-        {% if field.help_text %}
-          <p class="help" id="{{ field.auto_id }}_helptext">
-            {{ field.help_text|safe }}
-          </p>
-        {% endif %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/fbb407c172.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+          height: 100vh;
+          background: linear-gradient(to bottom, #800000 calc(100vh / 2.5), #ffffff 0%);
+        }
+        .container {
+            margin-top: 20vh; /* Adjust this value to move the card down */
+          }
+      </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body p-5">
+                        <img src="https://login.bc.edu/nidp/images/assets/image/logo-alt2.png" 
+                            class="img-fluid mb-5" 
+                            alt="Boston College Logo"/>
+                            {% if user.is_authenticated %}
+                        <p>Welcome {{ user.first_name }} {{ user.last_name }} !!!</p>
+                        {% block content_auth_form %}
+                            <form method="post" action="{% url 'account_logout' %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-lg btn-danger">{% translate "Log out" %}</button>
+                            </form>
+                        {% endblock content_auth_form %}
+                        {% else %}
+                        <div class="text-center mt-5">
+                            <a href='{% provider_login_url "google" %}' class="btn btn-lg btn-danger">
+                            <i class="fab fa-google m-2"></i> 
+                            <text>Sign in with Google</text>
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-{% endfor %}
-        <button type="submit">Submit</button>
-    </form>
-    {% endif %}
-    {% block content %}
-        {% element h1 %}
-        {% trans "Sign Out" %}
-    {% endelement %}
-    <p>{% trans 'Are you sure you want to sign out?' %}</p>
-    {% url 'account_logout' as action_url %}
-    {% element form method="post" action=action_url no_visible_fields=True %}
-    {% slot body %}
-    {% csrf_token %}
-    {% if redirect_field_value %}
-        <input type="hidden"
-               name="{{ redirect_field_name }}"
-               value="{{ redirect_field_value }}" />
-    {% endif %}
-{% endslot %}
-{% slot actions %}
-{% element button type="submit" %}
-{% trans 'Sign Out' %}
-{% endelement %}
-{% endslot %}
-{% endelement %}
-{% endblock content %}
-{% else %}
-<a href='{% provider_login_url "google" %}'>Google</a>
-{% endif %}
+</body>
+</html>
