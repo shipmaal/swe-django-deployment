@@ -69,7 +69,6 @@ urllib3 = "==2.2.1"
 wcwidth = "==0.2.13"
 webencodings = "==0.5.1"
 yarg = "==0.1.9"
+django-bootstrap5 = "*"
 
 [dev-packages]
-
-

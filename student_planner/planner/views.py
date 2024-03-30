@@ -14,7 +14,7 @@ class IndexView(TemplateView):
 # Landing Page for Students after Login
 class StudentLandingPageView(TemplateView):
     template_name = 'planner/landing_student.html'
-    login_url = '/login/'
+    redirect_url = '/login/'
     redirect_field_name = 'next'
 
     def __init__(self, **kwargs: Any) -> None:
@@ -23,9 +23,9 @@ class StudentLandingPageView(TemplateView):
     
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
-            return redirect('/login/')
+            return redirect(self.redirect_url)
         elif not request.user.registered:
-            return redirect('/login/')
+            return redirect(self.redirect_url)
         else:
             return super().dispatch(request, *args, **kwargs)
         
