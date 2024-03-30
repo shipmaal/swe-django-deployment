@@ -36,12 +36,12 @@
                             </form>
                         {% endblock content_auth_form %}
                         {% else %}
-                        <div class="text-center mt-5">
-                            <a href='{% provider_login_url "google" %}' class="btn btn-lg btn-danger">
-                            <i class="fab fa-google m-2"></i> 
-                            <text>Sign in with Google</text>
-                            </a>
-                        </div>
+                            <div class="text-center mt-5">
+                                <a href='{% provider_login_url "google" %}' class="btn btn-lg btn-danger">
+                                    <i class="fab fa-google m-2"></i> 
+                                    <text>Sign in with Google</text>
+                                </a>
+                            </div>
                         {% endif %}
                     </div>
                 </div>
