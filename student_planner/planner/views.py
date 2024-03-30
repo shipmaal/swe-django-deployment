@@ -14,7 +14,7 @@ class IndexView(TemplateView):
 # Landing Page for Students after Login
 class StudentLandingPageView(TemplateView):
     template_name = 'planner/landing_student.html'
-    redirect_url = '/register/'
+    redirect_url = '/login/'
     redirect_field_name = 'next'
 
     def __init__(self, **kwargs: Any) -> None:
