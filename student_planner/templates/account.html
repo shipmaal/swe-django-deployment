@@ -1,47 +1,87 @@
 {% load socialaccount %}
 {% load allauth i18n %}
-<h1>BC Student Planner</h1>
-{% if user.is_authenticated %}
-    <p>Welcome {{ user.first_name }} {{ user.last_name }} !!!</p>
-    {% if user.role == 'STUDENT' %}
-    <form method="post">
-        {% csrf_token %}
-        {% for field in form %}
-    <div class="fieldWrapper">
-        {{ field.errors }}
-        {{ field.label_tag }} {{ field }}
-        {% if field.help_text %}
-          <p class="help" id="{{ field.auto_id }}_helptext">
-            {{ field.help_text|safe }}
-          </p>
-        {% endif %}
+{% load widget_tweaks %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        height: 100vh;
+        background: linear-gradient(to bottom, #800000 calc(100vh / 2.5), #ffffff 0%);
+        background-repeat: no-repeat;
+      }
+      .container {
+          margin-top: 20vh; /* Adjust this value to move the card down */
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body p-5">
+              <form method="post" class="needs-validation was-validated" novalidate>
+                {% csrf_token %}
+                {% for field in form %}
+                  <div class="form-group">
+                    {{ field.label_tag }}
+                    {% if field.field.required %}
+                      <span class="required" style="color: red">*</span>
+                    {% endif %}
+                    {% if field.field.widget.input_type == "select" %}
+                      {{ field|add_class:"form-control form-select" }}
+                    {% else %}
+                      {{ field|add_class:"form-control" }}
+                    {% endif %}
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                          <div class="alert alert-danger" role="alert">
+                            {{error}}
+                          </div>
+                        {% endfor %}
+                      {% endif %}
+                      {% if field.help_text %}
+                        <small id="{{ field.auto_id }}_helptext" class="form-text text-muted">
+                          {{ field.help_text|safe }}
+                        </small>
+                      {% endif %}
+                  </div>
+                  {% endfor %}
+                  <button type="submit" class="btn btn-danger">Submit</button>
+              </form>
+            </div>
+          </div>
+          <div class='card'>
+            {% block content %}
+              {% element h1 %}
+                {% trans "Sign Out" %}
+              {% endelement %}
+              <p>{% trans 'Are you sure you want to sign out?' %}</p>
+              {% url 'account_logout' as action_url %}
+              {% element form method="post" action=action_url no_visible_fields=True %}
+                {% slot body %}
+                  {% csrf_token %}
+                  {% if redirect_field_value %}
+                    <input type="hidden"
+                          name="{{ redirect_field_name }}"
+                          value="{{ redirect_field_value }}" />
+                  {% endif %}
+                {% endslot %}
+                {% slot actions %}
+                  {% element button type="submit" %}
+                    {% trans 'Sign Out' %}
+                  {% endelement %}
+                {% endslot %}
+              {% endelement %}
+            {% endblock content %}
+          </div>
+        </div>
+        
+      </div>
     </div>
-{% endfor %}
-        <button type="submit">Submit</button>
-    </form>
-    {% endif %}
-    {% block content %}
-        {% element h1 %}
-        {% trans "Sign Out" %}
-    {% endelement %}
-    <p>{% trans 'Are you sure you want to sign out?' %}</p>
-    {% url 'account_logout' as action_url %}
-    {% element form method="post" action=action_url no_visible_fields=True %}
-    {% slot body %}
-    {% csrf_token %}
-    {% if redirect_field_value %}
-        <input type="hidden"
-               name="{{ redirect_field_name }}"
-               value="{{ redirect_field_value }}" />
-    {% endif %}
-{% endslot %}
-{% slot actions %}
-{% element button type="submit" %}
-{% trans 'Sign Out' %}
-{% endelement %}
-{% endslot %}
-{% endelement %}
-{% endblock content %}
-{% else %}
-<a href='{% provider_login_url "google" %}'>Google</a>
-{% endif %}
+  </body>
+</html>

@@ -32,7 +32,7 @@ class AccountView(UpdateView):
         student = self.request.user.student
         initial = super().get_initial()
         user_fields = ['first_name', 'last_name', 'email']
-        student_fields = ['eagle_id', 'class_year', 'end_semester', 'college', 'major_one', 'major_two', 'minor_one', 'minor_two']
+        student_fields = ['eagle_id', 'class_year', 'end_semester', 'college', 'advisor', 'major_one', 'major_two', 'minor_one', 'minor_two']
 
         for field in user_fields:
             initial[field] = getattr(self.request.user, field)
@@ -77,3 +77,4 @@ class RegisterView(FormView):
         initial['email'] = self.request.user.email
 
         return initial
+    
