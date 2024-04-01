@@ -35,9 +35,7 @@ class StudentLandingPageView(TemplateView):
         student = Student.objects.get(email=self.request.user.email)
         planners = student.planner_set.all()
         # planners = Planner.objects.filter(student=student)
-        print(planners)
         sem_1 = planners[0].sem_one
-        print(sem_1)
         enrolled_courses = [
             sem_1.class_one,
             sem_1.class_two,
@@ -46,9 +44,17 @@ class StudentLandingPageView(TemplateView):
             sem_1.class_five,
             sem_1.class_six
         ]
-        data = self.api.get_courses_by_code('CSCI1074')
+        # data = self.api.get_courses_by_code('CSCI1074')
         context['data'] = data
         data_dict = dataclasses.asdict(data[0])
+        data = self.api.get_all_courses()
+        subject = data[0].subjectArea
+        course = data[0].course
+        print(course['id'])
+        print(course['subjectAreaId'])
+        print(subject['id'])
+        print(subject['shortName'])
+        print(subject['longName'])
         context['data_dict'] = json.dumps(data_dict)
         context['enrolled_courses'] = enrolled_courses
         return context
