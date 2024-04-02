@@ -69,21 +69,7 @@ class Student(models.Model):
         max_length=5,
         choices=College,
     )
-
-# class Course(models.Model):
-#     class_code = models.CharField(max_length=4)
-#     class_name = models.CharField(max_length=50, default="")
-#     class_description = models.CharField(max_length=200, default="")
-#     class_location = models.CharField(max_length=50, default="")
-#     class_time = models.TimeField(default="00:00:00")
-#     class_days = models.CharField(max_length=10, default="MWF")
-#     class_semester = models.CharField(max_length=6, default="Spring")
-#     class_professor = models.CharField(max_length=50, default="Joe Smith")
-#     associated_majors = models.ManyToManyField(Major)
-#     associated_minors = models.ManyToManyField(Minor)
-#     num_credits = models.IntegerField()
-#     def __str__(self):
-#         return self.class_code
+    
     
 class Subject(models.Model):
     id = models.CharField(primary_key=True, max_length=4)
@@ -91,7 +77,7 @@ class Subject(models.Model):
     long_name = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.short_name
+        return self.long_name
 
 class Course(models.Model):
     id = models.CharField(primary_key=True, max_length=100)

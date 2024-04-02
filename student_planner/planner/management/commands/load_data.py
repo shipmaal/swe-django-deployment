@@ -5,9 +5,16 @@ from tqdm import tqdm
 class Command(BaseCommand):
     help = 'Load data from API into database'
 
+    def add_arguments(self, parser):
+        parser.add_argument('searchTerm', nargs='?', default=None)
+
     def handle(self, *args, **options):
+        searchTerm = options['searchTerm']
         api = PlanningCoursesAPI('http://localhost:8080')
-        data = api.get_all_courses()
+        if searchTerm is not None:
+            data = api.get_courses_by_code(searchTerm)
+        else:
+            data = api.get_all_courses()
 
         if (data != None): #Ensures the API fully transfers data
             for item in tqdm(data):

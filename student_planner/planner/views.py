@@ -30,7 +30,6 @@ class StudentLandingPageView(TemplateView):
             return super().dispatch(request, *args, **kwargs)
         
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         student = Student.objects.get(email=self.request.user.email)
@@ -58,10 +57,10 @@ class StudentLandingPageView(TemplateView):
             print(subject['shortName'])
             print(subject['longName'])
             '''
-            context['data_dict'] = json.dumps(data_dict)
+            # context['data_dict'] = json.dumps(data_dict)
             context['enrolled_courses'] = enrolled_courses
             context['planners'] = planners
-            '''
+        
         return context
 
 # Course Plans View
