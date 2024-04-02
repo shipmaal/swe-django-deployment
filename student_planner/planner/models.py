@@ -72,17 +72,21 @@ class Student(models.Model):
 
 
 class Course(models.Model):
-    class_code = models.CharField(max_length=4)
-    class_name = models.CharField(max_length=50, default="")
-    class_description = models.CharField(max_length=200, default="")
-    class_location = models.CharField(max_length=50, default="")
-    class_time = models.TimeField(default="00:00:00")
-    class_days = models.CharField(max_length=10, default="MWF")
-    class_semester = models.CharField(max_length=6, default="Spring")
-    class_professor = models.CharField(max_length=50, default="Joe Smith")
+    course_code = models.CharField(max_length=8, db_column='courseCode', null = True) #renamed from class_code
+    course_title = models.CharField(max_length=50, default="", db_column='title') #renamed from class_name
+    course_description = models.CharField(max_length=200, default="") #renamed from class_description
+    course_level = models.CharField(max_length=10, default="Undergraduate")
+    course_semester = models.CharField(max_length=15, default="Every semester") #this may need to be changed to offering enablers
+    course_prerequisites = models.ManyToManyField('self', symmetrical=False, related_name='required_by', blank=True)
+    course_corequisites = models.ManyToManyField('self', symmetrical=False, related_name='required_with', blank=True)
     associated_majors = models.ManyToManyField(Major)
     associated_minors = models.ManyToManyField(Minor)
     num_credits = models.IntegerField()
+    subject_area = models.CharField(max_length=4, db_column='subjectApiId', null = True)
+    #deleted class prof, class time, class days, class location
+
+    class Meta:
+        db_table = 'planner_course'
     def __str__(self):
         return self.class_code
 
