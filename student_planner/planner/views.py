@@ -5,6 +5,7 @@ from planner.models import Student, Course, Planner, Subject, Semester
 from .api import PlanningCoursesAPI
 import dataclasses
 import json
+from django.shortcuts import render
 
 
 class IndexView(TemplateView):
@@ -64,6 +65,16 @@ class CoursePlansView(TemplateView) :
 # Course Plans View
 class CreatePlanView(TemplateView) :
     template_name = 'planner/create_plan.html'
+    def __init__(self, **kwargs):
+        self.api = PlanningCoursesAPI('http://localhost:8080')
+        super().__init__(**kwargs)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        student = Student.objects.get(email=self.request.user.email)
+        object_list = Course.objects.filter(subject_area_id=student.major_one_id)
+        print(object_list)
+        context['object_list'] = object_list
+        return context
 
 # Explore Major View
 class ExploreMajorView( TemplateView):

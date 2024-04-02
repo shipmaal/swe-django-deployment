@@ -12,5 +12,18 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
-    <h1>HI</h1>
+    <section class="features">
+        <div class="container">
+          <h3>Available Classes</h3>
+          <ul class="class-list">
+            {% for obj in object_list %}
+            <li>
+              <strong>Title:</strong> {{ obj.title}}<br />
+            </li>
+            {% empty %}
+            <li>No Courses.</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
 </body>
