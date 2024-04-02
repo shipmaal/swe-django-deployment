@@ -1,6 +1,6 @@
 import datetime
 from django import forms
-from planner.models import Student, Major, Minor, Advisor
+from planner.models import Student, Major, Minor, Advisor, Subject
 
 year_choices = [(r,r) for r in range(2025, datetime.date.today().year+4)]
 current_year = datetime.date.today().year
@@ -33,7 +33,8 @@ class StudentForm(forms.ModelForm):
             'class_year': forms.Select(choices=year_choices, attrs={'class': 'form-control'}),
             'end_semester': forms.Select(attrs={'class': 'form-control'}),
             'college': forms.Select(attrs={'class': 'form-control'}),
-            'advisor': forms.HiddenInput(),
+            #'advisor': forms.HiddenInput(),
+            'advisor': forms.Select(attrs={'class': 'form-control'}),
             'major_one': forms.Select(attrs={'class': 'form-control'}),
             'major_two': forms.Select(attrs={'class': 'form-control'}),
             'minor_one': forms.Select(attrs={'class': 'form-control'}),
@@ -51,6 +52,9 @@ class StudentForm(forms.ModelForm):
     minor_two = forms.ModelChoiceField(queryset=Minor.objects.all(),
                                         empty_label="Select a Minor",
                                         required=False)
+    advisor = forms.ModelChoiceField(queryset=Advisor.objects.all(),
+                                        empty_label="Select Advisor",
+                                        required=True)
 
 class StudentAccountForm(StudentForm):
     class Meta(StudentForm.Meta):
