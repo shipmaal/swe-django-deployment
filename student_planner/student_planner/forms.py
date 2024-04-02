@@ -1,6 +1,6 @@
 import datetime
 from django import forms
-from planner.models import Student, Major, Minor, Advisor
+from planner.models import Student, Major, Minor, Advisor, Subject
 
 year_choices = [(r,r) for r in range(2025, datetime.date.today().year+4)]
 current_year = datetime.date.today().year
@@ -34,33 +34,35 @@ class StudentForm(forms.ModelForm):
             'end_semester': forms.Select(attrs={'class': 'form-control'}),
             'college': forms.Select(attrs={'class': 'form-control'}),
             'advisor': forms.HiddenInput(),
+            'advisor': forms.Select(attrs={'class': 'form-control'}),
             'major_one': forms.Select(attrs={'class': 'form-control'}),
             'major_two': forms.Select(attrs={'class': 'form-control'}),
             'minor_one': forms.Select(attrs={'class': 'form-control'}),
             'minor_two': forms.Select(attrs={'class': 'form-control'}),
         }
-    major_one = forms.ModelChoiceField(queryset=Major.objects.all(), 
+    major_one = forms.ModelChoiceField(queryset=Subject.objects.all(), 
                                        empty_label="Select a Major", 
                                        required=True)
-    major_two = forms.ModelChoiceField(queryset=Major.objects.all(), 
+    major_two = forms.ModelChoiceField(queryset=Subject.objects.all(), 
                                        empty_label="Select a Major", 
                                        required=False)
-    minor_one = forms.ModelChoiceField(queryset=Minor.objects.all(),
+    minor_one = forms.ModelChoiceField(queryset=Subject.objects.all(),
                                         empty_label="Select a Minor",
                                         required=False)
-    minor_two = forms.ModelChoiceField(queryset=Minor.objects.all(),
+    minor_two = forms.ModelChoiceField(queryset=Subject.objects.all(),
                                         empty_label="Select a Minor",
                                         required=False)
+    
 
 class StudentAccountForm(StudentForm):
     class Meta(StudentForm.Meta):
-        fields = StudentForm.Meta.fields
+        fields = [field for field in StudentForm.Meta.fields if field != 'advisor']
         widgets = {**StudentForm.Meta.widgets, 
-                   'advisor': forms.Select(attrs={'class': 'form-control'}),
+                #    'advisor': forms.Select(attrs={'class': 'form-control'}),
                    'eagle_id': forms.TextInput(attrs={'class': 'form-control', 'readonly': 'readonly'})}
-        advisor = forms.ModelChoiceField(queryset=Advisor.objects.all(),
-                                        empty_label="Select an Advisor",
-                                        required=False)
+        # advisor = forms.ModelChoiceField(queryset=Advisor.objects.all(),
+        #                                 empty_label="Select an Advisor",
+        #                                 required=False)
                                         
 
 class StudentRegisterForm(StudentForm):

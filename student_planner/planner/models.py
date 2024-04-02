@@ -15,6 +15,27 @@ class User(AbstractUser):
     registered = models.BooleanField(default=False)
 
 
+class Subject(models.Model):
+    id = models.CharField(primary_key=True, max_length=4)
+    short_name = models.CharField(max_length=100)
+    long_name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.long_name
+
+class Course(models.Model):
+    id = models.CharField(primary_key=True, max_length=8)
+    title = models.CharField(max_length=100)
+    subject_area = models.ForeignKey(Subject, on_delete=models.CASCADE)
+    
+    
+    class Meta:
+        db_table = 'planner_course'
+        
+    def __str__(self):
+        return self.id
+
+
 class Major(models.Model):
     title = models.CharField(max_length=4)
     num_credits = models.IntegerField()
@@ -54,10 +75,10 @@ class Student(models.Model):
         ('Fall', 'Fall'),
     )
     end_semester = models.CharField(max_length=6, choices=SEMESTER_CHOICES, default='Spring')
-    major_one = models.ForeignKey(Major, default=None, on_delete=models.CASCADE, related_name="major_one")
-    major_two = models.ForeignKey(Major, default=None, on_delete=models.CASCADE, related_name="major_two", null=True)
-    minor_one = models.ForeignKey(Minor, default=None, on_delete=models.CASCADE, related_name="minor_one", null=True)
-    minor_two = models.ForeignKey(Minor, default=None, on_delete=models.CASCADE, related_name="minor_two", null=True)
+    major_one = models.ForeignKey(Subject, default=None, on_delete=models.CASCADE, related_name="major_one")
+    major_two = models.ForeignKey(Subject, default=None, on_delete=models.CASCADE, related_name="major_two", null=True)
+    minor_one = models.ForeignKey(Subject, default=None, on_delete=models.CASCADE, related_name="minor_one", null=True)
+    minor_two = models.ForeignKey(Subject, default=None, on_delete=models.CASCADE, related_name="minor_two", null=True)
 
     class College(models.TextChoices):
         MCAS = "MCAS", _("Morrissey College of Arts and Sciences")
@@ -70,23 +91,7 @@ class Student(models.Model):
         choices=College,
     )
 
-
-class Course(models.Model):
-    class_code = models.CharField(max_length=4)
-    class_name = models.CharField(max_length=50, default="")
-    class_description = models.CharField(max_length=200, default="")
-    class_location = models.CharField(max_length=50, default="")
-    class_time = models.TimeField(default="00:00:00")
-    class_days = models.CharField(max_length=10, default="MWF")
-    class_semester = models.CharField(max_length=6, default="Spring")
-    class_professor = models.CharField(max_length=50, default="Joe Smith")
-    associated_majors = models.ManyToManyField(Major)
-    associated_minors = models.ManyToManyField(Minor)
-    num_credits = models.IntegerField()
-    def __str__(self):
-        return self.class_code
-
-
+    
 class Semester(models.Model):
     class_one = models.ForeignKey(Course, default=None, on_delete=models.CASCADE, related_name='class_one')
     class_two = models.ForeignKey(Course, default=None, on_delete=models.CASCADE, related_name='class_two')
