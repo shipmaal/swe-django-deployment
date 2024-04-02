@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     "allauth.socialaccount",  
     "allauth.socialaccount.providers.google",
     'django_bootstrap5',
+    'widget_tweaks',
+    'crispy_forms',
+    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -170,3 +173,7 @@ ACCOUNT_EMAIL_VERIFICATION = "none"
 ACCOUNT_LOGOUT_REDIRECT_URL = "/login/"
 
 LOGIN_REDIRECT_URL = "/"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"

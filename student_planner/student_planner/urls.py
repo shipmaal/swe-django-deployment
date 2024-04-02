@@ -25,5 +25,6 @@ urlpatterns = [
    path("accounts/", include("allauth.urls")), 
    path("account/" , views.AccountView.as_view(), name="account"),
    path("login/", views.LoginView.as_view(), name="login"),
+   path("register/", views.RegisterView.as_view(), name="register"),
    path("", include("planner.urls")),
 ]
