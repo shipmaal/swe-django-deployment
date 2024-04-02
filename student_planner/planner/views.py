@@ -61,6 +61,10 @@ class StudentLandingPageView(TemplateView):
 class CoursePlansView(TemplateView) :
     template_name = 'planner/course_plans.html'
 
+# Course Plans View
+class CreatePlanView(TemplateView) :
+    template_name = 'planner/create_plan.html'
+
 # Explore Major View
 class ExploreMajorView( TemplateView):
     template_name = 'planner/explore_major.html'

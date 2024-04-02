@@ -36,7 +36,13 @@
             Plan your four years at Boston College with ease. Start crafting
             your future today.
           </p>
-          <a href="" class="btn btn-primary">Start Planning</a>
+          {% if planners %}
+          {% endif %}
+          {% if not planners %}
+          <p>You don't have a planner yet!</p>
+          <a href={% url 'create_plan' %} class="btn btn-primary">Start Planning</a>
+          {% endif %}
+          
         </div>
       </section>
 
