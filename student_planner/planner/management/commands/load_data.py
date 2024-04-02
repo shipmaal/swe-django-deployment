@@ -9,24 +9,24 @@ class Command(BaseCommand):
         api = PlanningCoursesAPI('http://localhost:8080')
         data = api.get_all_courses()
 
+        if (data != None): #Ensures the API fully transfers data
+            for item in tqdm(data):
+                if item.subjectArea is None or item.course is None:
+                    continue
+                else:
+                    subject, created = Subject.objects.get_or_create(
+                        id=item.subjectArea['id'],
+                        defaults={
+                            'short_name': item.subjectArea['shortName'],
+                            'long_name': item.subjectArea['longName'],
+                        }
+                    )
 
-        for item in tqdm(data):
-            if item.subjectArea is None or item.course is None:
-                continue
-            else:
-                subject, created = Subject.objects.get_or_create(
-                    id=item.subjectArea['id'],
-                    defaults={
-                        'short_name': item.subjectArea['shortName'],
-                        'long_name': item.subjectArea['longName'],
-                    }
-                )
-
-                course, created = Course.objects.get_or_create(
-                    id=item.course['id'],
-                    defaults={
-                        'subject_area': subject,
-                    }
-                )
+                    course, created = Course.objects.get_or_create(
+                        id=item.course['id'],
+                        defaults={
+                            'subject_area': subject,
+                        }
+                    )
 
         self.stdout.write(self.style.SUCCESS('Data loaded successfully'))
