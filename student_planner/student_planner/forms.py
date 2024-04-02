@@ -65,6 +65,6 @@ class StudentAccountForm(StudentForm):
 
 class StudentRegisterForm(StudentForm):
     class Meta(StudentForm.Meta):
-        fields = StudentForm.Meta.fields
+        fields = [field for field in StudentForm.Meta.fields if field != 'advisor']
         widgets = {**StudentForm.Meta.widgets}
     
