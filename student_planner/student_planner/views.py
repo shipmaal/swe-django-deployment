@@ -1,6 +1,7 @@
 from django.views.generic import TemplateView
 from .forms import StudentAccountForm, StudentRegisterForm
 from django.views.generic.edit import FormView, UpdateView
+from django.shortcuts import redirect
 from planner.models import Student
 
 
@@ -51,6 +52,12 @@ class RegisterView(FormView):
     form_class = StudentRegisterForm
     template_name = 'register.html'
     success_url = '/'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('/login/')
+        
+        return super().dispatch(request, *args, **kwargs)
 
     def get_object(self):
         if self.request.user.is_authenticated:

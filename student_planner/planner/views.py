@@ -14,7 +14,6 @@ class IndexView(TemplateView):
 # Landing Page for Students after Login
 class StudentLandingPageView(TemplateView):
     template_name = 'planner/landing_student.html'
-    redirect_url = '/register/'
     redirect_field_name = 'next'
 
     def __init__(self, **kwargs: Any) -> None:
@@ -23,9 +22,9 @@ class StudentLandingPageView(TemplateView):
     
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
-            return redirect(self.redirect_url)
+            return redirect('/login/')
         elif not request.user.registered:
-            return redirect(self.redirect_url)
+            return redirect('/register/')
         else:
             return super().dispatch(request, *args, **kwargs)
         
@@ -44,20 +43,15 @@ class StudentLandingPageView(TemplateView):
                 sem_1.class_five,
                 sem_1.class_six
             ]
-            '''
+           
             data = self.api.get_courses_by_code('CSCI1074')
             context['data'] = data
             data_dict = dataclasses.asdict(data[0])
             data = self.api.get_all_courses()
             subject = data[0].subjectArea
             course = data[0].course
-            print(course['id'])
-            print(course['subjectAreaId'])
-            print(subject['id'])
-            print(subject['shortName'])
-            print(subject['longName'])
-            '''
-            # context['data_dict'] = json.dumps(data_dict)
+           
+            context['data_dict'] = json.dumps(data_dict)
             context['enrolled_courses'] = enrolled_courses
             context['planners'] = planners
         

@@ -30,8 +30,9 @@ class Command(BaseCommand):
                     )
 
                     course, created = Course.objects.get_or_create(
-                        id=item.course['id'],
+                        id=item.course['courseCode'],
                         defaults={
+                            'title': item.course['title'],
                             'subject_area': subject,
                         }
                     )
