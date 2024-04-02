@@ -96,7 +96,10 @@ class Subject(models.Model):
 class Course(models.Model):
     id = models.CharField(primary_key=True, max_length=100)
     subject_area = models.ForeignKey(Subject, on_delete=models.CASCADE)
-
+    
+    class Meta:
+        db_table = 'planner_course'
+        
     def __str__(self):
         return self.id
 
