@@ -91,11 +91,7 @@ class Student(models.Model):
         choices=College,
     )
 
-    
-
-
-class Planner(models.Model):
-    class Semester(models.Model):
+class Semester(models.Model):
         class Meta:
             constraints = [
                 models.CheckConstraint(
@@ -106,10 +102,8 @@ class Planner(models.Model):
 
         credit_hours = models.PositiveIntegerField()
         courses = models.ManyToManyField(Course)
-    
 
-
-    id = models.AutoField(primary_key=True)
+class Planner(models.Model):
     student = models.ForeignKey(Student, default=None, on_delete=models.CASCADE)
     fall_one = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_one')
     spring_one = models.ForeignKey(Semester,default=None, on_delete=models.CASCADE, related_name='planner_sem_two')
@@ -119,7 +113,3 @@ class Planner(models.Model):
     spring_three = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_six')
     fall_four = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_seven')
     spring_four = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_eight')
-
-
-
-
