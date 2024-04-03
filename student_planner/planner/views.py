@@ -1,7 +1,8 @@
 from typing import Any
 from django.views.generic import TemplateView
 from django.shortcuts import redirect
-from planner.models import Student, Course, Planner, Subject, Semester
+from django.contrib import messages
+from planner.models import Student, Planner
 from .api import PlanningCoursesAPI
 import dataclasses
 import json
@@ -22,8 +23,10 @@ class StudentLandingPageView(TemplateView):
     
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
+            messages.error(request, 'You must be logged in to view this page.')
             return redirect('/login/')
         elif not request.user.registered:
+            messages.error(request, 'You must be registered to view this page.')
             return redirect('/register/')
         else:
             return super().dispatch(request, *args, **kwargs)

@@ -2,6 +2,7 @@ from django.views.generic import TemplateView
 from .forms import StudentAccountForm, StudentRegisterForm
 from django.views.generic.edit import FormView, UpdateView
 from django.shortcuts import redirect
+from django.contrib import messages
 from planner.models import Student
 
 
@@ -55,7 +56,12 @@ class RegisterView(FormView):
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
+            messages.error(request, 'You must be logged in to register.')
             return redirect('/login/')
+        
+        if request.user.registered:
+            messages.warning(request, 'You have already registered.')
+            return redirect('/')
         
         return super().dispatch(request, *args, **kwargs)
 
