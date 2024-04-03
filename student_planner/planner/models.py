@@ -91,17 +91,22 @@ class Student(models.Model):
         choices=College,
     )
 
-class Semester(models.Model):
-        class Meta:
-            constraints = [
-                models.CheckConstraint(
-                    check=models.Q(credit_hours__lte=21),
-                    name='credit_hours_limit'
-                )
-            ]
+    
 
-        credit_hours = models.PositiveIntegerField()
-        courses = models.ManyToManyField(Course)
+
+
+class Semester(models.Model):
+    class Meta:
+        constraints = [
+            models.CheckConstraint(
+                check=models.Q(credit_hours__lte=21),
+                name='credit_hours_limit'
+            )
+        ]
+
+    credit_hours = models.PositiveIntegerField()
+    courses = models.ManyToManyField(Course)
+    
 
 class Planner(models.Model):
     student = models.ForeignKey(Student, default=None, on_delete=models.CASCADE)
