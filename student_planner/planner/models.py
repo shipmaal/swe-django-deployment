@@ -91,10 +91,6 @@ class Student(models.Model):
         choices=College,
     )
 
-    
-
-
-
 class Semester(models.Model):
     class Meta:
         constraints = [
