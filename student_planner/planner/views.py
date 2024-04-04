@@ -80,3 +80,7 @@ class CreatePlanView(TemplateView) :
 class ExploreMajorView( TemplateView):
     template_name = 'planner/explore_major.html'
 
+
+class PlanSemester(TemplateView):
+    template_name = 'planner/plan_semester.html'
+

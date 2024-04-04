@@ -100,7 +100,7 @@ class Semester(models.Model):
             )
         ]
 
-    credit_hours = models.PositiveIntegerField()
+    credit_hours = models.PositiveIntegerField(default=0)
     courses = models.ManyToManyField(Course)
     
 
