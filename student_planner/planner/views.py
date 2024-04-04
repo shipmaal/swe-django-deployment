@@ -101,6 +101,10 @@ class PlanSemester(FormView):
     form_class = SemesterForm
     template_name = 'planner/plan_semester.html'
     success_url = '../create-plan'
+    def __init__(self, **kwargs: Any) -> None:
+        self.api = PlanningCoursesAPI('https://localhost:8080')
+        super().__init__(**kwargs)
+    
 
     def form_valid(self, form):
         semester = Semester.objects.create()
@@ -126,10 +130,14 @@ class PlanSemester(FormView):
         # Calculate and update credit hours
         '''
         credit_hours = 0
-        for course in selected_courses:
+        for course in selected_courses + optional_courses:
+            if course:
+                print(course.id)
+                data = self.api.get_courses_by_code(course.id)
+                credit_hours += data.course['creditOptionIds']
         semester.credit_hours = credit_hours
-        '''
         semester.save()
+        '''
         return super().form_valid(form)
     '''
     def get_initial(self):
