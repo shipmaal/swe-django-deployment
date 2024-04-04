@@ -106,6 +106,8 @@ class Semester(models.Model):
 
 class Planner(models.Model):
     student = models.ForeignKey(Student, default=None, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True, null=True)
     fall_one = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_one', null=True, blank=True)
     spring_one = models.ForeignKey(Semester,default=None, on_delete=models.CASCADE, related_name='planner_sem_two', null=True, blank=True)
     fall_two = models.ForeignKey(Semester,default=None, on_delete=models.CASCADE, related_name='planner_sem_three', null=True, blank=True)

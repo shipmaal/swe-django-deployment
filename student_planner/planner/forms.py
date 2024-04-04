@@ -1,6 +1,6 @@
 import datetime
 from django import forms
-from planner.models import Planner, Semester, Course
+from planner.models import Planner, Course
 
 class SemesterForm(forms.Form):
     class_one = forms.ModelChoiceField(
@@ -28,3 +28,11 @@ class SemesterForm(forms.Form):
                     empty_label="Select Course",
                     required=False)
     
+class PlannerForm(forms.ModelForm):
+    class Meta:
+        model = Planner
+        fields = ['name', 'description']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control'}),
+        }

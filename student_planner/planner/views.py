@@ -14,7 +14,7 @@ class IndexView(TemplateView):
 
 
 # Landing Page for Students after Login
-class StudentLandingPageView(FormView):
+class StudentLandingPageView(TemplateView):
     template_name = 'planner/landing_student.html'
     redirect_field_name = 'next'
 
