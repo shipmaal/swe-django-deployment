@@ -29,9 +29,6 @@
             {% for semester_name, semester in planner.semesters %}
             <a href="/plan-semester/{{semester.pk}}">
                 <div class="card" style="min-height:360px;">
-                  <div>
-                    
-                  </div>
                   <h2 style="margin: 16 0 0 0; background-color: white">{{ semester_name|replace_underscore|title }}</h2>
                   <hr>
                     <div style="background-color: rgba(211, 211, 211, 0.5); height: 100% !important;">

@@ -94,10 +94,19 @@ class CreatePlanView(FormView) :
     
     def form_valid(self, form):
         student = Student.objects.get(email=self.request.user.email)
+        semesters = [Semester.objects.create(credit_hours=0) for _ in range(8)]
         planner = Planner.objects.create(
             student=student,
             name=form.cleaned_data['name'],
-            description=form.cleaned_data['description']
+            description=form.cleaned_data['description'],
+            fall_one=semesters[0],
+            spring_one=semesters[1],
+            fall_two=semesters[2],
+            spring_two=semesters[3],
+            fall_three=semesters[4],
+            spring_three=semesters[5],
+            fall_four=semesters[6],
+            spring_four=semesters[7]
         )
 
         return super().form_valid(form)
