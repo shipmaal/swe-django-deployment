@@ -33,7 +33,7 @@ class Course(models.Model):
         db_table = 'planner_course'
         
     def __str__(self):
-        return self.id
+        return self.title
 
 
 class Major(models.Model):
@@ -92,16 +92,17 @@ class Student(models.Model):
     )
 
 class Semester(models.Model):
-        class Meta:
-            constraints = [
-                models.CheckConstraint(
-                    check=models.Q(credit_hours__lte=21),
-                    name='credit_hours_limit'
-                )
-            ]
+    class Meta:
+        constraints = [
+            models.CheckConstraint(
+                check=models.Q(credit_hours__lte=21),
+                name='credit_hours_limit'
+            )
+        ]
 
-        credit_hours = models.PositiveIntegerField()
-        courses = models.ManyToManyField(Course)
+    credit_hours = models.PositiveIntegerField(default=0)
+    courses = models.ManyToManyField(Course)
+    
 
 class Planner(models.Model):
     student = models.ForeignKey(Student, default=None, on_delete=models.CASCADE)
