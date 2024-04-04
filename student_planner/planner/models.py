@@ -33,7 +33,7 @@ class Course(models.Model):
         db_table = 'planner_course'
         
     def __str__(self):
-        return self.id
+        return self.title
 
 
 class Major(models.Model):

@@ -23,7 +23,7 @@ class SemesterForm(forms.Form):
                     queryset=Course.objects.all(),
                     empty_label="Select Course",
                     required=False)
-    class_siz = forms.ModelChoiceField(
+    class_six = forms.ModelChoiceField(
                     queryset=Course.objects.all(),
                     empty_label="Select Course",
                     required=False)

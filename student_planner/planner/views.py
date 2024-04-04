@@ -1,8 +1,9 @@
 from typing import Any
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, FormView
 from django.shortcuts import redirect
 from planner.models import Student, Course, Planner, Subject, Semester
 from .api import PlanningCoursesAPI
+from .forms import SemesterForm
 import dataclasses
 import json
 from django.shortcuts import render
@@ -81,6 +82,50 @@ class ExploreMajorView( TemplateView):
     template_name = 'planner/explore_major.html'
 
 
-class PlanSemester(TemplateView):
+class PlanSemester(FormView):
+    form_class = SemesterForm
     template_name = 'planner/plan_semester.html'
+    success_url = '../create-plan'
+
+    def form_valid(self, form):
+        semester = Semester.objects.create()
+
+        # Add the selected courses to the semester
+        selected_courses = [
+            form.cleaned_data['class_one'],
+            form.cleaned_data['class_two'],
+            form.cleaned_data['class_three'],
+            form.cleaned_data['class_four']
+        ]
+
+        # Add optional courses if selected
+        optional_courses = [
+            form.cleaned_data['class_five'],
+            form.cleaned_data['class_six']
+        ]
+
+        for course in selected_courses + optional_courses:
+            if course:
+                semester.courses.add(course)
+
+        # Calculate and update credit hours
+        '''
+        credit_hours = 0
+        for course in selected_courses:
+        semester.credit_hours = credit_hours
+        '''
+        semester.save()
+        return super().form_valid(form)
+    '''
+    def get_initial(self):
+        if not self.request.user.is_authenticated:
+            return {}
+        
+        initial = super().get_initial()
+        initial['first_name'] = self.request.user.first_name
+        initial['last_name'] = self.request.user.last_name
+        initial['email'] = self.request.user.email
+
+        return initial
+        '''
 
