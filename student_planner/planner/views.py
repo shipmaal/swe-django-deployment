@@ -14,7 +14,7 @@ class IndexView(TemplateView):
 
 
 # Landing Page for Students after Login
-class StudentLandingPageView(TemplateView):
+class StudentLandingPageView(FormView):
     template_name = 'planner/landing_student.html'
     redirect_field_name = 'next'
 
@@ -36,25 +36,7 @@ class StudentLandingPageView(TemplateView):
         student = Student.objects.get(email=self.request.user.email)
         planners = Planner.objects.filter(student=student)
         if planners:
-            sem_1 = planners[0].sem_one
-            enrolled_courses = [
-                sem_1.class_one,
-                sem_1.class_two,
-                sem_1.class_three,
-                sem_1.class_four,
-                sem_1.class_five,
-                sem_1.class_six
-            ]
-           
-            data = self.api.get_courses_by_code('CSCI1074')
-            context['data'] = data
-            data_dict = dataclasses.asdict(data[0])
-            data = self.api.get_all_courses()
-            subject = data[0].subjectArea
-            course = data[0].course
-           
-            context['data_dict'] = json.dumps(data_dict)
-            context['enrolled_courses'] = enrolled_courses
+            sem_1 = planners[0].fall_one
             context['planners'] = planners
         
         return context
@@ -63,22 +45,55 @@ class StudentLandingPageView(TemplateView):
 class CoursePlansView(TemplateView) :
     template_name = 'planner/course_plans.html'
 
+
 # Course Plans View
-class CreatePlanView(TemplateView) :
+class CreatePlanView(FormView) :
     template_name = 'planner/create_plan.html'
     def __init__(self, **kwargs):
         self.api = PlanningCoursesAPI('http://localhost:8080')
         super().__init__(**kwargs)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         student = Student.objects.get(email=self.request.user.email)
-        object_list = Course.objects.filter(subject_area_id=student.major_one_id)
-        print(object_list)
-        context['object_list'] = object_list
+        planners = Planner.objects.filter(student=student)
+
+        if not planners:
+            # Create empty semesters first
+            semesters = [Semester.objects.create(credit_hours=0) for _ in range(8)]
+
+            # Create the planner with the semesters
+            planner = Planner.objects.create(
+                student=student,
+                fall_one=semesters[0],
+                spring_one=semesters[1],
+                fall_two=semesters[2],
+                spring_two=semesters[3],
+                fall_three=semesters[4],
+                spring_three=semesters[5],
+                fall_four=semesters[6],
+                spring_four=semesters[7]
+            )
+
+            planners = Planner.objects.filter(student=student)
+        
+        for planner in planners:
+            planner.semesters = [
+                ('fall_one', planner.fall_one),
+                ('spring_one', planner.spring_one),
+                ('fall_two', planner.fall_two),
+                ('spring_two', planner.spring_two),
+                ('fall_three', planner.fall_three),
+                ('spring_three', planner.spring_three),
+                ('fall_four', planner.fall_four),
+                ('spring_four', planner.spring_four),
+            ]
+
+        context['planners'] = planners
         return context
 
 # Explore Major View
-class ExploreMajorView( TemplateView):
+class ExploreMajorView(TemplateView):
     template_name = 'planner/explore_major.html'
 
 
