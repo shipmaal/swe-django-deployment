@@ -1,12 +1,10 @@
 from typing import Any
 from django.views.generic import TemplateView, FormView
 from django.shortcuts import redirect
-from planner.models import Student, Course, Planner, Subject, Semester
+from planner.models import Student, Planner, Semester
 from .api import PlanningCoursesAPI
-from .forms import SemesterForm
-import dataclasses
-import json
-from django.shortcuts import render
+from .forms import SemesterForm, PlannerForm
+
 
 
 class IndexView(TemplateView):
@@ -47,8 +45,11 @@ class CoursePlansView(TemplateView) :
 
 
 # Course Plans View
-class CreatePlanView(TemplateView) :
+class CreatePlanView(FormView) :
+    form_class = PlannerForm
     template_name = 'planner/create_plan.html'
+    success_url = '/create-plan/'
+
     def __init__(self, **kwargs):
         self.api = PlanningCoursesAPI('http://localhost:8080')
         super().__init__(**kwargs)
@@ -88,9 +89,18 @@ class CreatePlanView(TemplateView) :
                 ('fall_four', planner.fall_four),
                 ('spring_four', planner.spring_four),
             ]
-
         context['planners'] = planners
         return context
+    
+    def form_valid(self, form):
+        student = Student.objects.get(email=self.request.user.email)
+        planner = Planner.objects.create(
+            student=student,
+            name=form.cleaned_data['name'],
+            description=form.cleaned_data['description']
+        )
+
+        return super().form_valid(form)
 
 # Explore Major View
 class ExploreMajorView(TemplateView):

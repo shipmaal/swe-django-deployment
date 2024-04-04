@@ -101,7 +101,7 @@ class Semester(models.Model):
         ]
 
     credit_hours = models.PositiveIntegerField(default=0)
-    courses = models.ManyToManyField(Course)
+    courses = models.ManyToManyField(Course, blank=True, default=None)
     
 
 class Planner(models.Model):
