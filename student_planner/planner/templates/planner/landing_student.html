@@ -14,16 +14,14 @@
   </head>
   <body>
     <header class="main-header">
-      <div class="container">
-        <h1 class="logo">BC Student Planner</h1>
-        <nav class="main-nav">
-          <ul>
-            <li><a href="{% url 'account' %}">My Profile</a></li>
-
-            {% comment %}
-            <li><a href="{% url 'four_year_plan' %}">My 4-Year Plan</a></li>
-            {% endcomment %}
-            <li>My 4-Year Plan</li>
+      <div class="header-container">
+        <img src="{% static 'assets/logo.png' %}" alt="Boston College Logo" class="navbar-logo">
+        <div class="header-content">
+            <h1 class="logo">BC Student Planner</h1>
+            <div class="main-nav">
+            <ul>
+              <li><a href="{% url 'account' %}">My Profile</a></li>
+              <li>My 4-Year Plan</li>
           </ul>
         </nav>
       </div>
@@ -41,7 +39,7 @@
           {% endif %}
           {% if not planners %}
           <p>You don't have a planner yet!</p>
-          <a href={% url 'create_plan' %} class="btn btn-primary">Start Planning</a>
+          <a href="{% url 'create_plan' %}" class="btn btn-primary start-planning">Start Planning</a>
           {% endif %}
           
         </div>

@@ -80,7 +80,8 @@ body {
 /* Buttons */
 .btn-primary {
   display: inline-block;
-  background-color: #007bff;
+  background-color: #8a100b;
+  outline-color: #8a100b; /* Same as background color */
   color: #fff;
   padding: 10px 20px;
   text-decoration: none;
@@ -89,7 +90,8 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #8a100b;
+  outline-color: #8a100b; /* Same as background color */
 }
 
 /* Toast Messages */
@@ -106,4 +108,71 @@ body {
       display: block;
       margin-bottom: 10px;
   }
+}
+
+.navbar-logo {
+  height: 50px; /* Adjust the size as needed */
+  float: none; /* Remove the float */
+  margin-right: 15px; /* Keeps some space next to the logo */
+  vertical-align: middle; /* Aligns logo with text vertically */
+}
+
+.header-content {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logo {
+  display: inline; /* Allows the title to be in line with the logo */
+  margin: 0; /* Adjust as necessary */
+}
+
+.main-nav {
+  display: inline-block; /* Aligns the navigation inline with the logo and title */
+}
+
+.main-nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav ul li {
+  display: inline-block; /* Aligns menu items horizontally */
+  margin-right: 20px; /* Space between menu items */
+}
+
+.main-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px; /* Optional: Add padding for better touch targets */
+}
+
+.header-container {
+  display: flex;
+  align-items: start;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.navbar-logo {
+  width: 50px; /* Adjust as needed */
+  height: 50px; /* Adjust as needed */
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+.start-planning {
+  display: block; /* Make the link display as a block element */
+  width: max-content; /* This will make the width of the button content-based */
+  margin: 20px auto; /* This will center the button horizontally */
+}
+
+.btn .btn-primary .start-planning {
+  background-color: #8a100b; /* Desired color */
+  color: #fff; /* White text */
+  outline-color: #8a100b; /* Same as background color */
 }

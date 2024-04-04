@@ -1,87 +1,99 @@
-{% load socialaccount %}
+{% load static %}
 {% load allauth i18n %}
 {% load widget_tweaks %}
 {% load django_bootstrap5 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
+{% load static %}
+{% load i18n %}
+{% load account %}
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Page - Boston College Student Planner</title>
     <style>
-      body {
-        height: 100vh;
-        background: linear-gradient(to bottom, #800000 calc(100vh / 2.5), #ffffff 0%);
-        background-repeat: no-repeat;
-      }
-      .container {
-          margin-top: 20vh; /* Adjust this value to move the card down */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff; /* All white background */
+        }
+        .navbar {
+            background-color: #8a100b; /* Red background */
+            padding: 10px 20px;
+        }
+        .navbar img {
+            height: 50px; /* Adjust based on your logo's size */
+        }
+        .container {
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .btn-danger {
+            background-color: #8a100b;
+            color: #fff;
+            border: 2px solid #8a100b;
         }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+    <nav class="navbar">
+        <img src="{% static 'assets/logo.png' %}" alt="Logo">
+    </nav>
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body p-5">
-              <form method="post" class="needs-validation was-validated" novalidate>
-                {% csrf_token %}
-                {% for field in form %}
-                  <div class="form-group">
-                    {{ field.label_tag }}
-                    {% if field.field.required %}
-                      <span class="required" style="color: red">*</span>
-                    {% endif %}
-                    {% if field.field.widget.input_type == "select" %}
-                      {{ field|add_class:"form-control form-select" }}
-                    {% else %}
-                      {{ field|add_class:"form-control" }}
-                    {% endif %}
-                    {% if field.errors %}
-                        {% for error in field.errors %}
-                          <div class="alert alert-danger" role="alert">
-                            {{error}}
-                          </div>
-                        {% endfor %}
-                      {% endif %}
-                      {% if field.help_text %}
-                        <small id="{{ field.auto_id }}_helptext" class="form-text text-muted">
-                          {{ field.help_text|safe }}
-                        </small>
-                      {% endif %}
-                  </div>
-                  {% endfor %}
-                  <button type="submit" class="btn btn-danger">Submit</button>
-              </form>
+        <div class="row justify-content-center">
+            <div class="col-md-6"> <!-- Adjusted column width for better layout -->
+                <div class="card">
+                    <div class="card-body p-5">
+                        <form method="post" class="needs-validation was-validated" novalidate>
+                            {% csrf_token %}
+                            {% for field in form %}
+                            <div class="form-group">
+                                {{ field.label_tag }}
+                                {% if field.field.required %}
+                                <span class="required">*</span>
+                                {% endif %}
+                                {{ field|add_class:"form-control" }}
+                                {% if field.errors %}
+                                <div class="alert alert-danger" role="alert">
+                                    {% for error in field.errors %}
+                                    {{ error }}
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                                {% if field.help_text %}
+                                <small id="{{ field.auto_id }}_helptext" class="form-text text-muted">
+                                    {{ field.help_text|safe }}
+                                </small>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                            <button type="submit" class="btn btn-danger">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5>{% trans "Sign Out" %}</h5>
+                        <p>{% trans 'Are you sure you want to sign out?' %}</p>
+                        <form method="post" action="{% url 'account_logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">{% trans 'Sign Out' %}</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class='card'>
-            {% block content %}
-              {% element h1 %}
-                {% trans "Sign Out" %}
-              {% endelement %}
-              <p>{% trans 'Are you sure you want to sign out?' %}</p>
-              {% url 'account_logout' as action_url %}
-              {% element form method="post" action=action_url no_visible_fields=True %}
-                {% slot body %}
-                  {% csrf_token %}
-                  {% if redirect_field_value %}
-                    <input type="hidden"
-                          name="{{ redirect_field_name }}"
-                          value="{{ redirect_field_value }}" />
-                  {% endif %}
-                {% endslot %}
-                {% slot actions %}
-                  {% element button type="submit" %}
-                    {% trans 'Sign Out' %}
-                  {% endelement %}
-                {% endslot %}
-              {% endelement %}
-            {% endblock content %}
-          </div>
         </div>
-        
-      </div>
     </div>
-  </body>
+</body>
 </html>
