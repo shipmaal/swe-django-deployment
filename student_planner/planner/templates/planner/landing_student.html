@@ -37,6 +37,8 @@
             your future today.
           </p>
           {% if planners %}
+          <p>View your planners!</p>
+          <a href={% url 'create_plan' %} class="btn btn-primary">Start Planning</a>
           {% endif %}
           {% if not planners %}
           <p>You don't have a planner yet!</p>
