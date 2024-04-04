@@ -41,6 +41,8 @@ class Major(models.Model):
     num_credits = models.IntegerField()
     def __str__(self):
         return self.title
+        #courses = models.ManyToManyField(Course, blank=True, default=None)
+        #Add a many to many field in the Major to then be able to validate with courses 
 
 class Minor(models.Model):
     title = models.CharField(max_length=4)
@@ -102,6 +104,7 @@ class Semester(models.Model):
 
     credit_hours = models.PositiveIntegerField(default=0)
     courses = models.ManyToManyField(Course, blank=True, default=None)
+    #Add a many to many field in the Major to then be able to validate with courses 
     
 
 class Planner(models.Model):

@@ -2,6 +2,8 @@ from django.core.management.base import BaseCommand
 from planner.models import Course, Subject
 from planner.api import PlanningCoursesAPI
 from tqdm import tqdm
+
+#USAGE: python manage.py load_data <csci>
 class Command(BaseCommand):
     help = 'Load data from API into database'
 
