@@ -52,7 +52,6 @@ class StudentForm(forms.ModelForm):
     minor_two = forms.ModelChoiceField(queryset=Subject.objects.all(),
                                         empty_label="Select a Minor",
                                         required=False)
-    
 
 class StudentAccountForm(StudentForm):
     class Meta(StudentForm.Meta):

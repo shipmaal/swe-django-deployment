@@ -33,7 +33,7 @@ class Course(models.Model):
         db_table = 'planner_course'
         
     def __str__(self):
-        return self.id
+        return self.title
 
 
 class Major(models.Model):
@@ -91,27 +91,28 @@ class Student(models.Model):
         choices=College,
     )
 
-    
 class Semester(models.Model):
-    class_one = models.ForeignKey(Course, default=None, on_delete=models.CASCADE, related_name='class_one')
-    class_two = models.ForeignKey(Course, default=None, on_delete=models.CASCADE, related_name='class_two')
-    class_three = models.ForeignKey(Course, default=None, on_delete=models.CASCADE, related_name='class_three')
-    class_four = models.ForeignKey(Course, default=None, on_delete=models.CASCADE, related_name='class_four')
-    class_five = models.ForeignKey(Course, default=None, on_delete=models.CASCADE, related_name='class_five')
-    class_six = models.ForeignKey(Course, default=None, on_delete=models.CASCADE, related_name='class_six')
+    class Meta:
+        constraints = [
+            models.CheckConstraint(
+                check=models.Q(credit_hours__lte=21),
+                name='credit_hours_limit'
+            )
+        ]
 
+    credit_hours = models.PositiveIntegerField(default=0)
+    courses = models.ManyToManyField(Course, blank=True, default=None)
+    
 
 class Planner(models.Model):
     student = models.ForeignKey(Student, default=None, on_delete=models.CASCADE)
-    sem_one = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_one')
-    sem_two = models.ForeignKey(Semester,default=None, on_delete=models.CASCADE, related_name='planner_sem_two')
-    sem_three = models.ForeignKey(Semester,default=None, on_delete=models.CASCADE, related_name='planner_sem_three')
-    sem_four = models.ForeignKey(Semester,default=None, on_delete=models.CASCADE, related_name='planner_sem_four')
-    sem_five = models.ForeignKey(Semester,default=None, on_delete=models.CASCADE, related_name='planner_sem_five')
-    sem_six = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_six')
-    sem_seven = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_seven')
-    sem_eight = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_eight')
-
-
-
-
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True, null=True)
+    fall_one = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_one', null=True, blank=True)
+    spring_one = models.ForeignKey(Semester,default=None, on_delete=models.CASCADE, related_name='planner_sem_two', null=True, blank=True)
+    fall_two = models.ForeignKey(Semester,default=None, on_delete=models.CASCADE, related_name='planner_sem_three', null=True, blank=True)
+    spring_two = models.ForeignKey(Semester,default=None, on_delete=models.CASCADE, related_name='planner_sem_four', null=True, blank=True)
+    fall_three = models.ForeignKey(Semester,default=None, on_delete=models.CASCADE, related_name='planner_sem_five', null=True, blank=True)
+    spring_three = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_six', null=True, blank=True)
+    fall_four = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_seven', null=True, blank=True)
+    spring_four = models.ForeignKey(Semester, default=None,on_delete=models.CASCADE, related_name='planner_sem_eight', null=True, blank=True)
