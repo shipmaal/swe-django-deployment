@@ -47,7 +47,7 @@ class CoursePlansView(TemplateView) :
 
 
 # Course Plans View
-class CreatePlanView(FormView) :
+class CreatePlanView(TemplateView) :
     template_name = 'planner/create_plan.html'
     def __init__(self, **kwargs):
         self.api = PlanningCoursesAPI('http://localhost:8080')
