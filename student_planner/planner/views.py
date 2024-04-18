@@ -93,6 +93,7 @@ class CreatePlanView(FormView) :
                 ('spring_four', planner.spring_four),
             ]
         context['planners'] = planners
+
         return context
     
     def form_valid(self, form):
@@ -156,6 +157,7 @@ class PlanSemester(FormView):
             semester.save()
 
         return super().form_valid(form)
+    
     '''
     def get_initial(self):
         if not self.request.user.is_authenticated:
