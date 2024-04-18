@@ -162,6 +162,7 @@ class PlanSemester(FormView):
         '''
         semester.save()
         return super().form_valid(form)
+    
     '''
     def get_initial(self):
         if not self.request.user.is_authenticated:
