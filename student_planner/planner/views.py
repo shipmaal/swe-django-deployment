@@ -93,6 +93,7 @@ class CreatePlanView(FormView) :
                 ('spring_four', planner.spring_four),
             ]
         context['planners'] = planners
+
         return context
     
     def form_valid(self, form):
@@ -158,8 +159,8 @@ class PlanSemester(FormView):
                 data = self.api.get_courses_by_code(course.id)
                 credit_hours += data.course['creditOptionIds']
         semester.credit_hours = credit_hours
-        semester.save()
         '''
+        semester.save()
         return super().form_valid(form)
     '''
     def get_initial(self):
