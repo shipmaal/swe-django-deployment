@@ -24,10 +24,10 @@ class StudentLandingPageView(TemplateView):
     
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
-            messages.error(request, 'You must be logged in to view this page.')
+            # messages.error(request, 'You must be logged in to view this page.')
             return redirect('/login/')
         elif not request.user.registered:
-            messages.error(request, 'You must be registered to view this page.')
+            # messages.error(request, 'You must be registered to view this page.')
             return redirect('/register/')
         else:
             return super().dispatch(request, *args, **kwargs)
@@ -94,6 +94,7 @@ class CreatePlanView(FormView) :
                 ('spring_four', planner.spring_four),
             ]
         context['planners'] = planners
+
         return context
     
     def form_valid(self, form):
@@ -114,6 +115,8 @@ class CreatePlanView(FormView) :
         )
 
         return super().form_valid(form)
+    
+
 
 # Explore Major View
 class ExploreMajorView(TemplateView):
@@ -136,12 +139,17 @@ class PlanSemester(FormView):
     template_name = 'planner/plan_semester.html'
     success_url = '../create-plan'
     def __init__(self, **kwargs: Any) -> None:
-        self.api = PlanningCoursesAPI('https://localhost:8080')
+        self.api = PlanningCoursesAPI('http://localhost:8080')
+
         super().__init__(**kwargs)
     
+    def get(self, request, *args, **kwargs):
+        semester_id = kwargs.get('semester_id')
+        print(semester_id)
+        return super().get(request, *args, **kwargs)
 
     def form_valid(self, form):
-        semester = Semester.objects.create()
+        semester = Semester.objects.get(id = int(self.kwargs.get('semester_id')))
 
         # Add the selected courses to the semester
         selected_courses = [
@@ -157,22 +165,52 @@ class PlanSemester(FormView):
             form.cleaned_data['class_six']
         ]
 
-        for course in selected_courses + optional_courses:
-            if course:
-                semester.courses.add(course)
-
-        # Calculate and update credit hours
-        '''
         credit_hours = 0
         for course in selected_courses + optional_courses:
             if course:
-                print(course.id)
+                semester.courses.add(course)
                 data = self.api.get_courses_by_code(course.id)
-                credit_hours += data.course['creditOptionIds']
-        semester.credit_hours = credit_hours
-        semester.save()
-        '''
+                credit_hours += int(data[0].course['creditOptionIds'][0].split('.')[-2])
+            semester.credit_hours = credit_hours
+            print(semester.credit_hours)
+            semester.save()
+
         return super().form_valid(form)
+    
+    def get_initial(self) -> dict[str, Any]:
+        def number_to_word(number):
+            number_word_map = {
+                1: 'one',
+                2: 'two',
+                3: 'three',
+                4: 'four',
+                5: 'five',
+                6: 'six',
+                7: 'seven',
+                8: 'eight',
+                9: 'nine',
+                10: 'ten',
+                # Add more numbers here if needed
+            }
+            return number_word_map.get(number)
+        
+        semester_id = self.kwargs.get('semester_id')
+        semester = Semester.objects.get(id=semester_id)
+        courses = semester.courses.all()
+
+        initial = super().get_initial()
+
+
+        if not courses:
+            return super().get_initial()
+
+        for i, course in enumerate(courses):
+            print(course)
+            initial[f'class_{number_to_word(i+1)}'] = course
+
+
+        return initial
+    
     '''
     def get_initial(self):
         if not self.request.user.is_authenticated:

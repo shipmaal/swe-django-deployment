@@ -31,16 +31,20 @@
                 <div class="card" style="min-height:360px;">
                   <h2 style="margin: 16 0 0 0; background-color: white">{{ semester_name|replace_underscore|title }}</h2>
                   <hr>
-                    <div style="background-color: rgba(211, 211, 211, 0.5); height: 100% !important;">
+                    <div style="height: 100% !important;">
                     {% if semester %}
-                        {{ semester }}
+                        {% for course in semester.courses.all %}
+                        <div style="padding: 10px; margin: 10px; background-color: rgba(211, 211, 211, 0.5); border-radius: 5px">
+                            <p style="margin: 0px">{{ course }}</p>
+                        </div>
+                        {% endfor %}
+                        {{ semester.credit_hours }} credit hours
                     {% else %}
                     {% endif %}
                 </div>
                 </div>
               </a>
             {% endfor %}
-          
         </div>
         {% endfor %}
       </section>
