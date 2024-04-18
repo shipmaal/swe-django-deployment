@@ -114,6 +114,8 @@ class CreatePlanView(FormView) :
         )
 
         return super().form_valid(form)
+    
+
 
 # Explore Major View
 class ExploreMajorView(TemplateView):
@@ -126,11 +128,16 @@ class PlanSemester(FormView):
     success_url = '../create-plan'
     def __init__(self, **kwargs: Any) -> None:
         self.api = PlanningCoursesAPI('http://localhost:8080')
+
         super().__init__(**kwargs)
     
+    def get(self, request, *args, **kwargs):
+        semester_id = kwargs.get('semester_id')
+        print(semester_id)
+        return super().get(request, *args, **kwargs)
 
     def form_valid(self, form):
-        semester = Semester.objects.create()
+        semester = Semester.objects.get(id = int(self.kwargs.get('semester_id')))
 
         # Add the selected courses to the semester
         selected_courses = [
@@ -157,6 +164,40 @@ class PlanSemester(FormView):
             semester.save()
 
         return super().form_valid(form)
+    
+    def get_initial(self) -> dict[str, Any]:
+        def number_to_word(number):
+            number_word_map = {
+                1: 'one',
+                2: 'two',
+                3: 'three',
+                4: 'four',
+                5: 'five',
+                6: 'six',
+                7: 'seven',
+                8: 'eight',
+                9: 'nine',
+                10: 'ten',
+                # Add more numbers here if needed
+            }
+            return number_word_map.get(number)
+        
+        semester_id = self.kwargs.get('semester_id')
+        semester = Semester.objects.get(id=semester_id)
+        courses = semester.courses.all()
+
+        initial = super().get_initial()
+
+
+        if not courses:
+            return super().get_initial()
+
+        for i, course in enumerate(courses):
+            print(course)
+            initial[f'class_{number_to_word(i+1)}'] = course
+
+
+        return initial
     
     '''
     def get_initial(self):
