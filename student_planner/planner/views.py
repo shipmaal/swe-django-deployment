@@ -8,6 +8,7 @@ from .forms import SemesterForm, PlannerForm
 
 
 
+
 class IndexView(TemplateView):
     template_name = 'planner/index.html'
 
@@ -122,6 +123,17 @@ class CreatePlanView(FormView) :
 class ExploreMajorView(TemplateView):
     template_name = 'planner/explore_major.html'
 
+# Admin Dashboard View
+class AdminDashboardView(TemplateView):
+            template_name = 'planner/admin_dashboard.html'
+
+            def dispatch(self, request, *args, **kwargs):
+                return super().dispatch(request, *args, **kwargs)
+
+            def get_context_data(self, **kwargs):
+                context = super().get_context_data(**kwargs)
+                # Add any necessary context data for the admin dashboard
+                return context
 
 class PlanSemester(FormView):
     form_class = SemesterForm

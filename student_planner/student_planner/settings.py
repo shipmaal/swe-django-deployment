@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'widget_tweaks',
     'crispy_forms',
-    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -77,7 +76,7 @@ ROOT_URLCONF = 'student_planner.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        "DIRS": [BASE_DIR / "templates"],
+        'DIRS': [BASE_DIR / 'templates'],  # Add this line
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -179,6 +178,6 @@ ACCOUNT_LOGOUT_REDIRECT_URL = "/login/"
 
 LOGIN_REDIRECT_URL = "/"
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
-CRISPY_TEMPLATE_PACK = "bootstrap5"
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
