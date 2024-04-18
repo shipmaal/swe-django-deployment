@@ -30,6 +30,12 @@
     <main>
       <section class="intro">
         <div class="container">
+          <div style="width: 100%; overflow: visible;">
+            <svg width="100%" height="30" style="margin: 5px">
+                <rect width="100%" height="20" style="stroke: maroon; fill: #ddd;" rx="10" />
+                <rect id='progress' width="50%" height="20" style="fill: maroon;" rx="10" />
+            </svg>
+          </div>
           <h2>Welcome to Your Academic Planning Tool</h2>
           <p>
             Plan your four years at Boston College with ease. Start crafting
@@ -103,6 +109,11 @@
     <script>
       var data = {{ data_dict|safe }};
       document.getElementById("json").textContent = JSON.stringify(data, null, 2);
+    </script>
+    <script>
+      var progress = document.getElementById('progress');
+      var width = {{ progress_width|safe }};
+      progress.style.width = width + '%';
     </script>
   </body>
 </html>

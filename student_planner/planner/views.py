@@ -36,6 +36,7 @@ class StudentLandingPageView(TemplateView):
         context = super().get_context_data(**kwargs)
         student = Student.objects.get(email=self.request.user.email)
         planners = Planner.objects.filter(student=student)
+        context['progress_width'] = 10
         if planners:
             sem_1 = planners[0].fall_one
             context['planners'] = planners
