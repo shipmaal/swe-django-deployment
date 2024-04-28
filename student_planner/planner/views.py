@@ -86,6 +86,8 @@ class CreatePlanView(FormView) :
         context = super().get_context_data(**kwargs)
         student = Student.objects.get(email=self.request.user.email)
         planners = Planner.objects.filter(student=student)
+
+        progress_data = {}
             
         if not planners:
             # Create empty semesters first
@@ -106,7 +108,7 @@ class CreatePlanView(FormView) :
 
             planners = Planner.objects.filter(student=student)
         
-        for planner in planners:
+        for i, planner in enumerate(planners, start = 1):
             planner.semesters = [
                 ('fall_one', planner.fall_one),
                 ('spring_one', planner.spring_one),
@@ -117,13 +119,20 @@ class CreatePlanView(FormView) :
                 ('fall_four', planner.fall_four),
                 ('spring_four', planner.spring_four),
             ]
+
+            progress_data[f'progress{i}'] = sum([sem[1].credit_hours for sem in planner.semesters])
+            planner.progress_key = f'progress{i}'
+            planner.progress_value = progress_data[planner.progress_key]
+            planner.progress_perc = planner.progress_value / 120 * 100
+        
+        context['progress_data'] = progress_data
         context['planners'] = planners
         '''
         This is where we do the major checking.
         -> Pull the json files for the associated majors to the current student
         -> Go through each of our semesters
         -> Check each course against each json file
-        -> for each one fulfilled we incriment 
+        -> for each one fulfilled we increment 
         '''
 
         return context
