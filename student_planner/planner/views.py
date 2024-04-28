@@ -9,6 +9,8 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from .decorators import admin_required
 
+from .validutil import validateMajor
+
 
 class IndexView(TemplateView):
     template_name = 'planner/index.html'
@@ -124,6 +126,8 @@ class CreatePlanView(FormView) :
             planner.progress_key = f'progress{i}'
             planner.progress_value = progress_data[planner.progress_key]
             planner.progress_perc = planner.progress_value / 120 * 100
+            print(validateMajor(planner, student))
+
         
         context['progress_data'] = progress_data
         context['planners'] = planners
