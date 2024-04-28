@@ -28,7 +28,7 @@ class StudentLandingPageView(TemplateView):
             # messages.error(request, 'You must be logged in to view this page.')
             return redirect('/login/')
         elif not request.user.registered:
-            if request.user.role == 'Student':
+            if request.user.role == 'STUDENT':
                 # messages.error(request, 'You must be registered to view this page.')
                 return redirect('/register/')
             else:
