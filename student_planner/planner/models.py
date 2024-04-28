@@ -105,10 +105,7 @@ class Semester(models.Model):
     credit_hours = models.PositiveIntegerField(default=0)
     courses = models.ManyToManyField(Course, blank=True, default=None)
     #Add a many to many field in the Major to then be able to validate with courses
-    #major_one_courses = models.ManyToMany('Course', blank=True, default=None)
-    #major_two_courses = models.ManyToMany('Course', blank=True, default=None)
-    #minor_one_courses = models.ManyToMany('Course', blank=True, default=None)
-    #minor_two_courses = models.ManyToMany('Course', blank=True, default=None)
+    
     
 
 class Planner(models.Model):

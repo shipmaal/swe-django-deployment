@@ -95,6 +95,13 @@ class CreatePlanView(FormView) :
                 ('spring_four', planner.spring_four),
             ]
         context['planners'] = planners
+        '''
+        This is where we do the major checking.
+        -> Pull the json files for the associated majors to the current student
+        -> Go through each of our semesters
+        -> Check each course against each json file
+        -> for each one fulfilled we incriment 
+        '''
 
         return context
     
@@ -171,12 +178,6 @@ class PlanSemester(FormView):
             if course:
                 semester.courses.add(course)
                 data = self.api.get_courses_by_code(course.id)
-                '''
-                This is where we do the major checking.
-                -> Pull the json files for the associated majors to the current student
-                -> Check each course against each json file
-                -> for each one fulfilled we incriment 
-                '''
                 credit_hours += int(data[0].course['creditOptionIds'][0].split('.')[-2])
             semester.credit_hours = credit_hours
             print(semester.credit_hours)
