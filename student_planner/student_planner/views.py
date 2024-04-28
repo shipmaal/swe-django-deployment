@@ -4,7 +4,15 @@ from django.views.generic.edit import FormView, UpdateView
 from django.shortcuts import redirect
 from django.contrib import messages
 from planner.models import Student
+from django.shortcuts import render
+from django.contrib.auth.models import User
+from .decorators import admin_required
 
+
+@admin_required
+def admin_page(request):
+    users = User.objects.all()
+    return render(request, 'admin_page.html', {'users': users})
 
 class AccountView(UpdateView):
     form_class = StudentAccountForm

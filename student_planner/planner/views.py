@@ -5,9 +5,15 @@ from planner.models import Student, Planner, Semester
 from django.contrib import messages
 from .api import PlanningCoursesAPI
 from .forms import SemesterForm, PlannerForm
+from django.shortcuts import render
+from django.contrib.auth.models import User
+from .decorators import admin_required
 
 
-
+@admin_required
+def admin_page(request):
+    users = User.objects.all()
+    return render(request, 'admin_page.html', {'users': users})
 
 class IndexView(TemplateView):
     template_name = 'planner/index.html'
