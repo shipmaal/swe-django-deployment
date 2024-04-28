@@ -10,11 +10,6 @@ from django.contrib.auth.models import User
 from .decorators import admin_required
 
 
-@admin_required
-def admin_page(request):
-    users = User.objects.all()
-    return render(request, 'admin_page.html', {'users': users})
-
 class IndexView(TemplateView):
     template_name = 'planner/index.html'
 
@@ -33,8 +28,11 @@ class StudentLandingPageView(TemplateView):
             # messages.error(request, 'You must be logged in to view this page.')
             return redirect('/login/')
         elif not request.user.registered:
-            # messages.error(request, 'You must be registered to view this page.')
-            return redirect('/register/')
+            if request.user.role == 'Student':
+                # messages.error(request, 'You must be registered to view this page.')
+                return redirect('/register/')
+            ##else:
+                ##return redirect('/admin-dashboard/')
         else:
             return super().dispatch(request, *args, **kwargs)
         
