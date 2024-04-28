@@ -1,9 +1,9 @@
 from django.views.generic import TemplateView
-from .forms import StudentAccountForm, StudentRegisterForm
+from .forms import StudentAccountForm, StudentRegisterForm, AdvisorAccountForm
 from django.views.generic.edit import FormView, UpdateView
 from django.shortcuts import redirect
 from django.contrib import messages
-from planner.models import Student
+from planner.models import Student, Advisor
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from .decorators import admin_required
@@ -15,9 +15,15 @@ def admin_page(request):
     return render(request, 'admin_page.html', {'users': users})
 
 class AccountView(UpdateView):
-    form_class = StudentAccountForm
     template_name = 'account.html'
     success_url = '/'
+
+    def get_form_class(self):
+        if self.request.user.role == 'STUDENT':
+            return StudentAccountForm
+        else:
+            return AdvisorAccountForm
+        
 
     def get_object(self):
         if self.request.user.is_authenticated:
@@ -27,11 +33,22 @@ class AccountView(UpdateView):
 
     def form_valid(self, form):
         self.request.user.save()
-        student = Student(
-            user=self.request.user,
-            **form.cleaned_data
-        )
-        student.save()
+        if hasattr(self.request.user, 'student'):
+            student = Student(
+                user=self.request.user,
+                **form.cleaned_data
+            )
+            student.save()
+        else:
+            advisor = Advisor(
+                user=self.request.user,
+                **{k: v for k, v in form.cleaned_data.items() if k != 'students'}
+            )
+            advisor.save()
+            for student in form.cleaned_data['students']:
+                student.advisor = advisor
+                student.save()
+
 
         return super().form_valid(form)
 
@@ -39,16 +56,24 @@ class AccountView(UpdateView):
         if not self.request.user.is_authenticated:
             return {}
         
-        student = self.request.user.student
-        initial = super().get_initial()
-        user_fields = ['first_name', 'last_name', 'email']
-        student_fields = ['eagle_id', 'class_year', 'end_semester', 'college', 'advisor', 'major_one', 'major_two', 'minor_one', 'minor_two']
+        if self.request.user.role == 'ADVISOR':
+            return {
+                'first_name': self.request.user.first_name,
+                'last_name': self.request.user.last_name,
+                'email': self.request.user.email,
+            }
+        else:
+        
+            student = self.request.user.student
+            initial = super().get_initial()
+            user_fields = ['first_name', 'last_name', 'email']
+            student_fields = ['eagle_id', 'class_year', 'end_semester', 'college', 'advisor', 'major_one', 'major_two', 'minor_one', 'minor_two']
 
-        for field in user_fields:
-            initial[field] = getattr(self.request.user, field)
+            for field in user_fields:
+                initial[field] = getattr(self.request.user, field)
 
-        for field in student_fields:
-            initial[field] = getattr(student, field)
+            for field in student_fields:
+                initial[field] = getattr(student, field)
 
         return initial
 
