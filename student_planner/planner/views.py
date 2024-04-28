@@ -5,8 +5,9 @@ from planner.models import Student, Planner, Semester
 from django.contrib import messages
 from .api import PlanningCoursesAPI
 from .forms import SemesterForm, PlannerForm
-
-
+from django.shortcuts import render
+from django.contrib.auth.models import User
+from .decorators import admin_required
 
 
 class IndexView(TemplateView):
@@ -27,8 +28,11 @@ class StudentLandingPageView(TemplateView):
             # messages.error(request, 'You must be logged in to view this page.')
             return redirect('/login/')
         elif not request.user.registered:
-            # messages.error(request, 'You must be registered to view this page.')
-            return redirect('/register/')
+            if request.user.role == 'Student':
+                # messages.error(request, 'You must be registered to view this page.')
+                return redirect('/register/')
+            else:
+                return redirect('/admin-dashboard/')
         else:
             return super().dispatch(request, *args, **kwargs)
         
