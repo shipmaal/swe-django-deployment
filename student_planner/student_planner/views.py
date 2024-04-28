@@ -24,6 +24,7 @@ class AccountView(UpdateView):
         else:
             return AdvisorAccountForm
         
+        
 
     def get_object(self):
         if self.request.user.is_authenticated:

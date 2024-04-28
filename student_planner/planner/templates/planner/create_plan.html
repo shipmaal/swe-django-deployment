@@ -10,7 +10,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Boston College Student Planner</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/landing_student.css' %}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <style>
       .grid-container {
         display: grid;
@@ -21,6 +22,26 @@
     </style>
   </head>
   <body>
+    <header class="main-header">
+      <div class="header-container">
+        <a href="{% url 'landing_student' %}">
+          <img src="{% static 'assets/logo.png' %}" alt="Boston College Logo" class="navbar-logo">
+        </a>
+        <div class="header-content">
+            <h1 class="logo">BC Student Planner</h1>
+            <div class="main-nav">
+            <ul>
+              <li><a href="{% url 'account' %}">My Profile</a></li>
+              {% if request.user.role == 'STUDENT'%}
+                <li><a href={% url 'create_plan' %}>My 4-Year Plan</a></li>
+              {% endif %}
+              {% if request.user.role == 'ADVISOR' %}
+                <li><a href="{% url 'admin_dashboard' %}">Admin Dashboard</a></li>
+              {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </header>
     <section class="features">
         
         {% for planner in planners %}
