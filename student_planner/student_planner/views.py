@@ -61,6 +61,7 @@ class AccountView(UpdateView):
                 'first_name': self.request.user.first_name,
                 'last_name': self.request.user.last_name,
                 'email': self.request.user.email,
+                'students': self.request.user.advisor.student_set.all()
             }
         else:
         
