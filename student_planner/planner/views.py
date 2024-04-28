@@ -40,8 +40,27 @@ class StudentLandingPageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         student = Student.objects.get(email=self.request.user.email)
+
+        num_creds = 0
         planners = Planner.objects.filter(student=student)
-        context['progress_width'] = 10
+        planner = planners[0] if planners else None
+        if planner:
+            planner.semesters = [
+                ('fall_one', planner.fall_one),
+                ('spring_one', planner.spring_one),
+                ('fall_two', planner.fall_two),
+                ('spring_two', planner.spring_two),
+                ('fall_three', planner.fall_three),
+                ('spring_three', planner.spring_three),
+                ('fall_four', planner.fall_four),
+                ('spring_four', planner.spring_four),
+            ]
+
+            for sem in planner.semesters:
+                num_creds += sem[1].credit_hours
+
+        context['progress_width'] = num_creds / 120 * 100
+        context['num_creds'] = num_creds
         if planners:
             sem_1 = planners[0].fall_one
             context['planners'] = planners
@@ -67,7 +86,7 @@ class CreatePlanView(FormView) :
         context = super().get_context_data(**kwargs)
         student = Student.objects.get(email=self.request.user.email)
         planners = Planner.objects.filter(student=student)
-
+            
         if not planners:
             # Create empty semesters first
             semesters = [Semester.objects.create(credit_hours=0) for _ in range(8)]
@@ -99,6 +118,13 @@ class CreatePlanView(FormView) :
                 ('spring_four', planner.spring_four),
             ]
         context['planners'] = planners
+        '''
+        This is where we do the major checking.
+        -> Pull the json files for the associated majors to the current student
+        -> Go through each of our semesters
+        -> Check each course against each json file
+        -> for each one fulfilled we incriment 
+        '''
 
         return context
     
@@ -175,12 +201,6 @@ class PlanSemester(FormView):
             if course:
                 semester.courses.add(course)
                 data = self.api.get_courses_by_code(course.id)
-                '''
-                This is where we do the major checking.
-                -> Pull the json files for the associated majors to the current student
-                -> Check each course against each json file
-                -> for each one fulfilled we incriment 
-                '''
                 credit_hours += int(data[0].course['creditOptionIds'][0].split('.')[-2])
             semester.credit_hours = credit_hours
             print(semester.credit_hours)
