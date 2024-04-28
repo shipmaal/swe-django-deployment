@@ -1,14 +1,15 @@
 from typing import Any
 from django.views.generic import TemplateView, FormView
 from django.shortcuts import redirect
-from planner.models import Student, Planner, Semester
+from planner.models import Student, Planner, Semester, Advisor
 from django.contrib import messages
 from .api import PlanningCoursesAPI
 from .forms import SemesterForm, PlannerForm
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from .decorators import admin_required
-
+from django.views.generic import DetailView
+from .models import Student
 
 class IndexView(TemplateView):
     template_name = 'planner/index.html'
@@ -129,15 +130,24 @@ class ExploreMajorView(TemplateView):
 
 # Admin Dashboard View
 class AdminDashboardView(TemplateView):
-            template_name = 'planner/admin_dashboard.html'
+    template_name = 'planner/admin_dashboard.html'
 
-            def dispatch(self, request, *args, **kwargs):
-                return super().dispatch(request, *args, **kwargs)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
 
-            def get_context_data(self, **kwargs):
-                context = super().get_context_data(**kwargs)
-                # Add any necessary context data for the admin dashboard
-                return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Get the Advisor instance for the current user
+        advisor = Advisor.objects.get(user=self.request.user)
+        # Get the list of students assigned to the current admin
+        students = Student.objects.filter(advisor=advisor).exclude(eagle_id__isnull=True)
+        # Add the students to the context
+        context['students'] = students
+        return context
+    
+class StudentDetailView(DetailView):
+    model = Student
+    template_name = 'planner/student_detail.html'
 
 class PlanSemester(FormView):
     form_class = SemesterForm
