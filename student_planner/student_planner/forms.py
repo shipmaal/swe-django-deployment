@@ -7,7 +7,6 @@ current_year = datetime.date.today().year
 
 
 
-
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
@@ -69,3 +68,21 @@ class StudentRegisterForm(StudentForm):
         fields = [field for field in StudentForm.Meta.fields if field != 'advisor']
         widgets = {**StudentForm.Meta.widgets}
     
+
+class AdvisorAccountForm(forms.ModelForm):
+    class Meta:
+        model = Advisor
+        fields = [
+            'eagle_id',
+            'first_name',
+            'last_name',
+            'email',
+        ]
+        widgets = {
+            'eagle_id': forms.TextInput(attrs={'class': 'form-control'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+    students = forms.ModelMultipleChoiceField(queryset=Student.objects.all())

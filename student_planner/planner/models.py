@@ -1,19 +1,20 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.db import models
-
+from django.contrib.auth.models import User
+from enum import Enum
 from django.contrib.auth.models import AbstractUser
 
-
+class Role(Enum):
+    STUDENT = 'Student'
+    ADVISOR = 'Advisor'
 class User(AbstractUser):
-    ROLES = (
-        ('STUDENT', 'Student'),
-        ('ADVISOR', 'Advisor'),
+    role = models.CharField(
+        max_length=7,
+        choices=[(role.name, role.value) for role in Role],
+        default=Role.STUDENT.name,
     )
-    role = models.CharField(max_length=7, choices=ROLES, default='STUDENT')
     email = models.EmailField(max_length=254, unique=True)
     registered = models.BooleanField(default=False)
-
 
 class Subject(models.Model):
     id = models.CharField(primary_key=True, max_length=4)
