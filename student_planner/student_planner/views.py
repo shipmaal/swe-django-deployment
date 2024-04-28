@@ -40,14 +40,24 @@ class AccountView(UpdateView):
             )
             student.save()
         else:
-            advisor = Advisor(
-                user=self.request.user,
-                **{k: v for k, v in form.cleaned_data.items() if k != 'students'}
-            )
-            advisor.save()
-            for student in form.cleaned_data['students']:
-                student.advisor = advisor
-                student.save()
+            if hasattr(self.request.user, 'advisor'):
+                advisor = self.request.user.advisor
+                for field, value in form.cleaned_data.items():
+                    if field != 'students':
+                        setattr(advisor, field, value)
+                advisor.save()
+                for student in form.cleaned_data['students']:
+                    student.advisor = advisor
+                    student.save()
+            else:
+                advisor = Advisor(
+                    user=self.request.user,
+                    **{k: v for k, v in form.cleaned_data.items() if k != 'students'}
+                )
+                advisor.save()
+                for student in form.cleaned_data['students']:
+                    student.advisor = advisor
+                    student.save()
 
 
         return super().form_valid(form)
@@ -58,6 +68,7 @@ class AccountView(UpdateView):
         
         if self.request.user.role == 'ADVISOR':
             return {
+                'eagle_id': self.request.user.advisor.eagle_id,
                 'first_name': self.request.user.first_name,
                 'last_name': self.request.user.last_name,
                 'email': self.request.user.email,
