@@ -14,13 +14,33 @@ def validateMajor(planner: Planner, student: Student):
     courses = pull_courses(planner)
     validator = {}
     with open('planner/degree_audit.json') as f:
+        # need to add a subject with id 'undc' to the DB
         data = json.load(f)
+        if majors[0] == 'undc':
+            validator['Undecided'] = {}
+            electives, remaining = check_additional(courses, data['Core']['csci']['additional'])
+            print(f'electives: {electives}')
+            validator['Undecided']['Unfulfilled Electives'] = electives
+            electives, remaining = check_additional(remaining, data['Core']['math']['additional'])
+            validator['Undecided']['Unfulfilled Electives'].update(electives)
+            print(validator)
+            return validator
         for major in majors:
             if major is not None:
+                majorKey = f'{str(major).upper()} Major'
                 unfulfilled, remaining = check_specific(courses, data['Majors'][major]['specific'])
-                validator[major] = {'Unfulfilled Requirements': unfulfilled}   
+                validator[majorKey] = {'Unfulfilled Requirements': unfulfilled}   
                 electives, remaining = check_additional(remaining, data['Majors'][major]['additional'])           
-                validator[major]['Unfulfilled Electives'] = electives
+                validator[majorKey]['Unfulfilled Electives'] = electives
+                print(validator)
+        for minor in minors:
+            if minor is not None:
+                minorKey = f'{minor} Minor'
+                unfulfilled, remaining = check_specific(courses, data['Minors'][minor]['specific'])
+                validator[minorKey] = {'Unfulfilled Requirements': unfulfilled}
+                electives, remaining = check_additional(remaining, data['Minors'][minor]['additional'])
+                validator[minorKey]['Unfulfilled Electives'] = electives
+       
     return validator
 
 

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DefaultUserAdmin
-from .models import Student, User, Advisor, Planner, Course, Major, Minor, Semester
+from .models import Student, User, Advisor, Planner, Course, Major, Minor, Semester, Subject
 class UserAdmin(DefaultUserAdmin):
     list_display = ('username', 'email', 'role', 'registered')
     list_filter = ('role', 'registered')
@@ -15,4 +15,5 @@ admin.site.register(Planner)
 admin.site.register(Course)
 admin.site.register(Major)
 admin.site.register(Minor)
+admin.site.register(Subject)
 admin.site.register(Semester)
