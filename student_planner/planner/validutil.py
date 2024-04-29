@@ -1,6 +1,6 @@
 from planner.models import Planner, Student
 import json
-import os
+
 
 def validateMajor(planner: Planner, student: Student):
     majors = [student.major_one, student.major_two]
@@ -18,10 +18,10 @@ def validateMajor(planner: Planner, student: Student):
         for major in majors:
             if major is not None:
                 unfulfilled, remaining = check_specific(courses, data['Majors'][major]['specific'])
-                validator[major] = {'unfulfilled': unfulfilled}   
-                unfulfilled, remaining = check_additional(remaining, data['Majors'][major]['additional'])           
-    
-
+                validator[major] = {'Unfulfilled Requirements': unfulfilled}   
+                electives, remaining = check_additional(remaining, data['Majors'][major]['additional'])           
+                validator[major]['Unfulfilled Electives'] = electives
+    print(validator)
     return validator
 
 
@@ -35,14 +35,22 @@ def check_specific(courses: dict, spec: dict):
    
 
 def check_additional(courses: dict, add: dict):
+    taken_electives = {}
     for add_ in add:
-        parse_additional(add_)
-    return 1, 2
+        num, level = parse_additional(add_)
+        for course in courses.copy():
+            if course[4:].startswith(level):
+                courses.remove(course)
+                num -= 1
+
+        if num > 0:
+            taken_electives[int(level) * 1000] = number_to_word(num)
+    return taken_electives, courses
 
 
 def parse_additional(add: str):
     num, level = add.split('.')
-    print(f'num: {num}, level: {level}')
+    return int(num), level
 
 
 def pull_courses(planner: Planner):
@@ -57,3 +65,8 @@ def pull_courses(planner: Planner):
                 ('spring_four', planner.spring_four),
             ]
     return [course.id for semester in planner.semesters for course in semester[1].courses.all()]
+
+def number_to_word(number):
+    return  {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
+             6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten',
+             }.get(number)

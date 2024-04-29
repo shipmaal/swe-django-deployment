@@ -2,6 +2,7 @@ from typing import Any
 from django.views.generic import TemplateView, FormView
 from django.shortcuts import redirect
 from planner.models import Student, Planner, Semester
+from django.db import models
 from django.contrib import messages
 from .api import PlanningCoursesAPI
 from .forms import SemesterForm, PlannerForm
@@ -126,18 +127,14 @@ class CreatePlanView(FormView) :
             planner.progress_key = f'progress{i}'
             planner.progress_value = progress_data[planner.progress_key]
             planner.progress_perc = planner.progress_value / 120 * 100
-            print(validateMajor(planner, student))
+            major_validation = validateMajor(planner, student)
+            planner.major_validation = major_validation
 
         
         context['progress_data'] = progress_data
         context['planners'] = planners
-        '''
-        This is where we do the major checking.
-        -> Pull the json files for the associated majors to the current student
-        -> Go through each of our semesters
-        -> Check each course against each json file
-        -> for each one fulfilled we increment 
-        '''
+        if isinstance(planner, models.Model):
+            planner.save()
 
         return context
     

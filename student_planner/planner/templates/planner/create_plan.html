@@ -56,6 +56,32 @@
                 <p style="float: right; margin-right: 5px;">Credits: {{ planner.progress_value }}</p>
               </div>
             </div>
+            <div style='padding: 10px'></div>
+            <div>
+              {% for key, value in planner.major_validation.items %}
+                <h1>{{ key }}</h1>
+                  {% for req, courses in value.items%}
+                      <p>
+                        <span>{{ req }}: </span>
+                        {% if forloop.first %}
+                          {% for course in courses %}
+                            <span>
+                              {{ course }}{% if not forloop.last %}, {% endif %}
+                            </span>
+                          {% endfor %}
+                        {% else %}
+                          {% for level, num in courses.items %}
+                            <span> 
+                              {{ level }} &mdash; {{ num }}{% if not forloop.last %}, {% endif %}
+                            </span>
+                          {% endfor %}
+                        {% endif %}
+                      </p>
+                  {% endfor %}
+              {% endfor %}
+            </div>
+            <div style='padding: 10px'></div>
+
         </div>
         {% endfor %}
       </section>
