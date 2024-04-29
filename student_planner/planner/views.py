@@ -2,12 +2,15 @@ from typing import Any
 from django.views.generic import TemplateView, FormView
 from django.shortcuts import redirect
 from planner.models import Student, Planner, Semester
+from django.db import models
 from django.contrib import messages
 from .api import PlanningCoursesAPI
 from .forms import SemesterForm, PlannerForm
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from .decorators import admin_required
+
+from .validutil import validateMajor
 
 
 class IndexView(TemplateView):
@@ -40,8 +43,27 @@ class StudentLandingPageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         student = Student.objects.get(email=self.request.user.email)
+
+        num_creds = 0
         planners = Planner.objects.filter(student=student)
-        context['progress_width'] = 10
+        planner = planners[0] if planners else None
+        if planner:
+            planner.semesters = [
+                ('fall_one', planner.fall_one),
+                ('spring_one', planner.spring_one),
+                ('fall_two', planner.fall_two),
+                ('spring_two', planner.spring_two),
+                ('fall_three', planner.fall_three),
+                ('spring_three', planner.spring_three),
+                ('fall_four', planner.fall_four),
+                ('spring_four', planner.spring_four),
+            ]
+
+            for sem in planner.semesters:
+                num_creds += sem[1].credit_hours
+
+        context['progress_width'] = num_creds / 120 * 100
+        context['num_creds'] = num_creds
         if planners:
             sem_1 = planners[0].fall_one
             context['planners'] = planners
@@ -68,6 +90,8 @@ class CreatePlanView(FormView) :
         student = Student.objects.get(email=self.request.user.email)
         planners = Planner.objects.filter(student=student)
 
+        progress_data = {}
+            
         if not planners:
             # Create empty semesters first
             semesters = [Semester.objects.create(credit_hours=0) for _ in range(8)]
@@ -87,7 +111,7 @@ class CreatePlanView(FormView) :
 
             planners = Planner.objects.filter(student=student)
         
-        for planner in planners:
+        for i, planner in enumerate(planners, start = 1):
             planner.semesters = [
                 ('fall_one', planner.fall_one),
                 ('spring_one', planner.spring_one),
@@ -98,7 +122,21 @@ class CreatePlanView(FormView) :
                 ('fall_four', planner.fall_four),
                 ('spring_four', planner.spring_four),
             ]
+
+            print(planner.spring_one.courses.all())
+
+            progress_data[f'progress{i}'] = sum([sem[1].credit_hours for sem in planner.semesters])
+            planner.progress_key = f'progress{i}'
+            planner.progress_value = progress_data[planner.progress_key]
+            planner.progress_perc = planner.progress_value / 120 * 100
+            major_validation = validateMajor(planner, student)
+            planner.major_validation = major_validation
+
+        
+        context['progress_data'] = progress_data
         context['planners'] = planners
+        if isinstance(planner, models.Model):
+            planner.save()
 
         return context
     
@@ -170,17 +208,13 @@ class PlanSemester(FormView):
             form.cleaned_data['class_six']
         ]
 
+        semester.courses.clear()
+
         credit_hours = 0
         for course in selected_courses + optional_courses:
             if course:
                 semester.courses.add(course)
                 data = self.api.get_courses_by_code(course.id)
-                '''
-                This is where we do the major checking.
-                -> Pull the json files for the associated majors to the current student
-                -> Check each course against each json file
-                -> for each one fulfilled we incriment 
-                '''
                 credit_hours += int(data[0].course['creditOptionIds'][0].split('.')[-2])
             semester.credit_hours = credit_hours
             print(semester.credit_hours)

@@ -22,10 +22,10 @@
   </head>
   <body>
     <section class="features">
-        
         {% for planner in planners %}
-        <h1>{{ planner.name }}</h1>
-          <div class="container grid-container">
+          <div class="container">
+            <h1>{{ planner.name }}</h1>
+            <div class="grid-container">
             {% for semester_name, semester in planner.semesters %}
             <a href="/plan-semester/{{semester.pk}}">
                 <div class="card" style="min-height:360px;">
@@ -45,13 +45,64 @@
                 </div>
               </a>
             {% endfor %}
+            </div>
+            <div style="width: 100%; overflow: visible;">
+              <svg width="100%" height="30" style="margin: 5px">
+                  <rect width="100%" height="20" style="stroke: maroon; fill: #ddd;" rx="10" />
+                  <rect id='progress{{forloop.counter}}' width="50%" height="20" style="fill: maroon;" rx="10" />
+              </svg>
+              <div style="height: 30px">
+                <p style="float: left; margin-left: 5px;">Progress: {{ planner.progress_perc }}%</p>
+                <p style="float: right; margin-right: 5px;">Credits: {{ planner.progress_value }}</p>
+              </div>
+            </div>
+            <div style='padding: 10px'></div>
+            <div>
+              {% for key, value in planner.major_validation.items %}
+                <h1>{{ key }}</h1>
+                  {% for req, courses in value.items%}
+                      <p>
+                        <span>{{ req }}: </span>
+                        {% if forloop.first %}
+                          {% for course in courses %}
+                            <span>
+                              {{ course }}{% if not forloop.last %}, {% endif %}
+                            </span>
+                          {% endfor %}
+                        {% else %}
+                          {% for level, num in courses.items %}
+                            <span> 
+                              {{ level }} &mdash; {{ num }}{% if not forloop.last %}, {% endif %}
+                            </span>
+                          {% endfor %}
+                        {% endif %}
+                      </p>
+                  {% endfor %}
+              {% endfor %}
+            </div>
+            <div style='padding: 10px'></div>
+
         </div>
         {% endfor %}
       </section>
-      <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-      <button type="submit">Create Planner</button>
-    </form>
+      <div style='padding: 10px'></div>
+      <div class='container'>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Create Planner</button>
+        </form>
+      </div>
+    <script>
+      var progresses = document.querySelectorAll('[id^="progress"]');
+     
+      var progressData = {{ progress_data|safe }};
+    
+      progresses.forEach(function(progress) {
+          // Use the data in JavaScript
+          var width = progressData[progress.id] / 120 * 100;
+          progress.style.width = width + '%';
+      });
+    </script>
 </body>
 </html>
