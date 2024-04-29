@@ -17,10 +17,19 @@ def validateMajor(planner: Planner, student: Student):
         data = json.load(f)
         for major in majors:
             if major is not None:
+                majorKey = f'{str(major).upper()} Major'
                 unfulfilled, remaining = check_specific(courses, data['Majors'][major]['specific'])
-                validator[major] = {'Unfulfilled Requirements': unfulfilled}   
+                validator[majorKey] = {'Unfulfilled Requirements': unfulfilled}   
                 electives, remaining = check_additional(remaining, data['Majors'][major]['additional'])           
-                validator[major]['Unfulfilled Electives'] = electives
+                validator[majorKey]['Unfulfilled Electives'] = electives
+                print(validator)
+        for minor in minors:
+            if minor is not None:
+                minorKey = f'{minor} Minor'
+                unfulfilled, remaining = check_specific(courses, data['Minors'][minor]['specific'])
+                validator[minorKey] = {'Unfulfilled Requirements': unfulfilled}
+                electives, remaining = check_additional(remaining, data['Minors'][minor]['additional'])
+                validator[minorKey]['Unfulfilled Electives'] = electives
     return validator
 
 
