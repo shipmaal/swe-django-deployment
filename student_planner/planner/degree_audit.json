@@ -18,13 +18,5 @@
             "specific":["MATH2202", "MATH2210", "MATH2216", "MATH3310", "MATH3321"],
             "additional": ["2.4"]
         }
-    },
-    "Core": {
-        "csci": {
-            "additional": ["2.1"]
-        },
-        "math": {
-            "additional": ["2.1"]
-        }
     }
 }
