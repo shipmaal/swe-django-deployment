@@ -10,6 +10,8 @@ from django.contrib.auth.models import User
 from .decorators import admin_required
 from django.views.generic import DetailView
 from .models import Student
+from django.shortcuts import render, get_object_or_404
+
 
 class IndexView(TemplateView):
     template_name = 'planner/index.html'
