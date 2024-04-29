@@ -14,7 +14,6 @@ def validateMajor(planner: Planner, student: Student):
     courses = pull_courses(planner)
     validator = {}
     with open('planner/degree_audit.json') as f:
-        # need to add a subject with id 'undc' to the DB
         data = json.load(f)
         for major in majors:
             if major is not None:
