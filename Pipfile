@@ -74,5 +74,6 @@ django-widget-tweaks = "*"
 django-crispy-forms = "*"
 crispy-bootstrap5 = "*"
 dj-database-url = "*"
+typing-extensions = "*"
 
 [dev-packages]
