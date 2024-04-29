@@ -4,5 +4,7 @@ set -o errexit
 pip install pipenv
 pipenv install
 
+cd .\student_planner\
+
 pipenv run python manage.py collectstatic --no-input
 pipenv run python manage.py migrate
