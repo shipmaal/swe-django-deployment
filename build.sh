@@ -7,6 +7,6 @@ ls -al
 pip install pipenv
 pipenv install
 
-cd /student_planner/
+cd student_planner
 
 pipenv run python manage.py migrate
