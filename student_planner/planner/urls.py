@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import StudentDetailView
 
 urlpatterns = [
     path('', views.StudentLandingPageView.as_view(), name='landing_student'),
@@ -9,4 +10,5 @@ urlpatterns = [
     path('explore-major/', views.ExploreMajorView.as_view(), name='explore_major'),
     path("plan-semester/<int:semester_id>", views.PlanSemester.as_view(), name="detail"),
     path('admin-dashboard/', views.AdminDashboardView.as_view(), name='admin_dashboard'),
+    path('student/<int:pk>/', views.StudentDetailView.as_view(), name='student_detail'),
 ]

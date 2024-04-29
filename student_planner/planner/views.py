@@ -1,14 +1,17 @@
 from typing import Any
 from django.views.generic import TemplateView, FormView
 from django.shortcuts import redirect
-from planner.models import Student, Planner, Semester
 from django.db import models
+from planner.models import Student, Planner, Semester, Advisor
 from django.contrib import messages
 from .api import PlanningCoursesAPI
 from .forms import SemesterForm, PlannerForm
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from .decorators import admin_required
+from django.views.generic import DetailView
+from .models import Student
+from django.shortcuts import render, get_object_or_404
 
 from .validutil import validateMajor
 
@@ -167,15 +170,46 @@ class ExploreMajorView(TemplateView):
 
 # Admin Dashboard View
 class AdminDashboardView(TemplateView):
-            template_name = 'planner/admin_dashboard.html'
+    template_name = 'planner/admin_dashboard.html'
 
-            def dispatch(self, request, *args, **kwargs):
-                return super().dispatch(request, *args, **kwargs)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
 
-            def get_context_data(self, **kwargs):
-                context = super().get_context_data(**kwargs)
-                # Add any necessary context data for the admin dashboard
-                return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Get the Advisor instance for the current user
+        advisor = Advisor.objects.get(user=self.request.user)
+        # Get the list of students assigned to the current admin
+        students = Student.objects.filter(advisor=advisor).exclude(eagle_id__isnull=True)
+        # Add the students to the context
+        context['students'] = students
+        return context
+    
+class StudentDetailView(DetailView):
+    model = Student
+    template_name = 'planner/student_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        print(self.kwargs.get('pk'))
+        student = get_object_or_404(Student, eagle_id=self.kwargs.get('pk'))
+        planners = Planner.objects.filter(student=student)
+
+        for planner in planners:
+            planner.semesters = [
+                ('fall_one', planner.fall_one),
+                ('spring_one', planner.spring_one),
+                ('fall_two', planner.fall_two),
+                ('spring_two', planner.spring_two),
+                ('fall_three', planner.fall_three),
+                ('spring_three', planner.spring_three),
+                ('fall_four', planner.fall_four),
+                ('spring_four', planner.spring_four),
+            ]
+        context['planners'] = planners
+
+        return context
+
 
 class PlanSemester(FormView):
     form_class = SemesterForm

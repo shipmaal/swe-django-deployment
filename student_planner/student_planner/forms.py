@@ -32,7 +32,6 @@ class StudentForm(forms.ModelForm):
             'class_year': forms.Select(choices=year_choices, attrs={'class': 'form-control'}),
             'end_semester': forms.Select(attrs={'class': 'form-control'}),
             'college': forms.Select(attrs={'class': 'form-control'}),
-            'advisor': forms.HiddenInput(),
             'advisor': forms.Select(attrs={'class': 'form-control'}),
             'major_one': forms.Select(attrs={'class': 'form-control'}),
             'major_two': forms.Select(attrs={'class': 'form-control'}),

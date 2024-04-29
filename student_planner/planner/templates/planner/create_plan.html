@@ -10,7 +10,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Boston College Student Planner</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/landing_student.css' %}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <style>
       .grid-container {
         display: grid;
@@ -18,9 +19,52 @@
         grid-template-rows: repeat(2, 1fr);
         gap: 20px; 
       }
+      .card {
+    min-height: 360px;
+    border: 1px solid #ccc;  /* Add a border */
+    border-radius: 10px;  /* Round the corners */
+    padding: 20px;  /* Add some padding */
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.20);  /* Add a shadow */
+    }
+    .card h2 {
+    margin: 16px 0 0 0;
+    background-color: white;
+    padding: 10px;  /* Add some padding */
+    text-align: center;  /* Center the text */
+    }
+    .card div {
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(211, 211, 211, 0.5);
+    border-radius: 5px;
+    }
+    .card p {
+    margin: 0px;
+    text-align: center;  /* Center the text */
+    }
     </style>
   </head>
   <body>
+    <header class="main-header">
+      <div class="header-container">
+        <a href="{% url 'landing_student' %}">
+          <img src="{% static 'assets/logo.png' %}" alt="Boston College Logo" class="navbar-logo">
+        </a>
+        <div class="header-content">
+            <h1 class="logo">BC Student Planner</h1>
+            <div class="main-nav">
+            <ul>
+              <li><a href="{% url 'account' %}">My Profile</a></li>
+              {% if request.user.role == 'STUDENT'%}
+                <li><a href={% url 'create_plan' %}>My 4-Year Plan</a></li>
+              {% endif %}
+              {% if request.user.role == 'ADVISOR' %}
+                <li><a href="{% url 'admin_dashboard' %}">Admin Dashboard</a></li>
+              {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </header>
     <section class="features">
         {% for planner in planners %}
           <div class="container">
