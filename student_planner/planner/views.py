@@ -123,6 +123,8 @@ class CreatePlanView(FormView) :
                 ('spring_four', planner.spring_four),
             ]
 
+            print(planner.spring_one.courses.all())
+
             progress_data[f'progress{i}'] = sum([sem[1].credit_hours for sem in planner.semesters])
             planner.progress_key = f'progress{i}'
             planner.progress_value = progress_data[planner.progress_key]
@@ -205,6 +207,8 @@ class PlanSemester(FormView):
             form.cleaned_data['class_five'],
             form.cleaned_data['class_six']
         ]
+
+        semester.courses.clear()
 
         credit_hours = 0
         for course in selected_courses + optional_courses:

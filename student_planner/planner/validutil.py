@@ -21,7 +21,6 @@ def validateMajor(planner: Planner, student: Student):
                 validator[major] = {'Unfulfilled Requirements': unfulfilled}   
                 electives, remaining = check_additional(remaining, data['Majors'][major]['additional'])           
                 validator[major]['Unfulfilled Electives'] = electives
-    print(validator)
     return validator
 
 
