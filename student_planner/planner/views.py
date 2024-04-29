@@ -189,10 +189,12 @@ class StudentDetailView(DetailView):
     model = Student
     template_name = 'planner/student_detail.html'
 
+    def get_object(self, queryset=None):
+        return get_object_or_404(Student, eagle_id=self.kwargs.get('eagle_id'))
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        print(self.kwargs.get('pk'))
-        student = get_object_or_404(Student, eagle_id=self.kwargs.get('pk'))
+        student = get_object_or_404(Student, eagle_id=self.kwargs.get('eagle_id'))
         planners = Planner.objects.filter(student=student)
 
         for planner in planners:
@@ -219,6 +221,10 @@ class PlanSemester(FormView):
         self.api = PlanningCoursesAPI('http://localhost:8080')
 
         super().__init__(**kwargs)
+    
+    def get_success_url(self):
+        next_url = self.request.GET.get('next')
+        return next_url if next_url else self.success_url
     
     def get(self, request, *args, **kwargs):
         semester_id = kwargs.get('semester_id')

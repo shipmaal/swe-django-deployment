@@ -67,10 +67,10 @@ class Student(models.Model):
         return self.first_name + " " + self.last_name
       
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=None, related_name="student")
-    eagle_id = models.CharField(max_length=8, primary_key=True)
+    eagle_id = models.CharField(max_length=8)
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
-    email = models.EmailField(max_length=254)
+    email = models.EmailField(max_length=254, primary_key=True)
     advisor = models.ForeignKey(Advisor, default=None, on_delete=models.CASCADE, null=True)
     class_year = models.CharField(max_length=4)
     SEMESTER_CHOICES = (

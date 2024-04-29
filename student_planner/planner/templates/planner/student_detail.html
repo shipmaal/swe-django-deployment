@@ -1,6 +1,7 @@
 {% load static %}
 {% load allauth i18n %}
 {% load widget_tweaks %}
+{% load my_filters %}
 {% load django_bootstrap5 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
@@ -58,7 +59,19 @@
                         <h2>Student Planners</h2>
                         <ul>
                             {% for planner in planners %}
-                                <li><a href="{% url 'student_detail' planner.id %}">{{ planner.name }}</a></li>
+                                <h1>{{ planner.name }}</h1>
+                                <div class="row">
+                                  {% for semester_name, semester in planner.semesters %}
+                                      <div class="col-6">
+                                        <a href="{% url 'detail' semester.pk %}?next={{ request.path|urlencode }}">
+                                          <strong>{{ semester_name|replace_underscore|title }}</strong>
+                                        </a>
+                                      </div>
+                                      {% if forloop.counter|divisibleby:2 %}
+                                          </div><div class="row">
+                                      {% endif %}
+                                  {% endfor %}
+                              </div>
                             {% endfor %}
                     </div>
                 </div>
