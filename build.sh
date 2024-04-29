@@ -8,3 +8,4 @@ pipenv install
 cd student_planner
 
 pipenv run python manage.py migrate
+pipenv run python manage.py createsu
