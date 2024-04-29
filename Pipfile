@@ -76,5 +76,6 @@ crispy-bootstrap5 = "*"
 dj-database-url = "*"
 typing-extensions = "*"
 gunicorn = "*"
+psycopg2 = "*"
 
 [dev-packages]
