@@ -1,0 +1,2 @@
+cd student_planner
+gunicorn student_planner.wsgi:application

@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -o errexit
 
-echo "Current working directory:"
-ls -al
 
 pip install pipenv
 pipenv install
