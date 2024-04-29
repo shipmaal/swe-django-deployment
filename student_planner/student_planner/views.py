@@ -7,6 +7,8 @@ from planner.models import Student, Advisor
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from .decorators import admin_required
+from django.views.generic import DetailView
+from .forms import StudentForm
 
 
 @admin_required
@@ -23,7 +25,6 @@ class AccountView(UpdateView):
             return StudentAccountForm
         else:
             return AdvisorAccountForm
-        
         
 
     def get_object(self):
@@ -90,7 +91,17 @@ class AccountView(UpdateView):
 
         return initial
 
-    
+
+class StudentDetailView(DetailView):
+    model = Student
+    template_name = 'planner/student_detail.html'
+    pk_url_kwarg = 'eagle_id'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = StudentForm(instance=self.object)
+        return context
+
 class LoginView(TemplateView):
     template_name = 'index.html'
 
