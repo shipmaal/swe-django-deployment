@@ -151,6 +151,28 @@ class StudentDetailView(DetailView):
     model = Student
     template_name = 'planner/student_detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        print(self.kwargs.get('pk'))
+        student = get_object_or_404(Student, eagle_id=self.kwargs.get('pk'))
+        planners = Planner.objects.filter(student=student)
+
+        for planner in planners:
+            planner.semesters = [
+                ('fall_one', planner.fall_one),
+                ('spring_one', planner.spring_one),
+                ('fall_two', planner.fall_two),
+                ('spring_two', planner.spring_two),
+                ('fall_three', planner.fall_three),
+                ('spring_three', planner.spring_three),
+                ('fall_four', planner.fall_four),
+                ('spring_four', planner.spring_four),
+            ]
+        context['planners'] = planners
+
+        return context
+
+
 class PlanSemester(FormView):
     form_class = SemesterForm
     template_name = 'planner/plan_semester.html'

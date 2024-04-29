@@ -45,41 +45,21 @@
             <div class="col-md-6"> <!-- Adjusted column width for better layout -->
                 <div class="card">
                     <div class="card-body p-5">
-                        <form method="post" class="needs-validation was-validated" novalidate>
-                            {% csrf_token %}
-                            {% for field in form %}
-                            <div class="form-group">
-                                {{ field.label_tag }}
-                                {% if field.field.required %}
-                                <span class="required">*</span>
-                                {% endif %}
-                                {{ field|add_class:"form-control" }}
-                                {% if field.errors %}
-                                <div class="alert alert-danger" role="alert">
-                                    {% for error in field.errors %}
-                                    {{ error }}
-                                    {% endfor %}
-                                </div>
-                                {% endif %}
-                                {% if field.help_text %}
-                                <small id="{{ field.auto_id }}_helptext" class="form-text text-muted">
-                                    {{ field.help_text|safe }}
-                                </small>
-                                {% endif %}
-                            </div>
+                        <h2>Student Information</h2>
+                        <p><strong>Name:</strong> {{ student.first_name }} {{student.last_name}}</p>
+                        <p><strong>Email:</strong> {{ student.email }}</p>
+                        <p><strong>Major One:</strong> {{ student.major_one }}</p>
+                        <p><strong>Major Two:</strong> {{ student.major_two }}</p>
+                        <p><strong>Minor One:</strong> {{ student.minor_one }}</p>
+                        <p><strong>Major one:</strong> {{ student.major_one }}</p>
+                        <p><strong>Class Year:</strong> {{ student.class_year }}</p>
+                        <p><strong>College:</strong> {{ student.college }}</p>
+                        </hr>
+                        <h2>Student Planners</h2>
+                        <ul>
+                            {% for planner in planners %}
+                                <li><a href="{% url 'student_detail' planner.id %}">{{ planner.name }}</a></li>
                             {% endfor %}
-                            <button type="submit" class="btn btn-danger">Submit</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5>{% trans "Sign Out" %}</h5>
-                        <p>{% trans 'Are you sure you want to sign out?' %}</p>
-                        <form method="post" action="{% url 'account_logout' %}">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-danger">{% trans 'Sign Out' %}</button>
-                        </form>
                     </div>
                 </div>
             </div>
