@@ -77,5 +77,6 @@ dj-database-url = "*"
 typing-extensions = "*"
 gunicorn = "*"
 psycopg2 = "*"
+tqdm = "*"
 
 [dev-packages]
